@@ -1,94 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ROCK.SCOT | Rockin' Scotland</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Station - On Air Status</title>
     <style>
-        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); --test-blue: #00d4ff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; }
-        .hero { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .logo-box { width: 100%; max-width: 400px; margin-bottom: 20px; }
-        .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2)); }
-        .tagline { font-family: 'Oswald'; font-weight: 400; font-size: 1.1rem; letter-spacing: 3px; color: #555; text-transform: uppercase; }
-        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin-top: 20px;}
-        .ticker { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; font-family: 'Oswald'; font-weight: 700; color: #000; font-size: 0.8rem; }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--card-bg); padding: 25px; border: 1px solid var(--border); overflow: hidden; }
-        .card h3 { font-family: 'Oswald'; font-size: 1.7rem; text-transform: uppercase; margin-bottom: 10px; word-wrap: break-word; }
+        body { font-family: 'Arial', sans-serif; background-color: #1a1a1a; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         
-        /* NEW STATUS BADGES */
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            font-family: 'Oswald';
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 2px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+        /* THE LOCKED LAYOUT */
+        #station-container {
+            width: 450px;
+            background: #222;
+            border: 3px solid #444;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .status-live { background: #22c55e; color: #000; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
-        .status-soon { background: var(--magma-red); color: #000; box-shadow: 0 0 10px rgba(255, 62, 0, 0.4); }
 
-        .tom-card { background: linear-gradient(to right, #111, #000); border-left: 4px solid var(--magma-red); padding: 30px; margin-bottom: 40px; }
-        .tom-card h3 { font-family: 'Metal Mania', cursive; font-size: 2.8rem; color: #fff; line-height: 1; }
-        .ad-cta { margin-top: 40px; text-align: center; padding: 40px; border: 1px dashed #333; }
-        .btn { display: inline-block; background: var(--magma-red); color: #000; padding: 12px 30px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; margin-top: 15px; }
-        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 3px solid var(--magma-red); z-index: 100; }
-        iframe { width: 100%; height: 100%; border: none; }
-        @media (max-width: 600px) { .player-bar { height: 140px; } section { padding-bottom: 160px; } }
+        #on-air-display {
+            font-size: 1.8rem;
+            min-height: 2.2rem;
+            margin-bottom: 20px;
+            color: #ffcc00; /* Rock gold color */
+        }
+
+        .presenter-live { color: #ff3333; font-weight: bold; text-transform: uppercase; }
+        .automation-text { color: #aaa; font-style: italic; font-weight: normal; }
+
+        hr { border: 0; border-top: 1px solid #444; margin: 20px 0; }
+
+        /* FIXED PRICING SECTION */
+        .pricing-table { width: 100%; font-size: 0.9rem; color: #888; }
+        .price-value { color: #fff; font-weight: bold; font-size: 1.1rem; }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="logo-box">
-            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
-        </div>
-        <div class="tagline">Rockin' Scotland</div>
-    </header>
-    <div class="ticker-wrap"><div class="ticker">TOM RUSSELL • INVERCLYDE: TEST TRANSMISSION • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT • </div></div>
-    <section>
-        <div class="tom-card">
-            <h4 style="font-family:'Oswald'; color: var(--magma-red); font-size: 0.8rem; margin-bottom: 5px;">ON AIR</h4>
-            <h3>TOM RUSSELL</h3>
-            <p style="color: #888;">The Godfather of Scottish Rock.</p>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <div class="status-badge status-live">Live Testing</div>
-                <h3>Inverclyde</h3>
-                <p style="color:#777">DAB & DAB+ Transmission Live. Tuning available now.</p>
-            </div>
-            <div class="card">
-                <div class="status-badge status-soon">Imminent</div>
-                <h3>North Ayrshire</h3>
-                <p style="color:#777">Broadcasting launch preparations underway.</p>
-            </div>
-            <div class="card">
-                <div class="status-badge status-soon">Expansion</div>
-                <h3>South Lanarkshire</h3>
-                <p style="color:#777">Central Belt heartlands rollout coming soon.</p>
-            </div>
-        </div>
-        
-        <div style="margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-             <a href="https://www.amazon.co.uk/s?k=vinyl+records&tag=YOURID-21" target="_blank" style="color: #555; font-family: 'Oswald'; text-decoration: none; font-size: 0.7rem; border: 1px solid #222; padding: 10px 20px;">BUY VINYL</a>
-             <a href="https://www.amazon.co.uk/s?k=turntable&tag=YOURID-21" target="_blank" style="color: #555; font-family: 'Oswald'; text-decoration: none; font-size: 0.7rem; border: 1px solid #222; padding: 10px 20px;">STATION GEAR</a>
-        </div>
 
-        <div class="ad-cta">
-            <h2 style="font-family:'Oswald';">ADVERTISE WITH THE LEGENDS</h2>
-            <p style="color:#666">Reach thousands of listeners across our growing network.</p>
-            <a href="advertise.html" class="btn">View Rate Card</a>
-        </div>
-    </section>
-    <div class="player-bar"><iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe></div>
+<div id="station-container">
+    <div id="on-air-display">Connecting to stream...</div>
+
+    <hr>
+
+    <table class="pricing-table">
+        <tr>
+            <td>Regional Airtime</td>
+            <td>Multi-Regional Airtime</td>
+        </tr>
+        <tr>
+            <td class="price-value">£199</td>
+            <td class="price-value">£349</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    // 1. YOUR ROCK SAYINGS
+    const rockSayings = [
+        "All killer, no filler",
+        "Turn it up to eleven",
+        "Maximum volume, minimum fuss",
+        "Pure rock, no talk",
+        "For those about to rock, we salute you",
+        "The beat goes on",
+        "Solid gold rock and roll",
+        "Keep on rockin' in the free world",
+        "Long live rock and roll"
+    ];
+
+    // 2. KEYWORDS TO DETECT AUTOMATION
+    const autoKeywords = ["AutoDJ", "AI", "Automation", "Streamer", "Server", "Fallback", "None", "Station"];
+
+    async function updateStationStatus() {
+        const display = document.getElementById("on-air-display");
+        
+        try {
+            // REPLACE 'YOUR_STREAM_URL' with your actual JSON status endpoint
+            const response = await fetch('YOUR_STREAM_URL'); 
+            const data = await response.json();
+            
+            // Extract title/presenter (adjust path based on your provider)
+            let currentSource = data.icestats.source[0]?.title || data.icestats.source?.title || "";
+
+            const isAutomated = autoKeywords.some(key => currentSource.toLowerCase().includes(key.toLowerCase()));
+
+            if (isAutomated || !currentSource) {
+                // AUTOMATION MODE
+                const randomPhrase = rockSayings[Math.floor(Math.random() * rockSayings.length)];
+                display.innerHTML = `<span class="automation-text">${randomPhrase}</span>`;
+            } else {
+                // HUMAN MODE (e.g., Russell)
+                display.innerHTML = `ON AIR: <span class="presenter-live">${currentSource}</span>`;
+            }
+        } catch (err) {
+            // FALLBACK IF STREAM IS DOWN
+            display.innerHTML = `<span class="automation-text">Keep on rockin' in the free world</span>`;
+        }
+    }
+
+    // Run immediately and then every 60 seconds
+    updateStationStatus();
+    setInterval(updateStationStatus, 60000);
+</script>
+
 </body>
-                 </html>
-                 
+</html>
