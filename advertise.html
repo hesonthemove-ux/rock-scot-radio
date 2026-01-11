@@ -6,12 +6,14 @@
     <title>ADVERTISE | ROCK.SCOT</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --magma-red: #ff3e00; --pure-black: #0a0a0a; }
+        /* Matching your index colors and benchmark style */
+        :root { --magma-red: #ff3e00; --pure-black: #000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background-color: var(--pure-black);
-            background-image: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+            /* Matching index background texture/gradient */
+            background-image: radial-gradient(circle at center, #111 0%, #000 100%);
             color: #fff; 
             font-family: 'Oswald', sans-serif; 
             line-height: 1.6; 
@@ -19,79 +21,80 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Logo Header */
-        .logo-header { text-align: center; margin-bottom: 30px; }
-        .logo-header img { max-width: 220px; height: auto; }
+        /* Logo Size & Alignment matched to Index benchmark */
+        .logo-header { text-align: center; margin-bottom: 50px; }
+        .logo-header img { width: 300px; max-width: 80%; height: auto; }
 
         header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 5px; }
-        header p { color: #666; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+        header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 5px; color: #fff; }
+        header p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 700; }
 
-        /* Slick Stats Bar */
+        /* Slick Integrated Stats Bar */
         .stats-bar { 
             display: flex; 
             justify-content: space-around; 
-            background: rgba(255,255,255,0.03); 
-            padding: 15px; 
-            border-top: 1px solid #222; 
-            border-bottom: 1px solid #222;
+            background: rgba(255,255,255,0.02); 
+            padding: 20px; 
+            border: 1px solid #1a1a1a;
             margin-bottom: 50px;
         }
         .stat-item { text-align: center; }
-        .stat-item span { color: var(--magma-red); font-weight: 700; font-size: 1.2rem; display: block; }
-        .stat-item label { color: #555; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-item span { color: #fff; font-weight: 700; font-size: 1.5rem; display: block; line-height: 1; }
+        .stat-item label { color: #444; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Pricing Grid */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        /* Pricing Grid - Clean & Minimal */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         
         .price-card { 
-            background: #111; 
-            padding: 40px; 
-            border-radius: 4px;
-            border: 1px solid #222;
+            background: #080808; 
+            padding: 50px 40px; 
+            border: 1px solid #111;
             transition: 0.3s;
+            text-align: center;
         }
-        .price-card:hover { border-color: var(--magma-red); }
-        .price-card.featured { border: 1px solid var(--magma-red); position: relative; }
+        .price-card:hover { border-color: #333; background: #0c0c0c; }
+        .price-card.featured { border-color: var(--magma-red); }
         
-        .price-title { font-size: 1.8rem; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
-        .price-value { font-size: 3.5rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 20px; }
-        .price-value span { font-size: 1rem; color: #444; vertical-align: middle; }
+        .price-title { font-size: 2rem; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .price-value { font-size: 4rem; font-weight: 700; color: var(--magma-red); line-height: 1; margin-bottom: 25px; letter-spacing: -2px; }
+        .price-value span { font-size: 1rem; color: #333; letter-spacing: 1px; }
 
-        .features-list { list-style: none; margin-bottom: 30px; }
-        .features-list li { font-size: 0.95rem; color: #888; margin-bottom: 8px; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
-        .features-list li b { color: #ccc; }
+        .features-list { list-style: none; margin-bottom: 35px; text-align: left; }
+        .features-list li { font-size: 0.9rem; color: #666; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #111; }
+        .features-list li b { color: #aaa; text-transform: uppercase; font-size: 0.8rem; }
 
         .btn { 
             display: block; 
             background: #fff; 
             color: #000; 
-            padding: 15px; 
-            text-align: center;
+            padding: 18px; 
             text-decoration: none; 
             font-weight: 700; 
             text-transform: uppercase; 
             font-size: 0.9rem;
             transition: 0.3s;
+            border: 1px solid #fff;
         }
-        .price-card.featured .btn { background: var(--magma-red); }
-        .btn:hover { background: #fff; color: var(--magma-red); letter-spacing: 1px; }
+        .price-card.featured .btn { background: var(--magma-red); border-color: var(--magma-red); color: #000; }
+        .btn:hover { background: transparent; color: #fff; }
 
         .production-footer {
-            margin-top: 40px;
+            margin-top: 60px;
             text-align: center;
-            padding: 30px;
-            border: 1px dashed #333;
+            padding: 40px;
+            border-top: 1px solid #111;
         }
-        .production-footer h3 { text-transform: uppercase; font-size: 1.2rem; color: #fff; margin-bottom: 5px; }
-        .production-footer p { color: #555; font-size: 0.9rem; }
-        .production-footer b { color: var(--magma-red); }
+        .production-footer h3 { text-transform: uppercase; font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+        .production-footer p { color: #444; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .production-footer b { color: #fff; }
 
-        .back-link { display: block; text-align: center; margin-top: 40px; color: #333; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .back-link { display: block; text-align: center; margin-top: 50px; color: #222; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .back-link:hover { color: var(--magma-red); }
         
         @media (max-width: 600px) {
-            .stats-bar { flex-direction: column; gap: 15px; }
-            header h1 { font-size: 2.2rem; }
+            .stats-bar { flex-direction: column; gap: 20px; }
+            header h1 { font-size: 2.5rem; }
+            .logo-header img { width: 200px; }
         }
     </style>
 </head>
@@ -105,8 +108,8 @@
         </div>
 
         <header>
-            <h1>Advertising</h1>
-            <p>Targeted Digital Radio Across Central Scotland</p>
+            <h1>Advertise</h1>
+            <p>The ROCK.SCOT Network</p>
         </header>
 
         <div class="stats-bar">
@@ -124,7 +127,7 @@
             </div>
             <div class="stat-item">
                 <span>DAB+</span>
-                <label>Crystal Clear</label>
+                <label>Digital Feed</label>
             </div>
         </div>
 
@@ -133,30 +136,30 @@
                 <div class="price-title">Regional</div>
                 <div class="price-value">£395<span>/MO</span></div>
                 <ul class="features-list">
-                    <li><b>Single Zone:</b> One ROCK.SCOT Area</li>
-                    <li><b>High Frequency:</b> Daily Spot Rotation</li>
-                    <li><b>Targeted:</b> Zero Waste Audience</li>
-                    <li><b>Bonus:</b> Web & App Listing</li>
+                    <li><b>Market:</b> One ROCK.SCOT Zone</li>
+                    <li><b>Frequency:</b> Daily Spot Rotation</li>
+                    <li><b>Impact:</b> Targeted Audience</li>
+                    <li><b>Digital:</b> Web & App Inclusion</li>
                 </ul>
-                <a href="mailto:studio@rock.scot?subject=Regional Advertising Enquiry" class="btn">Select Package</a>
+                <a href="mailto:studio@rock.scot?subject=Regional Advertising Enquiry" class="btn">Enquire</a>
             </div>
 
             <div class="price-card featured">
-                <div class="price-title">Multi-Regional</div>
+                <div class="price-title">Multi-Zone</div>
                 <div class="price-value">£645<span>/MO</span></div>
                 <ul class="features-list">
-                    <li><b>Full Network:</b> All Broadcast Zones</li>
-                    <li><b>Max Reach:</b> Entire ROCK.SCOT Feed</li>
-                    <li><b>Priority:</b> Premium Spot Rotation</li>
-                    <li><b>Sponsorship:</b> Show Integration Available</li>
+                    <li><b>Network:</b> All Broadcast Zones</li>
+                    <li><b>Reach:</b> Entire Network Feed</li>
+                    <li><b>Priority:</b> Premium Rotation</li>
+                    <li><b>Exposure:</b> Show Integration</li>
                 </ul>
-                <a href="mailto:studio@rock.scot?subject=Multi-Regional Advertising Enquiry" class="btn">Select Network</a>
+                <a href="mailto:studio@rock.scot?subject=Multi-Regional Advertising Enquiry" class="btn">Amplify</a>
             </div>
         </div>
 
         <div class="production-footer">
-            <h3>Need an advert?</h3>
-            <p>Professional script, voiceover, and rock production from <b>£195</b></p>
+            <h3>Production</h3>
+            <p>Professional rock creative from <b>£195</b></p>
         </div>
 
         <a href="index.html" class="back-link">Return to Home</a>
