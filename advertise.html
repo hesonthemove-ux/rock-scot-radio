@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADVERTISE | ROCK.SCOT</title>
+    <title>Radio Advertising Scotland | DAB+ Airtime | ROCK.SCOT</title>
+    
+    <meta name="description" content="Reach thousands of listeners across Inverclyde, Ayrshire, and Lanarkshire. High-impact local radio advertising on the ROCK.SCOT DAB+ network.">
+    <meta name="keywords" content="Radio Advertising Scotland, DAB Advertising, Local Radio Ads Greenock, Ayrshire Marketing, Lanarkshire Business, ROCK.SCOT">
+    
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,7 +24,7 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        /* LOGO HEADER - Exact Index Match */
+        /* LOGO HEADER - Exact Index Benchmark */
         .logo-header { text-align: center; padding-top: 20px; margin-bottom: 40px; }
         .logo-header img { width: 350px; max-width: 90%; height: auto; }
 
@@ -27,7 +32,7 @@
         header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 5px; }
         header p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: 700; }
 
-        /* STATS BAR WITH DAB LOGOS */
+        /* STATS BAR */
         .stats-bar { 
             display: flex; 
             justify-content: space-around; 
@@ -41,13 +46,12 @@
         .stat-item span { color: #ffffff; font-weight: 700; font-size: 2.2rem; display: block; line-height: 1; margin-bottom: 5px; }
         .stat-item label { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
         
-        /* DAB Logo Styling */
-        .dab-icons { display: flex; gap: 10px; justify-content: center; margin-top: 10px; opacity: 0.7; }
+        .dab-icons { display: flex; gap: 10px; justify-content: center; margin-top: 10px; opacity: 0.8; }
         .dab-icons img { height: 25px; width: auto; filter: grayscale(1) brightness(2); }
 
+        /* PRICING GRID */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
-        /* UNIFIED RED BOXES */
         .price-card { 
             background: #0a0a0a; 
             padding: 50px 40px; 
@@ -78,20 +82,26 @@
         }
         .btn:hover { background: #fff; }
 
+        /* SEO COVERAGE LIST */
+        .coverage-section { margin-top: 80px; text-align: center; border-top: 1px solid #1a1a1a; padding-top: 40px; }
+        .coverage-section h2 { font-size: 1.2rem; color: #444; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+        .towns-list { color: #111; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; max-width: 800px; margin: 0 auto; }
+
         .production-footer {
-            margin-top: 80px;
+            margin-top: 40px;
             text-align: center;
             padding: 40px;
-            border-top: 1px solid #1a1a1a;
         }
         .production-footer h3 { text-transform: uppercase; font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
         .production-footer b { color: var(--magma-red); }
 
-        .back-link { display: block; text-align: center; margin-top: 50px; color: #333; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .back-link { display: block; text-align: center; margin: 50px 0; color: #333; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .back-link:hover { color: var(--magma-red); }
         
         @media (max-width: 600px) {
             .stats-bar { flex-direction: column; gap: 40px; }
             .logo-header img { width: 280px; }
+            header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -100,5 +110,82 @@
     <div class="container">
         <div class="logo-header">
             <a href="index.html">
-                <img src="logo.png" alt="ROCK.
-                    
+                <img src="logo.png" alt="ROCK.SCOT - Radio Advertising Scotland">
+            </a>
+        </div>
+
+        <header>
+            <h1>Radio Advertising</h1>
+            <p>Targeted DAB+ Airtime Across the Central Belt</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span>89%</span>
+                <label>Weekly Reach</label>
+            </div>
+            <div class="stat-item">
+                <span>62%</span>
+                <label>In-Car Listening</label>
+            </div>
+            <div class="stat-item">
+                <span>24/7</span>
+                <label>Brand Presence</label>
+            </div>
+            <div class="stat-item">
+                <span>DAB+</span>
+                <label>Digital Quality</label>
+                <div class="dab-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/DAB_logo.svg" alt="DAB Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/DAB_Plus_logo.svg" alt="DAB+ Logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-title">Regional</div>
+                <div class="price-value">£395<span>/MO</span></div>
+                <ul class="features-list">
+                    <li><b>Market</b> One ROCK.SCOT Zone</li>
+                    <li><b>Frequency</b> Daily Spot Rotation</li>
+                    <li><b>Impact</b> Targeted Local Audience</li>
+                    <li><b>Digital</b> Web & App Inclusion</li>
+                </ul>
+                <a href="mailto:studio@rock.scot?subject=Regional Advertising Enquiry" class="btn">Enquire Now</a>
+            </div>
+
+            <div class="price-card">
+                <div class="price-title">Multi-Zone</div>
+                <div class="price-value">£645<span>/MO</span></div>
+                <ul class="features-list">
+                    <li><b>Network</b> All Broadcast Zones</li>
+                    <li><b>Reach</b> Entire Network Feed</li>
+                    <li><b>Priority</b> Premium Rotation</li>
+                    <li><b>Exposure</b> Show Integration</li>
+                </ul>
+                <a href="mailto:studio@rock.scot?subject=Multi-Regional Advertising Enquiry" class="btn">Amplify Brand</a>
+            </div>
+        </div>
+
+        <div class="production-footer">
+            <h3>Creative Production</h3>
+            <p style="color: #444; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">
+                Scripting, Voiceover, and Mastering from <b>£195</b>
+            </p>
+        </div>
+
+        <section class="coverage-section">
+            <h2>Broadcast Coverage</h2>
+            <div class="towns-list">
+                Inverclyde: Greenock, Gourock, Port Glasgow. <br>
+                Ayrshire: Ayr, Kilmarnock, Irvine, Prestwick, Troon. <br>
+                Lanarkshire: Motherwell, Hamilton, East Kilbride, Wishaw, Airdrie, Coatbridge.
+            </div>
+        </section>
+
+        <a href="index.html" class="back-link">← Return to Home</a>
+    </div>
+
+</body>
+</html>
