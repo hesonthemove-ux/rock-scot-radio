@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCK.SCOT | Scotland's Digital Rock Station</title>
+    <title>ROCK.SCOT | Scotland's Rock Station</title>
     
-    <meta name="description" content="Stream the best rock across Scotland. Broadcasting on DAB+ in Inverclyde, Ayrshire, and Lanarkshire. High-impact radio advertising and professional audio production.">
-    <meta name="keywords" content="Rock Radio Scotland, DAB Radio, Radio Advertising Scotland, Scottish Rock Station, ROCK.SCOT">
+    <meta name="description" content="Stream the best rock, indie, and alternative across Scotland. Broadcasting on DAB+ in Inverclyde, Ayrshire, and Lanarkshire.">
+    <meta name="keywords" content="Rock Radio Scotland, Indie Radio, Alternative Scotland, DAB Radio Scotland, Radio Advertising, ROCK.SCOT">
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     
@@ -23,11 +23,10 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER AREA - Tightened Spacing */
-        header { text-align: center; padding: 40px 0 20px 0; }
-        .logo-main { width: 500px; max-width: 95%; height: auto; display: block; margin: 0 auto 20px auto; }
+        /* HEADER AREA - Max 500px Logo & Tight Spacing */
+        header { text-align: center; padding: 40px 0 10px 0; }
+        .logo-main { width: 500px; max-width: 95%; height: auto; display: block; margin: 0 auto 10px auto; }
 
-        /* HORIZONTAL NAV - Inline below logo */
         .nav-menu { 
             display: flex; 
             justify-content: center; 
@@ -47,52 +46,29 @@
         }
         .nav-menu a:hover, .nav-menu a.active { color: var(--magma-red); border-color: var(--magma-red); }
 
-        /* HERO SECTION - Brought up closer to nav */
-        .hero { padding: 40px 0 80px 0; text-align: center; }
+        /* HERO SECTION - RESTORED BRANDING */
+        .hero { padding: 30px 0 60px 0; text-align: center; }
         .hero h1 { font-size: 5.5rem; text-transform: uppercase; letter-spacing: -3px; line-height: 0.85; margin-bottom: 20px; }
         .hero p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 6px; font-weight: 700; font-size: 1.2rem; }
 
-        /* UNIFIED ADVERTISING SECTION */
-        .business-section { 
-            padding: 80px 0; 
-            border-top: 1px solid #111; 
-            text-align: center;
-        }
-        .promo-box { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 50px 40px; 
-            border: 2px solid var(--magma-red); 
-            background: #050505;
-            box-shadow: 0 0 30px rgba(255, 62, 0, 0.1);
-        }
-        .promo-box h2 { font-size: 3.2rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; line-height: 1; }
-        .promo-box p { color: #888; font-size: 1.1rem; margin-bottom: 35px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        /* THE FEED SECTION */
+        .feed-section { padding: 60px 0; border-top: 1px solid #111; }
+        .feed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feed-card { background: #080808; padding: 30px; border: 1px solid #1a1a1a; min-height: 400px; }
+        .feed-card h3 { color: var(--magma-red); text-transform: uppercase; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
         
-        .price-row { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            margin-bottom: 35px; 
-            border-top: 1px solid #1a1a1a; 
-            padding-top: 25px; 
-        }
+        /* BUSINESS SECTION */
+        .business-section { padding: 80px 0; border-top: 1px solid #111; text-align: center; }
+        .promo-box { max-width: 800px; margin: 0 auto; padding: 50px 40px; border: 2px solid var(--magma-red); background: #050505; }
+        .promo-box h2 { font-size: 3.2rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; line-height: 1; }
+        
+        .price-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 35px; border-top: 1px solid #1a1a1a; padding-top: 25px; }
         .price-item { text-align: center; }
-        .price-item label { display: block; color: #555; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 5px; }
+        .price-item label { display: block; color: #555; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
         .price-item span { font-size: 2.2rem; font-weight: 700; color: #fff; }
         .price-item span i { color: var(--magma-red); font-style: normal; }
 
-        .btn { 
-            display: inline-block; 
-            padding: 18px 45px; 
-            background: var(--magma-red); 
-            color: #000; 
-            text-decoration: none; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 1rem; 
-            transition: 0.3s;
-        }
+        .btn { display: inline-block; padding: 18px 45px; background: var(--magma-red); color: #000; text-decoration: none; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         .btn:hover { background: #fff; transform: scale(1.05); }
 
         footer { text-align: center; padding: 60px 0; border-top: 1px solid #111; }
@@ -100,9 +76,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
-            .logo-main { width: 320px; }
-            .nav-menu { gap: 20px; }
-            .nav-menu a { font-size: 0.9rem; letter-spacing: 1px; }
+            .logo-main { width: 350px; }
             .price-row { flex-direction: column; gap: 20px; }
         }
     </style>
@@ -112,7 +86,6 @@
     <header>
         <div class="container">
             <img src="logo.png" alt="ROCK.SCOT" class="logo-main">
-            
             <div class="nav-menu">
                 <a href="index.html" class="active">Listen</a>
                 <a href="advertise.html">Advertise</a>
@@ -128,11 +101,28 @@
             <p>Inverclyde • Ayrshire • Lanarkshire</p>
         </div>
 
+        <section class="feed-section">
+            <div class="feed-grid">
+                <div class="feed-card">
+                    <h3>Guitar Music News</h3>
+                    <div id="music-news">
+                        <p style="color:#444; font-size:0.9rem;">Fetching the latest Rock, Indie, and Alternative headlines...</p>
+                    </div>
+                </div>
+
+                <div class="feed-card">
+                    <h3>Central Belt Gigs</h3>
+                    <div id="gig-guide">
+                        <p style="color:#444; font-size:0.9rem;">Live music updates for the Central Belt and West of Scotland...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="business-section">
             <div class="promo-box">
                 <h2>Amplify Your Business</h2>
-                <p>Combine high-impact DAB+ airtime with professional audio production to dominate the Central Belt.</p>
-                
+                <p style="color:#888; margin-bottom:30px;">Reach your local audience through high-impact DAB+ airtime.</p>
                 <div class="price-row">
                     <div class="price-item">
                         <label>Regional Airtime</label>
@@ -143,7 +133,6 @@
                         <span><i>£</i>195</span>
                     </div>
                 </div>
-
                 <a href="advertise.html" class="btn">View Advertising Packages</a>
             </div>
         </section>
@@ -151,7 +140,7 @@
         <footer>
             <p>&copy; 2026 ROCK.SCOT | All Rights Reserved</p>
             <div class="seo-footer">
-                Broadcasting to Greenock, Ayr, Kilmarnock, Motherwell, East Kilbride and across the Central Belt.
+                Broadcasting to Greenock, Ayr, Kilmarnock, Motherwell, and the Scottish Central Belt.
             </div>
         </footer>
 
