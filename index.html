@@ -3,39 +3,128 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>ROCK.SCOT | Scotland's Rock Station | Tom Russell on DAB</title>
-    <meta name="description" content="Scotland's legendary rock station featuring Tom Russell. Broadcasting on DAB across Inverclyde, North Ayrshire, and South Lanarkshire.">
-    <meta name="keywords" content="Rock Radio Scotland, Tom Russell, DAB Radio Scotland, Radio Advertising Ayrshire, Radio Advertising Lanarkshire">
-    <link rel="canonical" href="https://rock.scot/" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RadioStation",
-      "name": "ROCK.SCOT",
-      "url": "https://rock.scot/",
-      "logo": "https://rock.scot/logo.png",
-      "description": "Scotland's Rock Station broadcasting on DAB across the Central Belt.",
-      "areaServed": ["Inverclyde", "North Ayrshire", "South Lanarkshire"]
-    }
-    </script>
     
+    <meta name="description" content="Scotland's legendary rock station featuring Tom Russell. Broadcasting on DAB across Inverclyde, Ayrshire, and Lanarkshire.">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; padding-bottom: 120px; }
+        
+        /* This prevents the "black screen" feeling by ensuring content has a minimum height */
+        body { background: var(--pure-black); color: #fff; font-family: sans-serif; min-height: 100vh; padding-bottom: 150px; }
 
-        /* HEADER & LOGO */
-        .hero { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .logo-box { width: 100%; max-width: 400px; margin-bottom: 20px; }
-        .main-logo-img { width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2)); }
-        .tagline { font-family: 'Oswald'; font-weight: 400; font-size: 1.1rem; letter-spacing: 3px; color: #555; text-transform: uppercase; }
+        /* LOGO SECTION */
+        .hero { padding: 40px 20px; text-align: center; background: #080808; }
+        .logo-placeholder {
+            font-family: 'Metal Mania', cursive;
+            font-size: 4rem;
+            color: var(--magma-red);
+            text-shadow: 0 0 20px rgba(255, 62, 0, 0.5);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .main-logo-img { max-width: 350px; width: 100%; height: auto; }
 
         /* TICKER */
-        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin: 20px 0; }
-        .ticker { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; font-family: 'Oswald'; font-weight: 700; color: #000; font-size: 0.8rem; }
-        @keyframes ticker { 0% { transform: translateX(0); }
-                           
+        .ticker-wrap { background: var(--magma-red); padding: 10px 0; overflow: hidden; }
+        .ticker { display: inline-block; white-space: nowrap; animation: ticker 30s linear infinite; font-family: 'Oswald'; font-weight: 700; color: #000; text-transform: uppercase; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* CONTENT */
+        section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .tom-card { 
+            background: linear-gradient(45deg, #111, #000); 
+            border: 1px solid var(--border); 
+            border-left: 5px solid var(--magma-red); 
+            padding: 40px; 
+            margin-bottom: 30px; 
+        }
+        .tom-card h2 { font-family: 'Metal Mania'; font-size: 3rem; margin-bottom: 10px; }
+
+        .card { background: var(--card-bg); padding: 30px; border: 1px solid var(--border); }
+        .card h3 { font-family: 'Oswald'; color: var(--magma-red); text-transform: uppercase; margin-bottom: 15px; }
+
+        /* AFFILIATE SECTION */
+        .shop-box { background: #111; padding: 40px; text-align: center; border: 1px dashed #333; margin-top: 50px; }
+        .shop-btn { 
+            display: inline-block; background: #fff; color: #000; padding: 12px 25px; 
+            text-decoration: none; font-family: 'Oswald'; font-weight: 700; margin: 5px; 
+        }
+        .shop-btn:hover { background: var(--magma-red); }
+
+        /* PLAYER BAR */
+        .player-bar { 
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; 
+            background: #000; border-top: 3px solid var(--magma-red); z-index: 1000; 
+        }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 600px) { .player-bar { height: 150px; } }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <a href="index.html" class="logo-placeholder">
+            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img" onerror="this.style.display='none'">
+            <span id="logo-text">ROCK.SCOT</span>
+        </a>
+        <p style="font-family:'Oswald'; color:#555; letter-spacing: 3px; text-transform: uppercase;">Rockin' Scotland</p>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            TOM RUSSELL • THE GODFATHER OF ROCK • INVERCLYDE: LIVE • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT •
+        </div>
+    </div>
+
+    <section>
+        <div class="tom-card">
+            <h4 style="font-family:'Oswald'; font-size: 0.8rem; color: var(--magma-red); letter-spacing: 2px;">LEGEND ON AIR</h4>
+            <h2>TOM RUSSELL</h2>
+            <p style="color: #888;">Broadcasting the greatest rock on the planet.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Now Playing Shop</h3>
+                <p style="font-size: 0.9rem; color: #777; margin-bottom: 20px;">Hear something you love? Get the vinyl or the merch instantly.</p>
+                <a href="https://www.amazon.co.uk/s?k=rock+vinyl&tag=YOURID-21" class="shop-btn">BUY TRACK</a>
+                <a href="https://www.emp.co.uk" class="shop-btn" style="background:var(--magma-red)">GET MERCH</a>
+            </div>
+            
+            <div class="card">
+                <h3>Advertise</h3>
+                <p style="font-size: 0.9rem; color: #777; margin-bottom: 20px;">Reach our loyal audience across Scotland's Central Belt.</p>
+                <a href="advertise.html" class="shop-btn">VIEW RATES</a>
+            </div>
+        </div>
+
+        <div class="shop-box">
+            <h2 style="font-family:'Oswald'; text-transform: uppercase;">Essential Gear</h2>
+            <p style="color:#555; margin-bottom: 20px;">Top-tier recommendations for the true rock fan.</p>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div style="padding: 10px; border: 1px solid #222;">
+                    <p style="font-size: 0.8rem; font-weight: bold;">LP120 Turntable</p>
+                    <a href="#" style="color:var(--magma-red); text-decoration: none; font-size: 0.7rem;">DEAL LINK</a>
+                </div>
+                <div style="padding: 10px; border: 1px solid #222;">
+                    <p style="font-size: 0.8rem; font-weight: bold;">Studio Headphones</p>
+                    <a href="#" style="color:var(--magma-red); text-decoration: none; font-size: 0.7rem;">DEAL LINK</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="player-bar">
+        <iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe>
+    </div>
+
+</body>
+                        </html>
+                    
