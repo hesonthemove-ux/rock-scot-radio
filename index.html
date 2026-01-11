@@ -33,13 +33,13 @@
         
         section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
         
-        /* PRESENTER CARD - The Main Focus */
+        /* PRESENTER CARD */
         .presenter-card { background: linear-gradient(135deg, #0f0f0f 0%, #000 100%); border-left: 3px solid var(--magma-red); padding: 40px; margin-bottom: 50px; text-align: left; }
         #presenter-status { font-family:'Oswald'; color: var(--magma-red); font-size: 0.75rem; margin-bottom: 8px; letter-spacing: 3px; font-weight: 700; }
         #presenter-name { font-family: 'Metal Mania', cursive; font-size: 3.5rem; color: #fff; line-height: 1; text-transform: uppercase; margin-bottom: 10px; }
         #show-title { color: #555; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
 
-        /* RECENT TRACKS - Simplified to a clean list */
+        /* RECENT TRACKS */
         .recent-section { margin-bottom: 50px; border-top: 1px solid #111; padding-top: 20px; }
         .recent-label { font-family: 'Oswald'; font-size: 0.7rem; color: #333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
         .track-list { display: flex; gap: 30px; overflow-x: auto; scrollbar-width: none; }
@@ -57,7 +57,7 @@
         .status-live { background: #22c55e; color: #000; }
         .status-soon { background: #333; color: #999; }
 
-        /* INTERACT STRIP - Clean text links */
+        /* INTERACT STRIP */
         .interact-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 40px 0; border-top: 1px solid #111; }
         .interact-box h4 { font-family: 'Oswald'; color: #fff; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 8px; }
         .interact-box p { color: #555; font-size: 0.8rem; margin-bottom: 12px; line-height: 1.4; }
@@ -74,10 +74,25 @@
         .area-col h4 { font-family: 'Oswald'; color: #888; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; }
         .area-col p { color: #444; font-size: 0.7rem; line-height: 1.6; font-family: 'Oswald', sans-serif; }
 
-        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 2px solid var(--magma-red); z-index: 1000; }
+        /* PLAYER BAR FIX: Added height and moved off absolute bottom */
+        .player-bar { 
+            position: fixed; 
+            bottom: 20px; 
+            left: 2%; 
+            width: 96%; 
+            height: 150px; 
+            background: #000; 
+            border-top: 2px solid var(--magma-red); 
+            z-index: 1000; 
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
         iframe { width: 100%; height: 100%; border: none; }
 
-        @media (max-width: 600px) { .player-bar { height: 130px; } #presenter-name { font-size: 2.5rem; } section { padding: 20px; } }
+        @media (max-width: 600px) { 
+            .player-bar { height: 150px; bottom: 10px; width: 100%; left: 0; } 
+            #presenter-name { font-size: 2.5rem; } 
+            section { padding: 20px; } 
+        }
     </style>
 </head>
 <body>
@@ -169,6 +184,7 @@
 
         function updateTicker() {
             const tickerEl = document.getElementById('ticker-content');
+            if(!tickerEl) return;
             const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
             const statusUpdate = "INVERCLYDE: SOUNDCHECK 1-2, 1-2 • NORTH AYRSHIRE: COMING SOON • SOUTH LANARKSHIRE: COMING SOON";
             tickerEl.innerText = (randomQuote + " • " + statusUpdate + " • ").repeat(10);
