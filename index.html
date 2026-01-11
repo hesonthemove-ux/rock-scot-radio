@@ -3,42 +3,91 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>ROCK.SCOT | Scotland's Rock Station | Tom Russell on DAB</title>
-    <meta name="description" content="Scotland's legendary rock station featuring Tom Russell. Broadcasting on DAB across Inverclyde, North Ayrshire, and South Lanarkshire.">
+    <title>ROCK.SCOT | Scotland's Rock Station</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --magma-red: #ff3e00;
-            --pure-black: #000000;
-            --card-bg: #0c0c0c;
-            --border: rgba(255,255,255,0.1);
-        }
-
+        /* BASE RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* The Rescue Fix: Ensures the body always has height so it cannot be a blank screen */
-        html, body {
-            background-color: var(--pure-black);
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        html, body { 
+            background-color: #000000 !important; 
+            color: #ffffff !important; 
+            font-family: Arial, sans-serif; 
             min-height: 100vh;
             width: 100%;
-            display: block;
         }
 
-        /* HEADER SECTION */
-        .hero {
-            padding: 60px 20px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+        /* HEADER & TAGLINE */
+        .hero { padding: 60px 20px 20px; text-align: center; }
+        .logo-box { width: 100%; max-width: 400px; margin: 0 auto 20px; }
+        .main-logo-img { width: 100%; height: auto; display: block; margin: 0 auto; }
+        .tagline { font-family: 'Oswald', sans-serif; font-size: 1.1rem; letter-spacing: 3px; color: #555; text-transform: uppercase; }
 
-        .logo-box { width: 100%; max-width: 400px;
-                   
+        /* TICKER */
+        .ticker-wrap { background: #ff3e00; padding: 10px 0; overflow: hidden; margin-top: 20px; }
+        .ticker { 
+            display: inline-block; white-space: nowrap; animation: ticker-move 30s linear infinite;
+            font-family: 'Oswald', sans-serif; font-weight: 700; color: #000; text-transform: uppercase;
+        }
+        @keyframes ticker-move { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* CONTENT */
+        section { padding: 40px 20px 160px; max-width: 1200px; margin: 0 auto; }
+        .tom-card { border-left: 5px solid #ff3e00; background: #0c0c0c; padding: 30px; margin-bottom: 30px; }
+        .tom-card h2 { font-family: 'Metal Mania'; font-size: 3rem; margin-bottom: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #0c0c0c; padding: 25px; border: 1px solid rgba(255,255,255,0.1); }
+        .card h3 { font-family: 'Oswald'; color: #ff3e00; text-transform: uppercase; margin-bottom: 10px; }
+
+        /* BUTTONS */
+        .btn { display: inline-block; background: #ff3e00; color: #000; padding: 12px 25px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; margin-top: 15px; }
+        .shop-link { color: #ff3e00; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; display: block; margin-top: 10px; font-size: 0.8rem; }
+
+        /* PLAYER */
+        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 4px solid #ff3e00; z-index: 999; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="logo-box">
+            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
+        </div>
+        <p class="tagline">Rockin' Scotland</p>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            TOM RUSSELL • THE GODFATHER OF ROCK • INVERCLYDE: LIVE • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT •
+        </div>
+    </div>
+
+    <section>
+        <div class="tom-card">
+            <h2>TOM RUSSELL</h2>
+            <p style="color: #888;">The Godfather of Rock is home on ROCK.SCOT</p>
+        </div>
+
+        <h2 style="font-family: 'Oswald'; margin-bottom: 20px;">BROADCAST STATUS</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Inverclyde</h3>
+                <p style="color: #777;">Engineering tests live on SSDAB. Tuning available now.</p>
+            </div>
+            <div class="card">
+                <h3>North Ayrshire</h3>
+                <p style="color: #777;">Launch preparations underway for the coastal network.</p>
+            </div>
+            <div class="card">
+                <h3>South Lanarkshire</h3>
+                <p style="color: #777;">Expansion to the Central Belt heartlands coming soon.</p>
+            </div>
+        </div>
+
+        <h2 style="font-family: 'Oswald'; margin-top: 50px; margin-bottom: 20px;">THE RECORD STORE</h2>
+        
