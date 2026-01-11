@@ -10,7 +10,6 @@
     
     <style>
         :root {
-            --neon-blue: #00d2ff;
             --saltire-blue: #005eb8;
             --magma-red: #ff3e00;
             --deep-black: #080808;
@@ -26,9 +25,10 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             line-height: 1.4;
-            padding-bottom: 100px; /* Space for player bar */
+            padding-bottom: 120px;
         }
 
+        /* Ambient Background Glow */
         body::before {
             content: "";
             position: fixed;
@@ -39,7 +39,6 @@
             z-index: -1;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             padding: 1rem 5%;
             display: flex;
@@ -66,142 +65,136 @@
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* --- HERO --- */
         .hero {
-            min-height: 85vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 6% 40px;
+            padding: 140px 6% 40px;
         }
 
         .main-logo-img {
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             height: auto;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 25px rgba(0, 94, 184, 0.4));
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 30px rgba(0, 94, 184, 0.3));
         }
 
         .status-badge {
             background: rgba(255, 62, 0, 0.1);
             border: 1px solid var(--magma-red);
             color: var(--magma-red);
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 100px;
             font-family: 'Unbounded', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             margin-bottom: 2rem;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.2rem, 8vw, 6rem);
-            line-height: 1;
+            font-size: clamp(2.5rem, 10vw, 6rem);
+            line-height: 0.9;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to bottom, #fff 60%, #888 100%);
+            background: linear-gradient(to bottom, #fff 50%, #666 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
         }
 
-        /* --- CONTENT SECTIONS --- */
         .grid-container {
             padding: 20px 6%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .card {
             background: var(--glass);
             border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 2.5rem;
+            border-radius: 24px;
         }
 
-        .card h3, .section-title {
+        .card h3 {
             font-family: 'Syne', sans-serif;
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--saltire-blue);
         }
 
-        .tag { color: var(--saltire-blue); font-family: 'Unbounded'; font-size: 0.7rem; font-weight: bold; }
-
-        /* --- INTERACTIVE --- */
-        .history-item {
-            display: flex; align-items: center; gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .history-item img { width: 40px; height: 40px; border-radius: 4px; object-fit: cover; }
-        .history-meta b { display: block; font-size: 0.85rem; }
-        .history-meta span { font-size: 0.75rem; color: #888; }
-
-        .request-form { display: flex; flex-direction: column; gap: 10px; }
-        .request-form input, .request-form textarea {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 8px;
-            color: white;
-            font-family: inherit;
-        }
-        .submit-btn {
-            background: var(--saltire-blue);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-family: 'Unbounded';
-            font-weight: 700;
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-
-        /* --- PLAYER BAR --- */
+        /* --- PLAYER BAR SECTION --- */
         .player-bar {
             position: fixed; bottom: 0; left: 0; width: 100%;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 12px 6%;
-            display: flex; align-items: center; justify-content: space-between;
+            background: #000;
             border-top: 2px solid var(--magma-red);
             z-index: 2000;
-            height: 85px;
+            height: 120px;
+            overflow: hidden;
         }
 
-        .now-playing { display: flex; align-items: center; gap: 12px; min-width: 0; }
-        .album-art { width: 55px; height: 55px; background: #000; border-radius: 6px; flex-shrink: 0; overflow: hidden; border: 1px solid #333; }
-        .album-art img { width: 100%; height: 100%; object-fit: cover; }
-        .track-info { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .track-label { font-size: 0.6rem; color: var(--magma-red); font-weight: 800; letter-spacing: 1px; }
-        
-        .play-btn {
-            width: 55px; height: 55px;
-            border-radius: 50%;
-            background: var(--magma-red);
+        /* We hide the Broadcast Radio UI and only show the play strip */
+        .player-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            color: white;
-            font-size: 2rem;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
+            background: transparent;
         }
 
         @media (max-width: 600px) {
-            .hero { padding-top: 80px; }
-            .grid-container { padding: 10px 5%; }
+            .hero { padding-top: 100px; }
+            .player-bar { height: 140px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="font-family: 'Syne'; font-size: 1.2rem; font-weight: 800;">ROCK.SCOT</div>
+        <div style="font-family: 'Syne'; font-size: 1.4rem; font-weight: 800; letter-spacing: -1px;">ROCK.SCOT</div>
         <div class="nav-status">
+            <div class="live-dot"></div> ON AIR
+        </div>
+    </nav>
+
+    <header class="hero">
+        <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img" onerror="this.style.display='none'">
+        
+        <div class="status-badge">Scotland's Loudest DAB+ Experiment</div>
+        <h1>LOUD.<br>SCOT.<br>ROCK.</h1>
+    </header>
+
+    <section class="grid-container">
+        <div class="card">
+            <h3><i class="bi bi-broadcast-pin"></i> DAB+ Digital</h3>
+            <p>Broadcasting high-energy rock across Scotland's digital multiplexes. Crystal clear audio, zero compromise.</p>
+        </div>
+        <div class="card">
+            <h3><i class="bi bi-lightning-charge"></i> Live Stream</h3>
+            <p>Can't find us on your radio? Use our high-fidelity web player below to listen anywhere in the world.</p>
+        </div>
+    </section>
+
+    <div class="player-bar">
+        <div class="player-container">
+            <iframe 
+                src="https://player.broadcast.radio/caledonia-tx-ltd" 
+                allow="autoplay">
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>
