@@ -1,82 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Station - Locked Index</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; background-color: #1a1a1a; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        
-        #station-container {
-            width: 450px;
-            background: #222;
-            border: 3px solid #444;
-            padding: 30px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        #status-box {
-            font-size: 1.6rem;
-            min-height: 2.2rem;
-            margin-bottom: 20px;
-            color: #aaa;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        hr { border: 0; border-top: 1px solid #444; margin: 20px 0; }
-
-        /* FIXED PRICING - DO NOT ALTER */
-        .pricing-table { width: 100%; font-size: 0.9rem; color: #777; }
-        .price-value { color: #fff; font-weight: bold; font-size: 1.1rem; padding-top: 5px; }
-    </style>
-</head>
-<body>
-
-<div id="station-container">
-    <div id="status-box">Loading Rock...</div>
-
-    <hr>
-
-    <table class="pricing-table">
-        <tr>
-            <td>Regional Airtime</td>
-            <td>Multi-Regional Airtime</td>
-        </tr>
-        <tr>
-            <td class="price-value">£199</td>
-            <td class="price-value">£349</td>
-        </tr>
-    </table>
+<div id="station-container" style="text-align: center; background: #222; padding: 20px; border: 1px solid #444;">
+    <div id="status-box" style="font-size: 1.4rem; color: #aaa; font-style: italic;">Loading...</div>
+    
+    <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
+    
+    <div style="font-size: 0.9rem; color: #888;">
+        Regional Airtime: <strong>£199</strong> | Multi-Regional: <strong>£349</strong>
+    </div>
 </div>
-
-<script>
-    const rockSayings = [
-        "All killer, no filler",
-        "Turn it up to eleven",
-        "Maximum volume, minimum fuss",
-        "Pure rock, no talk",
-        "For those about to rock, we salute you",
-        "The beat goes on",
-        "Solid gold rock and roll",
-        "Keep on rockin' in the free world",
-        "Long live rock and roll"
-    ];
-
-    function refreshRockSaying() {
-        const display = document.getElementById("status-box");
-        const randomPhrase = rockSayings[Math.floor(Math.random() * rockSayings.length)];
-        display.innerHTML = randomPhrase;
-    }
-
-    // Set phrase on load
-    refreshRockSaying();
-    // Refresh phrase every 30 minutes just to keep it fresh
-    setInterval(refreshRockSaying, 1800000);
-</script>
-
-</body>
-</html>
