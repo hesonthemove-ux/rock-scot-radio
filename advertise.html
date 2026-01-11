@@ -5,39 +5,48 @@
 <title>Advertise | Rock.Scot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-body{background:#000;color:#fff;font-family:'Oswald',sans-serif;text-align:center;}
-.container{max-width:1000px;margin:auto;padding:30px;}
-h1{font-family:'Metal Mania',cursive;}
-.card{background:#111;border:1px solid #333;padding:20px;margin:20px;border-radius:12px;}
-a{color:#e10600;text-decoration:none;}
+body{margin:0;background:#000;color:#fff;font-family:'Oswald',sans-serif;text-align:center;}
+.container{max-width:1100px;margin:auto;padding:30px;}
+h1,h2{font-family:'Metal Mania',cursive;color:#ff0000;text-shadow:0 0 8px #ff4500;}
+.cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.card{background:rgba(20,20,20,0.9);border:1px solid #333;padding:20px;border-radius:12px;box-shadow:0 0 15px rgba(255,0,0,0.3);transition:transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(255,69,0,0.6);}
+a{color:#ff4500;text-decoration:none;}
+.hero{
+  position:relative;
+  background:url('https://images.unsplash.com/photo-1546456073-6712f79251bb?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+  height:300px;
+  display:flex;justify-content:center;align-items:center;
+  margin-bottom:40px;
+}
+.hero h1{color:white;text-shadow:0 0 15px #ff0000;}
 </style>
 </head>
+
 <body>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Advertise With Rock.Scot</h1>
+</section>
+
 <div class="container">
-<h1>Advertise With Rock.Scot</h1>
-
-<div class="card">
-<strong>Local Rock Starter</strong><br>
-From £95/month<br>
-Perfect for local businesses
+  <div class="cards">
+    <div class="card">
+      <strong>Local Rock Starter</strong><br>From £95 / month<br>Ideal for local businesses
+    </div>
+    <div class="card">
+      <strong>Amplified Regional</strong><br>From £245 / month<br>Wider regional reach
+    </div>
+    <div class="card">
+      <strong>Headliner Sponsor</strong><br>From £495 / month<br>Maximum impact
+    </div>
+  </div>
+  <p>Email: <a href="mailto:advertising@rock.scot">advertising@rock.scot</a></p>
+  <p><a href="index.html">⬅ Back Home</a></p>
 </div>
 
-<div class="card">
-<strong>Regional Amplifier</strong><br>
-From £245/month<br>
-DAB + Online coverage
-</div>
-
-<div class="card">
-<strong>Headliner Sponsor</strong><br>
-From £495/month<br>
-Maximum exposure
-</div>
-
-<p>Email: <a href="mailto:advertising@rock.scot">advertising@rock.scot</a></p>
-
-<a href="index.html">⬅ Back Home</a>
-</div>
 </body>
 </html>
