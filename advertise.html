@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advertise | ROCK.SCOT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; }
+        body { background: var(--pure-black); color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow-x: hidden; }
         
         .hero { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .logo-box { width: 100%; max-width: 300px; margin-bottom: 20px; }
@@ -18,21 +18,22 @@
         
         section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
         
-        .page-title { font-family: 'Metal Mania', cursive; font-size: clamp(2.5rem, 8vw, 4rem); color: #fff; text-align: center; margin-bottom: 10px; line-height: 1; }
-        .sub-title { font-family: 'Oswald'; font-size: 1rem; color: var(--magma-red); text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        .page-title { font-family: 'Oswald'; font-weight: 700; font-size: clamp(2.5rem, 8vw, 3.5rem); color: #fff; text-align: center; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
+        .sub-title { font-family: 'Oswald'; font-size: 1.1rem; color: var(--magma-red); text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 3px; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-left: 3px solid var(--magma-red); }
+        .card { background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-top: 3px solid var(--magma-red); }
         .card h3 { font-family: 'Oswald'; font-size: 1.6rem; text-transform: uppercase; margin-bottom: 15px; color: #fff; letter-spacing: 1px; }
         
         .price-list { list-style: none; }
-        .price-list li { padding: 12px 0; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; font-family: 'Oswald'; font-size: 0.9rem; color: #777; }
-        .price-list li span { color: var(--magma-red); font-weight: 700; }
+        .price-list li { padding: 12px 0; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; font-family: 'Oswald'; font-size: 0.9rem; color: #aaa; }
+        .price-list li span { color: #fff; font-weight: 700; }
+        .price-list li .price-tag { color: var(--magma-red); }
 
-        /* Comparison Table Styles */
-        .comparison-table { width: 100%; margin-top: 40px; border-collapse: collapse; font-family: 'Oswald'; background: #050505; }
-        .comparison-table th { color: var(--magma-red); text-align: left; padding: 15px; border-bottom: 2px solid #222; text-transform: uppercase; }
-        .comparison-table td { padding: 15px; border-bottom: 1px solid #111; font-size: 0.9rem; }
+        .comparison-wrap { margin-top: 60px; overflow-x: auto; }
+        .comparison-table { width: 100%; border-collapse: collapse; font-family: 'Oswald'; background: #050505; }
+        .comparison-table th { color: var(--magma-red); text-align: left; padding: 15px; border-bottom: 2px solid #222; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .comparison-table td { padding: 15px; border-bottom: 1px solid #111; font-size: 0.9rem; color: #888; }
         .highlight { color: #fff; font-weight: bold; }
 
         .contact-box { margin-top: 40px; text-align: center; padding: 50px 20px; border: 1px dashed #333; }
@@ -51,81 +52,74 @@
         <a href="index.html" class="logo-box">
             <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
         </a>
-        <div class="tagline">Commercial Opportunities</div>
+        <div class="tagline">Media & Advertising</div>
     </header>
 
     <section>
-        <h1 class="page-title">ADVERTISING</h1>
-        <h2 class="sub-title">Better Value than Big Tech</h2>
+        <h1 class="page-title">Rate Card 2026</h1>
+        <h2 class="sub-title">Premium Network Opportunities</h2>
         
         <div class="grid">
             <div class="card">
-                <h3>Airtime Rates</h3>
+                <h3>Station Sponsorship</h3>
                 <ul class="price-list">
-                    <li>Single Region <span>£199 / mo</span></li>
-                    <li>Multi-Region <span>£349 / mo</span></li>
-                    <li>Top of Hour Ident <span>£250 / mo</span></li>
+                    <li>Top of Hour Ident <span>£2,500 <small>/mo</small></span></li>
+                    <li>Full Network Airtime <span>£349 <small>/mo</small></span></li>
+                    <li>Single Region <span>£199 <small>/mo</small></span></li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>The Breakdown</h3>
-                <p style="color:#555; font-size: 0.8rem; margin-bottom: 10px;">Regional targeting for less than the price of a daily coffee.</p>
+                <h3>Features & Creative</h3>
                 <ul class="price-list">
-                    <li>Daily (Regional) <span>~£6.60 / day</span></li>
-                    <li>Daily (Multi) <span>~£11.60 / day</span></li>
-                    <li>Single 30s Spot <span>£5.00</span></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Production</h3>
-                <ul class="price-list">
-                    <li>Basic Script/Voice <span>£75</span></li>
-                    <li>Full SFX/Music <span>£125</span></li>
-                    <li>3rd Party Audio <span>FREE</span></li>
+                    <li>Show Sponsorship <span>From £120 <small>/wk</small></span></li>
+                    <li>Production (Standard) <span class="price-tag">£75</span></li>
+                    <li>Full Campaign Prod <span class="price-tag">£125</span></li>
                 </ul>
             </div>
         </div>
 
-        <h3 style="font-family:'Oswald'; margin-top: 60px; color: var(--magma-red); text-transform: uppercase; letter-spacing: 1px;">Why Radio?</h3>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Platform</th>
-                    <th>Daily Cost</th>
-                    <th>Engagement</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="highlight">ROCK.SCOT</td>
-                    <td>£6.63</td>
-                    <td>Passive, captive local audience. High trust.</td>
-                </tr>
-                <tr>
-                    <td>Facebook Ads</td>
-                    <td>£10.00+</td>
-                    <td>Easily scrolled past. Ad-blockers common.</td>
-                </tr>
-                <tr>
-                    <td>Local Press</td>
-                    <td>£25.00+</td>
-                    <td>Declining reach. One-day lifespan.</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="comparison-wrap">
+            <h3 style="font-family:'Oswald'; margin-bottom: 15px; color: #fff; text-transform: uppercase; font-size: 1.2rem;">The Value Breakdown</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Investment</th>
+                        <th>Cost Per Day</th>
+                        <th>Listener Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Regional Airtime</td>
+                        <td class="highlight">£6.63</td>
+                        <td>High-frequency local brand building.</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Top of Hour Title</td>
+                        <td class="highlight">£83.33</td>
+                        <td>Station-wide authority. "Brought to you by..."</td>
+                    </tr>
+                    <tr>
+                        <td>Avg. Facebook Spend</td>
+                        <td>£15.00+</td>
+                        <td>Low retention. Audience ad-fatigue.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="contact-box">
-            <h2 style="font-family:'Oswald'; letter-spacing: 1px;">Ready to Rock?</h2>
-            <p style="color:#666">Beat the algorithm. Reach real people across Scotland.</p>
-            <a href="mailto:sales@rock.scot" class="btn">Email Sales Team</a>
+            <h2 style="font-family:'Oswald'; text-transform: uppercase;">Build Your Campaign</h2>
+            <p style="color:#666">Reach Scotland's most loyal music audience across the SSDAB network.</p>
+            <a href="mailto:sales@rock.scot" class="btn">Contact Sales Team</a>
         </div>
 
         <a href="index.html" class="back-link">&larr; Back to Station Home</a>
     </section>
 
-    <div class="player-bar"><iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe></div>
+    <div class="player-bar">
+        <iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe>
+    </div>
 </body>
-                    </html>
-                    
+</html>
