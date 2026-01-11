@@ -2,89 +2,200 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ROCK.SCOT | Rockin' Scotland</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --magma-red: #ff3e00;
-            --pure-black: #050505;
-            --card-bg: #111111;
-            --border: rgba(255,255,255,0.08);
+            --pure-black: #000000;
+            --card-bg: #0c0c0c;
+            --border: rgba(255,255,255,0.1);
             --test-blue: #00d4ff;
-            --saltire-blue: #005eb8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background-color: var(--pure-black);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             overflow-x: hidden;
             width: 100%;
         }
 
-        /* --- NAVIGATION --- */
-        nav {
-            padding: 0.8rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 2000;
-            background: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .brand { font-family: 'Oswald'; font-weight: 700; font-size: 1.1rem; color: #fff; }
-
-        /* --- HERO: LOGO IS THE FOCUS --- */
+        /* --- LOGO SECTION (EYE CATCHER) --- */
         .hero {
-            min-height: 70vh;
+            padding: 60px 20px 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 5% 20px;
+            min-height: 50vh; /* Ensures it takes up space even if image fails */
         }
 
-        .logo-container { 
-            width: 90%; 
-            max-width: 500px; 
-            margin-bottom: 2rem;
-            /* Added a subtle stage-light glow to pull the eye */
-            filter: drop-shadow(0 0 40px rgba(255, 62, 0, 0.15));
+        .logo-box {
+            width: 100%;
+            max-width: 400px; /* Locked size */
+            margin-bottom: 20px;
         }
-        .main-logo-img { width: 100%; height: auto; display: block; }
 
-        .hero-title {
+        .main-logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2));
+        }
+
+        /* Fallback if logo is missing */
+        .logo-fallback {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.5rem, 8vw, 2.5rem); /* Scaled down significantly */
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #888; /* Dimmed to keep focus on logo */
-            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 3rem;
+            color: var(--magma-red);
         }
 
-        /* CSS SALTIRE */
-        .saltire-box {
-            width: 30px; height: 18px;
-            background: var(--saltire-blue);
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.2);
+        .tagline {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: #666; /* Secondary to the logo */
+            text-transform: uppercase;
+            margin-top: 10px;
         }
-        .saltire-box:before, .saltire-box:after {
-            content: ""; position: absolute; top: 50%; left: 50%;
-            width: 150%; height: 2px; background: #fff;
+
+        /* --- TICKER --- */
+        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin-top: 20px;}
+        .ticker {
+            display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite;
+            font-family: 'Oswald', sans-serif; font-weight: 700; color: #000; font-size: 0.8rem;
         }
-        .saltire-box:before { transform: translate(-50%, -50%) rotate(31deg); }
-        .saltire-box:after { transform:
-            
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- CONTENT GRIDS --- */
+        section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 20px; text-transform: uppercase; }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px; 
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border: 1px solid var(--border);
+            /* Prevents South Lanarkshire overspill */
+            overflow: hidden; 
+        }
+
+        .card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.7rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            word-wrap: break-word; /* Forces wrap on long names */
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-family: 'Oswald';
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            border: 1px solid #444;
+            margin-bottom: 10px;
+        }
+        .badge-testing { border-color: var(--test-blue); color: var(--test-blue); }
+
+        /* --- TOM RUSSELL --- */
+        .tom-card {
+            background: linear-gradient(to right, #111, #000);
+            border-left: 4px solid var(--magma-red);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        .tom-card h3 { font-family: 'Metal Mania', cursive; font-size: 2.5rem; color: #fff; }
+
+        /* --- PLAYER --- */
+        .player-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 110px;
+            background: #000; border-top: 3px solid var(--magma-red); z-index: 100;
+        }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 600px) {
+            .player-bar { height: 140px; }
+            section { padding-bottom: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="logo-box">
+            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <div class="logo-fallback" style="display:none;">ROCK.SCOT</div>
+        </div>
+        <div class="tagline">Rockin' Scotland</div>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            TOM RUSSELL • THE GODFATHER OF ROCK • INVERCLYDE: TEST TRANSMISSION LIVE • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT • 
+        </div>
+    </div>
+
+    <section>
+        <div class="tom-card">
+            <h4 style="font-family:'Oswald'; font-size: 0.7rem; color: var(--magma-red);">PRESENTING</h4>
+            <h3>TOM RUSSELL</h3>
+            <p style="color: #888;">The legendary voice of rock is on ROCK.SCOT</p>
+        </div>
+
+        <h2 class="section-title">Broadcast Status</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="badge badge-testing">Test Transmission</div>
+                <h3>Inverclyde</h3>
+                <p style="color: #777;">Signals active on SSDAB for technical evaluation.</p>
+            </div>
+            <div class="card">
+                <div class="badge">Imminent</div>
+                <h3>North Ayrshire</h3>
+                <p style="color: #777;">Rollout commencing shortly.</p>
+            </div>
+            <div class="card">
+                <div class="badge">Imminent</div>
+                <h3>South Lanarkshire</h3>
+                <p style="color: #777;">Expansion to the Central Belt underway.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-bottom: 180px;">
+        <h2 class="section-title">Advertising</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Single Mux</h3>
+                <p style="color: var(--magma-red); font-family: 'Oswald'; font-size: 1.5rem;">£149/mo</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">sales@rock.scot</p>
+            </div>
+            <div class="card" style="border-color: var(--magma-red);">
+                <h3>Total Network</h3>
+                <p style="color: var(--magma-red); font-family: 'Oswald'; font-size: 1.5rem;">£349/mo</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">sales@rock.scot</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="player-bar">
+        <iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe>
+    </div>
+
+</body>
+</html>
