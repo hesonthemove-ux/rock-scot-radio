@@ -1,150 +1,245 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rock.Scot • Scotland's Rock Radio • DAB+ & Online</title>
-  
-  <meta name="description" content="Scotland’s loudest rock station. 24/7 pure rock on DAB+ in Inverclyde, North Ayrshire, South Lanarkshire + streaming worldwide."/>
-  <meta name="keywords" content="rock radio scotland, scottish rock, dab rock, greenock rock, irvine rock, hamilton rock, largs rock"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ROCK.SCOT | Scotland's Loudest DAB+ Experiment</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Unbounded:wght@300;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --neon-blue: #00d2ff;
+            --saltire-blue: #005eb8;
+            --magma-red: #ff3e00;
+            --deep-black: #080808;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Rock.Scot – Scotland's Rock Radio"/>
-  <meta property="og:description" content="Pure Scottish rock energy • DAB+ + online streaming • Worldwide"/>
-  <meta property="og:image" content="/og-rock-scot-flame.jpg"/> <!-- Update with real OG image -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://rock.scot"/>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--deep-black);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Rock.Scot – Scotland's Rock Radio"/>
-  <meta name="twitter:description" content="Pure rock 24/7 • Scottish pride • DAB+ + online"/>
-  <meta name="twitter:image" content="/og-rock-scot-flame.jpg"/>
+        /* High-End Background Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 94, 184, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 62, 0, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-  <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .logo span { color: var(--magma-red); }
 
-  <!-- Bootstrap 5.3 + Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+        }
 
-  <style>
-    :root {
-      --rock-red: #ff2e00;
-      --rock-red-dark: #c1121f;
-      --scot-blue: #002366;
-      --scot-white: #ffffff;
-      --dark: #0a0a0a;
-      --near-black: #050505;
-      --card: #161616;
-      --muted: #bbbbbb;
-    }
+        .status-badge {
+            background: rgba(255, 62, 0, 0.1);
+            border: 1px solid var(--magma-red);
+            color: var(--magma-red);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
 
-    body {
-      font-family: 'Oswald', system-ui, -apple-system, sans-serif;
-      background: var(--near-black);
-      color: #f0f0f0;
-      min-height: 100dvh;
-      line-height: 1.5;
-    }
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to bottom, #fff 50%, #666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    h1, h2, h3 {
-      font-family: 'Metal Mania', cursive;
-      color: var(--rock-red);
-      letter-spacing: -0.5px;
-      text-shadow: 0 0 15px rgba(255,46,0,0.6);
-    }
+        .hero p {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            max-width: 800px;
+            color: #aaa;
+            margin-bottom: 3rem;
+        }
 
-    /* Hero - Scottish Saltire inspired with rock energy */
-    .hero {
-      position: relative;
-      height: 100dvh;
-      min-height: 720px;
-      background: 
-        linear-gradient(rgba(0, 35, 102, 0.75), rgba(0, 35, 102, 0.85)),
-        url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1920&q=80') center/cover no-repeat fixed; /* Fallback blue gradient bg */
-      background-blend-mode: overlay;
-      display: grid;
-      place-items: center;
-    }
+        /* --- THE PLAYER BAR (STAYS AT BOTTOM) --- */
+        .player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            border-top: 1px solid var(--magma-red);
+            z-index: 2000;
+        }
 
-    /* Use your custom flaming pick + guitars image here */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: 
-        linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.7) 70%),
-        url('/images/hero-rock-scot-saltire-flames-lespaul.jpg') center/cover no-repeat fixed; /* ← REPLACE WITH YOUR IMAGE */
-      opacity: 0.92;
-      z-index: 1;
-    }
+        .now-playing { display: flex; align-items: center; gap: 1rem; }
+        .album-art { 
+            width: 50px; height: 50px; 
+            background: #333; 
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(255, 62, 0, 0.3);
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-      padding: 0 1.5rem;
-      max-width: 1100px;
-    }
+        .play-btn {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: var(--magma-red);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .play-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--magma-red); }
 
-    .hero-title {
-      font-size: clamp(5rem, 14vw, 12rem);
-      line-height: 0.85;
-      margin-bottom: 0.2rem;
-      letter-spacing: -4px;
-      color: var(--scot-white);
-      text-shadow: 0 0 60px var(--rock-red), 0 0 120px rgba(255,46,0,0.5);
-    }
+        /* --- REGIONAL GRID --- */
+        .regions {
+            padding: 100px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    .hero-subtitle {
-      font-size: clamp(1.8rem, 6vw, 3.2rem);
-      color: #ffcc00;
-      font-weight: 500;
-      margin-bottom: 2.5rem;
-      text-shadow: 0 0 20px rgba(255,204,0,0.7);
-    }
+        .region-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            border-radius: 20px;
+            transition: 0.4s;
+        }
+        .region-card:hover {
+            border-color: var(--saltire-blue);
+            background: rgba(0, 94, 184, 0.05);
+            transform: translateY(-10px);
+        }
+        .region-card h3 { font-family: 'Syne', sans-serif; font-size: 2rem; margin-bottom: 1rem; }
+        .tag { color: var(--saltire-blue); font-family: 'Unbounded'; font-size: 0.8rem; }
 
-    .btn-rock {
-      padding: 1.2rem 3rem;
-      font-size: 1.4rem;
-      font-weight: 700;
-      background: var(--rock-red);
-      border: none;
-      border-radius: 50px;
-      color: white;
-      transition: all 0.4s ease;
-      box-shadow: 0 10px 40px rgba(255,46,0,0.6);
-    }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
 
-    .btn-rock:hover {
-      background: var(--rock-red-dark);
-      transform: translateY(-6px) scale(1.05);
-      box-shadow: 0 20px 60px rgba(200,18,31,0.8);
-    }
+        @media (max-width: 768px) {
+            .player-bar { grid-template-columns: 1fr auto; }
+            .volume-controls { display: none; }
+        }
+    </style>
+</head>
+<body>
 
-    /* Navbar - semi-transparent dark with red accent */
-    .navbar {
-      background: rgba(5,5,5,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid #222;
-    }
+    <nav>
+        <a href="#" class="logo">Rock<span>.Scot</span></a>
+        <div class="nav-links">
+            <i class="bi bi-broadcast"></i> Live on DAB+
+        </div>
+    </nav>
 
-    .navbar-brand {
-      font-size: 2.1rem;
-      letter-spacing: -1px;
-    }
+    <section class="hero">
+        <div class="status-badge">Live Testing: Inverclyde</div>
+        <h1>LOUDER THAN<br>THE HIGHLANDS</h1>
+        <p>Pure Scottish Rock. No fillers. No pop. Just the heavy stuff coming to your DAB+ radio in Q1 2026.</p>
+        
+        <div style="display: flex; gap: 20px;">
+            <button class="play-btn" style="width: auto; padding: 0 40px; border-radius: 50px; font-family: 'Unbounded'; font-size: 1rem;">
+                LISTEN LIVE
+            </button>
+        </div>
+    </section>
 
-    .nav-link {
-      color: #ddd !important;
-      font-weight: 500;
-      transition: color 0.3s, transform 0.3s;
-    }
+    <section class="regions">
+        <div class="region-card">
+            <span class="tag">Launching Q1 2026</span>
+            <h3>Inverclyde</h3>
+            <p>Testing now in Greenock, Gourock & Port Glasgow on the SS Mux.</p>
+        </div>
+        <div class="region-card">
+            <span class="tag">Coming Soon</span>
+            <h3>Ayrshire</h3>
+            <p>North Ayrshire coverage via DAB Small Scale Mux. Prepare for impact.</p>
+        </div>
+        <div class="region-card">
+            <span class="tag">Expansion</span>
+            <h3>Lanarkshire</h3>
+            <p>South Lanarkshire signal launch scheduled for 2026 rollout.</p>
+        </div>
+        <div class="region-card">
+            <span class="tag">Phase II</span>
+            <h3>Oban</h3>
+            <p>Highland & Island reach coming via the Oban DAB Mux launch later in 2026.</p>
+        </div>
+    </section>
 
-   
+    <div class="player-bar">
+        <div class="now-playing">
+            <div class="album-art"></div>
+            <div>
+                <div style="font-size: 0.8rem; color: var(--magma-red); font-weight: bold;">NOW PLAYING</div>
+                <div style="font-weight: 600;">The Snuts - Glasgow</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center;">
+            <button class="play-btn"><i class="bi bi-play-fill"></i></button>
+        </div>
+
+        <div class="volume-controls" style="text-align: right; color: #666;">
+            <i class="bi bi-volume-up"></i> 
+            <span style="font-family: 'Unbounded'; font-size: 0.7rem;">DAB+ DIGITAL STREAMS</span>
+        </div>
+    </div>
+
+</body>
+</html>
