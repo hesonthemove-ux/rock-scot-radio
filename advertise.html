@@ -1,93 +1,96 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>ROCK.SCOT | Scotland's Rock Station | Tom Russell on DAB</title>
-    <meta name="description" content="Scotland's legendary rock station featuring Tom Russell. Broadcasting on DAB across Inverclyde, North Ayrshire, and South Lanarkshire. Listen live now.">
-    <meta name="keywords" content="Rock Radio Scotland, Tom Russell, DAB Radio Scotland, Radio Advertising Inverclyde, Ayrshire Radio, Lanarkshire Radio">
-    <link rel="canonical" href="https://rock.scot/" />
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rock.scot/">
-    <meta property="og:title" content="ROCK.SCOT | Rockin' Scotland">
-    <meta property="og:description" content="Broadcasting the greatest rock on DAB. Join Tom Russell on the network.">
-    <meta property="og:image" content="https://rock.scot/logo.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RadioStation",
-      "name": "ROCK.SCOT",
-      "url": "https://rock.scot/",
-      "logo": "https://rock.scot/logo.png",
-      "description": "Scotland's Rock Station broadcasting on DAB across the Central Belt.",
-      "areaServed": ["Inverclyde", "North Ayrshire", "South Lanarkshire"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "GB",
-        "addressRegion": "Scotland"
-      }
-    }
-    </script>
-    
+    <title>Advertise | ROCK.SCOT | Scotland's Rock Station</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --magma-red: #ff3e00;
-            --pure-black: #000000;
-            --card-bg: #0c0c0c;
-            --border: rgba(255,255,255,0.1);
-            --test-blue: #00d4ff;
-        }
-
+        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; }
         
-        body {
-            background-color: var(--pure-black);
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            overflow-x: hidden;
-            width: 100%;
-        }
+        .hero { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .logo-box { width: 100%; max-width: 300px; margin-bottom: 20px; }
+        .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2)); }
+        
+        .tagline { font-family: 'Oswald'; font-weight: 400; font-size: 1.1rem; letter-spacing: 3px; color: #555; text-transform: uppercase; }
+        
+        section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        
+        .page-title { font-family: 'Metal Mania', cursive; font-size: 3rem; color: var(--magma-red); text-align: center; margin-bottom: 40px; }
 
-        /* LOGO SECTION */
-        .hero {
-            padding: 60px 20px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            min-height: 40vh;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .card { background: var(--card-bg); padding: 25px; border: 1px solid var(--border); }
+        .card h3 { font-family: 'Oswald'; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 10px; color: var(--magma-red); }
+        
+        .price-list { list-style: none; margin-top: 15px; }
+        .price-list li { padding: 12px 0; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; font-family: 'Oswald'; font-size: 0.9rem; }
+        .price-list li span { color: var(--magma-red); font-weight: 700; }
 
-        .logo-box {
-            width: 100%;
-            max-width: 400px;
-            margin-bottom: 20px;
-        }
+        .contact-box { margin-top: 40px; text-align: center; padding: 40px; border: 1px dashed #333; background: #050505; }
+        .btn { display: inline-block; background: var(--magma-red); color: #000; padding: 12px 30px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; margin-top: 15px; }
+        
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #555; text-decoration: none; font-family: 'Oswald'; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .main-logo-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2));
-        }
+        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 3px solid var(--magma-red); z-index: 100; }
+        iframe { width: 100%; height: 100%; border: none; }
+        
+        @media (max-width: 600px) { .player-bar { height: 140px; } section { padding-bottom: 160px; } }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <a href="index.html" class="logo-box">
+            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
+        </a>
+        <div class="tagline">Promote Your Brand</div>
+    </header>
 
-        .tagline {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 400;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            color: #555;
-            text-transform: uppercase;
-        }
+    <section>
+        <h1 class="page-title">Commercial Rates</h1>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Regional Airtime</h3>
+                <p style="color:#777">Single-region targeting (30-sec spots). Based on 1-month campaign.</p>
+                <ul class="price-list">
+                    <li>Inverclyde (LIVE) <span>£150 / mo</span></li>
+                    <li>North Ayrshire <span>£175 / mo</span></li>
+                    <li>South Lanarkshire <span>£200 / mo</span></li>
+                </ul>
+            </div>
 
-        /* TICKER */
-        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin-top: 20px;}
-        .ticker {
-            display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite;
-            font-family: 'Oswald', sans-serif; font-weight: 700;
-            
+            <div class="card">
+                <h3>Full Network</h3>
+                <p style="color:#777">Total coverage across all active SSDAB regions.</p>
+                <ul class="price-list">
+                    <li>Launch Package <span>£450 / mo</span></li>
+                    <li>Spot Rate (Single) <span>£5.00</span></li>
+                    <li>Production <span>FROM £75</span></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Show Sponsorship</h3>
+                <p style="color:#777">High-frequency branding around specific content.</p>
+                <ul class="price-list">
+                    <li>Weather (Daily) <span>£100 / mo</span></li>
+                    <li>The News (Hourly) <span>£250 / mo</span></li>
+                    <li>Tom Russell Show <span>CONTACT US</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h2 style="font-family:'Oswald';">LOCAL BUSINESS OFFERS</h2>
+            <p style="color:#666">Special rates available for Inverclyde businesses during the test transmission phase.</p>
+            <a href="mailto:sales@rock.scot" class="btn">Email Sales Team</a>
+        </div>
+
+        <a href="index.html" class="back-link">&larr; Return to Station Home</a>
+    </section>
+
+    <div class="player-bar"><iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe></div>
+</body>
+</html>
