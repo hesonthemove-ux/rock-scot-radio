@@ -1,89 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Commercial Partnerships | ROCK.SCOT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>ROCK.SCOT | Scotland's Rock Station | Tom Russell on DAB</title>
+    <meta name="description" content="Scotland's legendary rock station featuring Tom Russell. Broadcasting on DAB across Inverclyde, North Ayrshire, and South Lanarkshire. Listen live now.">
+    <meta name="keywords" content="Rock Radio Scotland, Tom Russell, DAB Radio Scotland, Radio Advertising Inverclyde, Ayrshire Radio, Lanarkshire Radio">
+    <link rel="canonical" href="https://rock.scot/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rock.scot/">
+    <meta property="og:title" content="ROCK.SCOT | Rockin' Scotland">
+    <meta property="og:description" content="Broadcasting the greatest rock on DAB. Join Tom Russell on the network.">
+    <meta property="og:image" content="https://rock.scot/logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RadioStation",
+      "name": "ROCK.SCOT",
+      "url": "https://rock.scot/",
+      "logo": "https://rock.scot/logo.png",
+      "description": "Scotland's Rock Station broadcasting on DAB across the Central Belt.",
+      "areaServed": ["Inverclyde", "North Ayrshire", "South Lanarkshire"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB",
+        "addressRegion": "Scotland"
+      }
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
+        :root {
+            --magma-red: #ff3e00;
+            --pure-black: #000000;
+            --card-bg: #0c0c0c;
+            --border: rgba(255,255,255,0.1);
+            --test-blue: #00d4ff;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: sans-serif; line-height: 1.6; }
-        nav { padding: 20px; border-bottom: 1px solid var(--border); }
-        .back-link { color: var(--magma-red); text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;}
-        header { padding: 80px 20px 40px; text-align: center; background: linear-gradient(to bottom, #111, #000); }
-        h1 { font-family: 'Oswald'; font-size: clamp(2.5rem, 8vw, 4rem); text-transform: uppercase; letter-spacing: 2px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .tier-card { background: var(--card-bg); border: 1px solid var(--border); padding: 40px; position: relative; display: flex; flex-direction: column; }
-        .tier-card h2 { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 10px; text-transform: uppercase; font-size: 2rem; }
-        .price { font-family: 'Oswald'; font-size: 1.8rem; margin-bottom: 5px; display: block; }
-        .term { font-size: 0.7rem; color: #555; text-transform: uppercase; margin-bottom: 25px; display: block; letter-spacing: 1px;}
-        .features { list-style: none; color: #aaa; margin-bottom: 40px; font-size: 0.95rem; flex-grow: 1; }
-        .features li { margin-bottom: 12px; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
-        .prod-mandate { background: #080808; border-left: 5px solid var(--magma-red); padding: 40px; margin-top: 40px; }
-        .prod-mandate h3 { font-family: 'Oswald'; margin-bottom: 15px; text-transform: uppercase; font-size: 1.8rem; }
-        .btn { display: block; background: #fff; color: #000; text-align: center; padding: 16px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
-        .btn:hover { background: var(--magma-red); }
-        .exclusive-tag { position: absolute; top: 0; right: 0; background: var(--magma-red); color: #000; font-family: 'Oswald'; font-size: 0.75rem; padding: 6px 15px; font-weight: 700; }
-    </style>
-</head>
-<body>
-    <nav><a href="index.html" class="back-link">← Return to Rockin' Scotland</a></nav>
-    <header>
-        <h1>Commercial Rates</h1>
-        <p style="color:#888; margin-top: 10px;">Connect your brand with the legends of Scottish Rock.</p>
-    </header>
-    <div class="container">
-        <div class="tier-grid">
-            <div class="tier-card">
-                <h2>Local Hero</h2>
-                <span class="price">£199 <small style="font-size:0.8rem">/MO</small></span>
-                <span class="term">Min. 3 Month Booking</span>
-                <ul class="features">
-                    <li>3 x 30s Spots Daily</li>
-                    <li>Single Mux Coverage</li>
-                    <li>Standard Rotation</li>
-                    <li>Hyper-Local Impact</li>
-                </ul>
-                <a href="mailto:sales@rock.scot?subject=Local Hero Enquiry" class="btn">Enquire</a>
-            </div>
+        
+        body {
+            background-color: var(--pure-black);
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
 
-            <div class="tier-card" style="border-color: #333;">
-                <span class="exclusive-tag">RECOMMENDED</span>
-                <h2>Network</h2>
-                <span class="price">£395 <small style="font-size:0.8rem">/MO</small></span>
-                <span class="term">Min. 3 Month Booking</span>
-                <ul class="features">
-                    <li>5 x 30s Spots Daily</li>
-                    <li>Total Network Reach</li>
-                    <li>Priority Break Placement</li>
-                    <li>Web & Social Integration</li>
-                </ul>
-                <a href="mailto:sales@rock.scot?subject=Network Package Enquiry" class="btn" style="background:var(--magma-red)">Book Network</a>
-            </div>
+        /* LOGO SECTION */
+        .hero {
+            padding: 60px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 40vh;
+        }
 
-            <div class="tier-card" style="background:#050505;">
-                <div class="exclusive-tag">EXCLUSIVE</div>
-                <h2>The Pulse</h2>
-                <span class="price">£1,450 <small style="font-size:0.8rem">/MO</small></span>
-                <span class="term">Limited Availability</span>
-                <ul class="features">
-                    <li>Top of the Hour Ident</li>
-                    <li>News & Weather Association</li>
-                    <li>Maximum Authority Slot</li>
-                    <li>1 Client Per Region</li>
-                </ul>
-                <a href="mailto:sales@rock.scot?subject=The Pulse Exclusivity Enquiry" class="btn">Check Availability</a>
-            </div>
-        </div>
+        .logo-box {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
 
-        <div class="prod-mandate">
-            <h3>Mandatory Production</h3>
-            <p style="color:#888; margin-bottom: 20px; max-width: 800px;">To maintain the broadcast standards of ROCK.SCOT, all airtime commercials must be professionally produced or approved by our studio. We do not broadcast home-made or low-fidelity audio.</p>
-            <p style="font-family: 'Oswald'; font-size: 1.5rem; color: #fff;">Production Fee: £149.00</p>
-            <p style="font-size:0.85rem; color:#555; margin-top: 5px;">Includes script development, professional voice-over talent, and licensed music bedding.</p>
-        </div>
-    </div>
-</body>
-</html>
+        .main-logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2));
+        }
+
+        .tagline {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        /* TICKER */
+        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin-top: 20px;}
+        .ticker {
+            display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite;
+            font-family: 'Oswald', sans-serif; font-weight: 700;
+            
