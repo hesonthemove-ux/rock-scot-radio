@@ -93,7 +93,6 @@
         const quotes = [
             "LOUD & PROUD",
             "FOR THOSE ABOUT TO ROCK",
-            "SCREAMING STEEL",
             "THE HEART OF HIGHLAND ROCK",
             "MAXIMUM VOLUME ONLY",
             "REAL ROCK, REAL SCOTLAND",
@@ -103,14 +102,8 @@
         function updateTicker() {
             const tickerEl = document.getElementById('ticker-content');
             const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            
-            // Layout defined in instructions:
-            // Testing Areas -> "Soundcheck 1-2, 1-2"
-            // Non-Testing Areas -> "Coming Soon"
             const statusUpdate = "INVERCLYDE: SOUNDCHECK 1-2, 1-2 • NORTH AYRSHIRE: COMING SOON • SOUTH LANARKSHIRE: COMING SOON";
-            
             const content = `${randomQuote} • ${statusUpdate} • `;
-            // Repeat content to ensure seamless loop
             tickerEl.innerText = content.repeat(10);
         }
 
@@ -140,13 +133,10 @@
             }
         }
 
-        // Initialize
         updateTicker();
         updatePresenter();
-        
-        // Refresh intervals
         setInterval(updatePresenter, 60000);
-        setInterval(updateTicker, 300000); // Change the quote in ticker every 5 mins
+        setInterval(updateTicker, 300000);
     </script>
 </body>
 </html>
