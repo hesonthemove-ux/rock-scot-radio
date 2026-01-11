@@ -26,19 +26,19 @@
             width: 100%;
         }
 
-        /* --- LOGO SECTION (EYE CATCHER) --- */
+        /* --- LOGO SECTION --- */
         .hero {
             padding: 60px 20px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            min-height: 50vh; /* Ensures it takes up space even if image fails */
+            min-height: 40vh;
         }
 
         .logo-box {
             width: 100%;
-            max-width: 400px; /* Locked size */
+            max-width: 400px;
             margin-bottom: 20px;
         }
 
@@ -49,7 +49,6 @@
             filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2));
         }
 
-        /* Fallback if logo is missing */
         .logo-fallback {
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
@@ -62,9 +61,8 @@
             font-weight: 400;
             font-size: 1.1rem;
             letter-spacing: 3px;
-            color: #666; /* Secondary to the logo */
+            color: #555;
             text-transform: uppercase;
-            margin-top: 10px;
         }
 
         /* --- TICKER --- */
@@ -75,9 +73,9 @@
         }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CONTENT GRIDS --- */
+        /* --- CONTENT --- */
         section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 20px; text-transform: uppercase; }
+        .section-title { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
         .grid { 
             display: grid; 
@@ -89,7 +87,6 @@
             background: var(--card-bg);
             padding: 25px;
             border: 1px solid var(--border);
-            /* Prevents South Lanarkshire overspill */
             overflow: hidden; 
         }
 
@@ -98,7 +95,7 @@
             font-size: 1.7rem;
             text-transform: uppercase;
             margin-bottom: 10px;
-            word-wrap: break-word; /* Forces wrap on long names */
+            word-wrap: break-word;
         }
 
         .badge {
@@ -119,9 +116,12 @@
             padding: 30px;
             margin-bottom: 40px;
         }
-        .tom-card h3 { font-family: 'Metal Mania', cursive; font-size: 2.5rem; color: #fff; }
+        .tom-card h3 { font-family: 'Metal Mania', cursive; font-size: 2.8rem; color: #fff; line-height: 1; margin-bottom: 5px; }
 
-        /* --- PLAYER --- */
+        /* --- ADVERTISING RATES --- */
+        .rate-price { font-family: 'Oswald'; font-size: 1.8rem; color: #fff; margin-top: 5px; }
+
+        /* --- PLAYER BAR --- */
         .player-bar {
             position: fixed; bottom: 0; left: 0; width: 100%; height: 110px;
             background: #000; border-top: 3px solid var(--magma-red); z-index: 100;
@@ -131,6 +131,7 @@
         @media (max-width: 600px) {
             .player-bar { height: 140px; }
             section { padding-bottom: 160px; }
+            .hero { padding-top: 40px; }
         }
     </style>
 </head>
@@ -152,9 +153,9 @@
 
     <section>
         <div class="tom-card">
-            <h4 style="font-family:'Oswald'; font-size: 0.7rem; color: var(--magma-red);">PRESENTING</h4>
+            <h4 style="font-family:'Oswald'; font-size: 0.7rem; color: var(--magma-red); letter-spacing: 2px;">ON AIR</h4>
             <h3>TOM RUSSELL</h3>
-            <p style="color: #888;">The legendary voice of rock is on ROCK.SCOT</p>
+            <p style="color: #888;">The Godfather of Scottish Rock is on ROCK.SCOT</p>
         </div>
 
         <h2 class="section-title">Broadcast Status</h2>
@@ -162,17 +163,17 @@
             <div class="card">
                 <div class="badge badge-testing">Test Transmission</div>
                 <h3>Inverclyde</h3>
-                <p style="color: #777;">Signals active on SSDAB for technical evaluation.</p>
+                <p style="color: #777;">Engineering tests live on SSDAB. Tuning available now.</p>
             </div>
             <div class="card">
                 <div class="badge">Imminent</div>
                 <h3>North Ayrshire</h3>
-                <p style="color: #777;">Rollout commencing shortly.</p>
+                <p style="color: #777;">Launch preparations underway for the coastal network.</p>
             </div>
             <div class="card">
                 <div class="badge">Imminent</div>
                 <h3>South Lanarkshire</h3>
-                <p style="color: #777;">Expansion to the Central Belt underway.</p>
+                <p style="color: #777;">Expansion to the Central Belt heartlands coming soon.</p>
             </div>
         </div>
     </section>
@@ -181,15 +182,20 @@
         <h2 class="section-title">Advertising</h2>
         <div class="grid">
             <div class="card">
-                <h3>Single Mux</h3>
-                <p style="color: var(--magma-red); font-family: 'Oswald'; font-size: 1.5rem;">£149/mo</p>
-                <p style="font-size: 0.8rem; margin-top: 10px;">sales@rock.scot</p>
+                <h4 style="font-family:'Oswald'; font-size: 0.7rem; color: #555;">SINGLE MUX</h4>
+                <div class="rate-price">From £149 <small style="font-size: 0.8rem;">/Month</small></div>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 10px;">Targeted regional impact for local businesses.</p>
             </div>
             <div class="card" style="border-color: var(--magma-red);">
-                <h3>Total Network</h3>
-                <p style="color: var(--magma-red); font-family: 'Oswald'; font-size: 1.5rem;">£349/mo</p>
-                <p style="font-size: 0.8rem; margin-top: 10px;">sales@rock.scot</p>
+                <h4 style="font-family:'Oswald'; font-size: 0.7rem; color: var(--magma-red);">TOTAL NETWORK</h4>
+                <div class="rate-price">From £349 <small style="font-size: 0.8rem;">/Month</small></div>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 10px;">Full saturation across all active and imminent Muxes.</p>
             </div>
+        </div>
+        <div style="margin-top: 30px; border: 1px dashed #333; padding: 20px; text-align: center;">
+            <h4 style="font-family:'Oswald'; color: var(--magma-red);">GET INVOLVED</h4>
+            <p style="font-family: 'Oswald'; font-size: 1.2rem; margin: 10px 0;">sales@rock.scot</p>
+            <p style="font-size: 0.8rem; color: #555;">Studio: 0141 459 ROCK</p>
         </div>
     </section>
 
@@ -198,4 +204,5 @@
     </div>
 
 </body>
-</html>
+                    </html>
+                    
