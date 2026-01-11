@@ -10,18 +10,18 @@
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Rock.Scot – Scotland's Rock Radio"/>
-  <meta property="og:description" content="Pure rock energy • DAB+ + online streaming • Inverclyde · North Ayrshire · South Lanarkshire"/>
-  <meta property="og:image" content="/og-rock-scot.jpg"/>
+  <meta property="og:description" content="Pure Scottish rock energy • DAB+ + online streaming • Worldwide"/>
+  <meta property="og:image" content="/og-rock-scot-flame.jpg"/> <!-- Update with real OG image -->
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://rock.scot"/>
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Rock.Scot – Scotland's Rock Radio"/>
-  <meta name="twitter:description" content="Pure rock 24/7 • DAB+ + online"/>
-  <meta name="twitter:image" content="/og-rock-scot.jpg"/>
+  <meta name="twitter:description" content="Pure rock 24/7 • Scottish pride • DAB+ + online"/>
+  <meta name="twitter:image" content="/og-rock-scot-flame.jpg"/>
 
-  <!-- Favicon (you should replace these with real ones) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" href="/favicon-32x32.png"/>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap 5.3 + Bootstrap Icons -->
+  <!-- Bootstrap 5.3 + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -39,19 +39,18 @@
     :root {
       --rock-red: #ff2e00;
       --rock-red-dark: #c1121f;
+      --scot-blue: #002366;
+      --scot-white: #ffffff;
       --dark: #0a0a0a;
       --near-black: #050505;
       --card: #161616;
-      --muted: #999;
+      --muted: #bbbbbb;
     }
 
     body {
       font-family: 'Oswald', system-ui, -apple-system, sans-serif;
       background: var(--near-black);
       color: #f0f0f0;
-      background-image: 
-        radial-gradient(circle at 20% 10%, rgba(255,46,0,0.07) 0%, transparent 45%),
-        radial-gradient(circle at 80% 90%, rgba(180,30,0,0.05) 0%, transparent 55%);
       min-height: 100dvh;
       line-height: 1.5;
     }
@@ -60,281 +59,92 @@
       font-family: 'Metal Mania', cursive;
       color: var(--rock-red);
       letter-spacing: -0.5px;
+      text-shadow: 0 0 15px rgba(255,46,0,0.6);
     }
 
-    /* Hero */
+    /* Hero - Scottish Saltire inspired with rock energy */
     .hero {
       position: relative;
       height: 100dvh;
-      min-height: 680px;
+      min-height: 720px;
       background: 
-        linear-gradient(to bottom, #000 0%, #000 35%, transparent 70%),
-        url('/hero-bg.jpg') center/cover no-repeat fixed;
+        linear-gradient(rgba(0, 35, 102, 0.75), rgba(0, 35, 102, 0.85)),
+        url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1920&q=80') center/cover no-repeat fixed; /* Fallback blue gradient bg */
+      background-blend-mode: overlay;
       display: grid;
       place-items: center;
     }
 
-    .hero::before {
-      content: "";
+    /* Use your custom flaming pick + guitars image here */
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.78) 0%, rgba(20,0,0,0.88) 100%);
+      background: 
+        linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.7) 70%),
+        url('/images/hero-rock-scot-saltire-flames-lespaul.jpg') center/cover no-repeat fixed; /* ← REPLACE WITH YOUR IMAGE */
+      opacity: 0.92;
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       text-align: center;
       padding: 0 1.5rem;
-      max-width: 920px;
+      max-width: 1100px;
     }
 
     .hero-title {
-      font-size: clamp(4.2rem, 10vw, 9.5rem);
-      line-height: 0.9;
-      margin-bottom: 0.3rem;
-      text-shadow: 0 0 70px rgba(255,46,0,0.65);
+      font-size: clamp(5rem, 14vw, 12rem);
+      line-height: 0.85;
+      margin-bottom: 0.2rem;
+      letter-spacing: -4px;
+      color: var(--scot-white);
+      text-shadow: 0 0 60px var(--rock-red), 0 0 120px rgba(255,46,0,0.5);
     }
 
     .hero-subtitle {
-      font-size: clamp(1.6rem, 5vw, 2.6rem);
-      color: #ffa500;
+      font-size: clamp(1.8rem, 6vw, 3.2rem);
+      color: #ffcc00;
+      font-weight: 500;
       margin-bottom: 2.5rem;
-      font-weight: 400;
+      text-shadow: 0 0 20px rgba(255,204,0,0.7);
     }
 
     .btn-rock {
-      padding: 1.1rem 2.8rem;
-      font-size: 1.35rem;
+      padding: 1.2rem 3rem;
+      font-size: 1.4rem;
       font-weight: 700;
       background: var(--rock-red);
       border: none;
       border-radius: 50px;
       color: white;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 32px rgba(255,46,0,0.5);
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(255,46,0,0.6);
     }
 
     .btn-rock:hover {
       background: var(--rock-red-dark);
-      transform: translateY(-4px) scale(1.035);
-      box-shadow: 0 16px 48px rgba(200,18,31,0.65);
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 20px 60px rgba(200,18,31,0.8);
     }
 
-    /* Navbar */
+    /* Navbar - semi-transparent dark with red accent */
     .navbar {
-      background: rgba(12,12,12,0.9);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5,5,5,0.92);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid #222;
+    }
+
+    .navbar-brand {
+      font-size: 2.1rem;
+      letter-spacing: -1px;
     }
 
     .nav-link {
       color: #ddd !important;
       font-weight: 500;
-      transition: color 0.25s;
+      transition: color 0.3s, transform 0.3s;
     }
 
-    .nav-link:hover, .nav-link.active {
-      color: var(--rock-red) !important;
-    }
-
-    /* Cards */
-    .card-rock {
-      background: var(--card);
-      border: 1px solid #222;
-      border-radius: 16px;
-      transition: all 0.35s ease;
-      overflow: hidden;
-    }
-
-    .card-rock:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(255,46,0,0.25);
-      border-color: var(--rock-red);
-    }
-
-    /* Player area */
-    #player-card {
-      background: linear-gradient(145deg, #1c1c1c, #111);
-      border-radius: 16px;
-      padding: 1.6rem;
-      border: 1px solid #222;
-    }
-
-    footer {
-      background: #000;
-      border-top: 1px solid #222;
-      color: #777;
-      padding: 4rem 1rem 2.5rem;
-    }
-
-    .social-link {
-      font-size: 2.2rem;
-      color: #555;
-      transition: all 0.3s;
-    }
-
-    .social-link:hover {
-      color: var(--rock-red);
-      transform: translateY(-4px);
-    }
-
-    @media (max-width: 576px) {
-      .hero-title { font-size: clamp(3.6rem, 13vw, 6.5rem); }
-      .hero-subtitle { font-size: 1.8rem; }
-      .btn-rock { padding: 0.95rem 2.4rem; font-size: 1.25rem; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">ROCK.SCOT</h1>
-    <div class="hero-subtitle">Scotland's Pure Rock Revolution</div>
-
-    <div class="d-flex flex-column flex-sm-row gap-4 justify-content-center mt-5">
-      <a href="https://player.broadcast.radio/caledonia-tx-ltd" target="_blank" rel="noopener noreferrer" 
-         class="btn btn-rock btn-lg">
-        <i class="bi bi-broadcast me-2"></i>LISTEN LIVE
-      </a>
-      <a href="#now-playing" class="btn btn-outline-light btn-lg">
-        <i class="bi bi-music-note-beamed me-2"></i>Now Playing
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-3 text-white" href="/">Rock.Scot</a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto gap-1 gap-lg-4">
-        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/shows">Shows</a></li>
-        <li class="nav-item"><a class="nav-link" href="/schedule">Schedule</a></li>
-        <li class="nav-item"><a class="nav-link" href="/advertise">Advertise</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<main class="container my-5 pt-4">
-
-  <!-- Now Playing -->
-  <section id="now-playing" class="mb-5">
-    <h2 class="mb-4 text-center text-md-start">NOW PLAYING</h2>
-    <div id="player-card" class="text-center mx-auto" style="max-width: 540px;">
-      <audio id="audio" controls crossorigin preload="metadata" class="w-100 mb-3">
-        <source src="https://player.broadcast.radio/caledonia-tx-ltd/stream" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <h4 id="song" class="fw-bold mb-1">Loading track info...</h4>
-      <div id="artist" class="text-muted fs-5">—</div>
-    </div>
-  </section>
-
-  <!-- Quick About + Coverage -->
-  <section class="row g-5 mb-5 align-items-center">
-    <div class="col-lg-7">
-      <h2 class="mb-4">Scotland’s Loudest Rock Station</h2>
-      <p class="lead fs-4 lh-lg">
-        24/7 guitar-driven, riff-heavy, no-compromise ROCK.<br>
-        On <strong>DAB+</strong> in key regions and streaming everywhere.
-      </p>
-    </div>
-    <div class="col-lg-5">
-      <div class="card-rock p-4">
-        <h3 class="mb-3">DAB+ Coverage Areas</h3>
-        <ul class="list-unstyled lh-lg">
-          <li><i class="bi bi-broadcast me-2 text-danger"></i><strong>Inverclyde</strong> – Greenock, Gourock, Port Glasgow, etc.</li>
-          <li><i class="bi bi-broadcast me-2 text-danger"></i><strong>North Ayrshire</strong> – Largs, Irvine, Ardrossan, etc.</li>
-          <li><i class="bi bi-broadcast me-2 text-danger"></i><strong>South Lanarkshire</strong> – Hamilton, East Kilbride, Lanark, etc.</li>
-          <li class="mt-3 text-warning fw-bold"><i class="bi bi-rocket-takeoff me-2"></i>Coming 2026: Oban area</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Shows -->
-  <section class="mb-5">
-    <h2 class="mb-4 text-center text-md-start">Featured Shows</h2>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-rock p-4 h-100">
-          <h4>UK Rock Show</h4>
-          <p class="text-muted">Classic & modern British rock anthems</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-rock p-4 h-100">
-          <h4>World Rock</h4>
-          <p class="text-muted">International rock firepower</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-rock p-4 h-100">
-          <h4>Tom Russell Rock Show</h4>
-          <p class="text-muted">Hand-picked by the legend</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="text-center">
-  <div class="container">
-    <div class="social-icons mb-4">
-      <a href="#" class="social-link mx-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="social-link mx-3" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="social-link mx-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="social-link mx-3" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-    </div>
-    
-    <p class="mb-1">© 2026 Rock.Scot – Rockin' Scotland</p>
-    <p class="text-muted small">Inverclyde • North Ayrshire • South Lanarkshire • Worldwide Online</p>
-  </div>
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-<script>
-async function updateNowPlaying() {
-  try {
-    const res = await fetch('https://player.broadcast.radio/caledonia-tx-ltd/nowplaying.json', {
-      cache: 'no-store',
-      headers: { 'Accept': 'application/json' }
-    });
-    
-    if (!res.ok) throw new Error();
-    
-    const data = await res.json();
-    const song = data?.now_playing?.song?.trim() || '—';
-    const artist = data?.now_playing?.artist?.trim() || 'Rock.Scot Live';
-    
-    document.getElementById('song').textContent = song;
-    document.getElementById('artist').textContent = artist;
-  } catch {
-    document.getElementById('song').textContent = 'Rocking Scotland!';
-    document.getElementById('artist').textContent = '—';
-  }
-}
-
-updateNowPlaying();
-setInterval(updateNowPlaying, 7000);
-</script>
-</body>
-</html>
+   
