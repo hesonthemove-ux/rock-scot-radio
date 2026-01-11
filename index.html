@@ -14,7 +14,8 @@
             --pure-black: #000000;
             --dark-grey: #0a0a0a;
             --border: rgba(255,255,255,0.1);
-            --active-green: #00ff88;
+            --test-blue: #00d4ff;
+            --saltire-blue: #005eb8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -24,7 +25,7 @@
             color: #fff;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            line-height: 1.4;
+            width: 100vw;
         }
 
         /* --- NAVIGATION --- */
@@ -42,14 +43,12 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .brand { font-family: 'Unbounded'; font-weight: 900; font-size: 1rem; letter-spacing: -1px; }
-        .nav-links { display: none; gap: 1.5rem; }
-        .nav-links a { color: #fff; text-decoration: none; font-family: 'Unbounded'; font-size: 0.65rem; text-transform: uppercase; }
+        .brand { font-family: 'Unbounded'; font-weight: 900; font-size: 0.9rem; letter-spacing: -1px; }
         .menu-trigger { font-size: 1.5rem; cursor: pointer; color: var(--magma-red); }
 
-        /* --- HERO: LOGO FOCUS --- */
+        /* --- HERO --- */
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,67 +57,82 @@
             padding: 100px 5% 40px;
         }
 
-        .logo-container { width: 100%; max-width: 800px; margin-bottom: 1rem; }
-        .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 40px rgba(255,62,0,0.2)); }
+        .logo-container { width: 85%; max-width: 500px; margin-bottom: 1.5rem; }
+        .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 30px rgba(255, 62, 0, 0.2)); }
 
         .hero-title {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.2rem, 12vw, 5.5rem); 
+            font-size: clamp(2.2rem, 11vw, 5.5rem); 
             font-weight: 800;
             text-transform: uppercase;
-            line-height: 0.8;
-            letter-spacing: -0.05em;
-            margin-bottom: 2rem;
+            line-height: 1.0;
+            letter-spacing: -0.04em;
         }
+
+        /* CSS SALTIRE */
+        .saltire-box {
+            width: 50px; height: 30px;
+            background: var(--saltire-blue);
+            position: relative;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+        }
+        .saltire-box:before, .saltire-box:after {
+            content: ""; position: absolute; top: 50%; left: 50%;
+            width: 150%; height: 5px; background: #fff;
+        }
+        .saltire-box:before { transform: translate(-50%, -50%) rotate(31deg); }
+        .saltire-box:after { transform: translate(-50%, -50%) rotate(-31deg); }
 
         /* --- TICKER --- */
         .ticker-wrap { background: var(--magma-red); padding: 12px 0; overflow: hidden; }
         .ticker {
-            display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite;
-            font-family: 'Unbounded'; font-weight: 900; color: #000; font-size: 0.75rem;
+            display: inline-block; white-space: nowrap; animation: ticker 35s linear infinite;
+            font-family: 'Unbounded'; font-weight: 900; color: #000; font-size: 0.7rem;
         }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- COVERAGE STATUS LIST --- */
-        section { padding: 80px 8%; border-bottom: 1px solid var(--border); }
+        /* --- SECTIONS --- */
+        section { padding: 80px 5%; border-bottom: 1px solid var(--border); }
         .section-title {
-            font-family: 'Syne'; font-size: clamp(1.8rem, 5vw, 3.5rem);
+            font-family: 'Syne'; font-size: clamp(1.8rem, 6vw, 3rem);
             text-transform: uppercase; margin-bottom: 40px; border-left: 6px solid var(--magma-red); padding-left: 20px;
         }
 
-        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
         
-        .status-card {
+        .card {
             background: var(--dark-grey);
             padding: 2.5rem;
             border: 1px solid var(--border);
             position: relative;
+            transition: 0.3s;
         }
+
+        /* --- PRESENTER SPOTLIGHT --- */
+        .presenter-img {
+            width: 100%; height: 350px;
+            background-color: #222;
+            /* Once you have a photo of Tom, name it tom.jpg and it will show here */
+            background-image: url('tom.jpg'); 
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            filter: grayscale(1);
+            transition: 0.5s;
+        }
+        .card:hover .presenter-img { filter: grayscale(0); border-color: var(--magma-red); }
 
         .status-label {
-            font-family: 'Unbounded';
-            font-size: 0.6rem;
-            padding: 4px 10px;
-            text-transform: uppercase;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 15px;
+            font-family: 'Unbounded'; font-size: 0.55rem; padding: 4px 10px;
+            text-transform: uppercase; border-radius: 2px; display: inline-flex;
+            align-items: center; gap: 8px; margin-bottom: 15px; font-weight: 700;
         }
-
-        .status-live { background: rgba(0, 255, 136, 0.1); color: var(--active-green); border: 1px solid var(--active-green); }
-        .status-soon { background: rgba(255, 62, 0, 0.1); color: var(--magma-red); border: 1px solid var(--magma-red); }
-
-        .status-card h3 { font-family: 'Syne'; font-size: 1.8rem; text-transform: uppercase; margin-bottom: 10px; }
-        .status-card p { color: #777; font-size: 0.9rem; line-height: 1.5; }
-
-        /* --- RATE CARD --- */
-        .price-tag { font-family: 'Unbounded'; font-size: 1.5rem; color: var(--magma-red); display: block; margin-bottom: 1rem; }
-        .btn {
-            display: inline-block; padding: 12px 24px; background: transparent; border: 1px solid var(--magma-red);
-            color: #fff; text-decoration: none; font-family: 'Unbounded'; font-size: 0.7rem;
-            text-transform: uppercase; transition: 0.3s; cursor: pointer;
-        }
-        .btn:hover { background: var(--magma-red); color: #000; }
+        .status-testing { background: rgba(0, 212, 255, 0.1); color: var(--test-blue); border: 1px solid var(--test-blue); }
+        .pulse { width: 8px; height: 8px; background: var(--test-blue); border-radius: 50%; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
         /* --- PLAYER BAR --- */
         .player-bar {
@@ -132,14 +146,12 @@
             background: #000; z-index: 4000; display: none;
             flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem;
         }
-        #mobile-nav a { font-family: 'Syne'; font-size: 2.2rem; color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 800; }
-        #close-menu { position: absolute; top: 30px; right: 30px; font-size: 2.5rem; cursor: pointer; color: var(--magma-red); }
+        #mobile-nav a { font-family: 'Syne'; font-size: 2.5rem; color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 800; }
 
-        @media (min-width: 1024px) { .nav-links { display: flex; } .menu-trigger { display: none; } }
         @media (max-width: 600px) {
-            .hero { padding-top: 60px; justify-content: flex-start; }
-            .logo-container { margin-top: 40px; }
-            .player-bar { height: 135px; }
+            .hero { padding-top: 90px; }
+            .player-bar { height: 140px; }
+            .card { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -147,58 +159,64 @@
 
     <nav>
         <div class="brand">ROCK.SCOT</div>
-        <div class="nav-links">
-            <a href="#coverage">Coverage</a>
-            <a href="#advertise">Rate Card</a>
-            <a href="#retune">How to Listen</a>
-            <a href="#contact">Contact</a>
-        </div>
         <div class="menu-trigger" onclick="toggleMenu()"><i class="bi bi-list"></i></div>
     </nav>
 
     <div id="mobile-nav">
-        <div id="close-menu" onclick="toggleMenu()"><i class="bi bi-x"></i></div>
-        <a href="#coverage" onclick="toggleMenu()">Coverage</a>
-        <a href="#advertise" onclick="toggleMenu()">Rate Card</a>
-        <a href="#retune" onclick="toggleMenu()">How to Listen</a>
+        <div style="position:absolute; top:30px; right:30px; font-size:2.5rem;" onclick="toggleMenu()"><i class="bi bi-x"></i></div>
+        <a href="#presenters" onclick="toggleMenu()">Presenters</a>
+        <a href="#coverage" onclick="toggleMenu()">Status</a>
+        <a href="#advertise" onclick="toggleMenu()">Advertise</a>
         <a href="#contact" onclick="toggleMenu()">Contact</a>
     </div>
 
     <header class="hero">
         <div class="logo-container">
-            <img src="logo.png" alt="ROCK.SCOT Logo" class="main-logo-img">
+            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
         </div>
         <h1 class="hero-title">ROCKIN'<br>SCOTLAND</h1>
+        <div class="saltire-box"></div>
     </header>
 
     <div class="ticker-wrap">
         <div class="ticker">
-            NOW LIVE: INVERCLYDE MUX • IMMINENT: NORTH AYRSHIRE • IMMINENT: SOUTH LANARKSHIRE • BROADCASTING ON DAB & DAB+ • 
+            TOM RUSSELL • THE GODFATHER OF ROCK • INVERCLYDE: TEST TRANSMISSION LIVE • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT • 
         </div>
     </div>
 
+    <section id="presenters">
+        <h2 class="section-title">On Air</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="presenter-img"></div>
+                <h4 style="font-family: 'Unbounded'; font-size: 0.6rem; color: var(--magma-red); margin-bottom: 10px;">THE GODFATHER</h4>
+                <h3 style="font-size: 2rem;">Tom Russell</h3>
+                <p>Scotland's most iconic rock voice is here. Bringing his legendary selection and deep rock knowledge to Rockin' Scotland.</p>
+            </div>
+            <div class="card" style="display: flex; flex-direction: column; justify-content: center; border-style: dashed;">
+                <h3 style="color: #444;">More Talent<br>Joining Soon</h3>
+                <p>We are building the strongest lineup in Scottish Rock radio history. Watch this space.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="coverage">
-        <h2 class="section-title">Broadcast Status</h2>
-        <div class="status-grid">
-            <div class="status-card">
-                <span class="status-label status-live">Active Now</span>
+        <h2 class="section-title">Status</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="status-label status-testing"><span class="pulse"></span> Testing</span>
                 <h3>Inverclyde</h3>
-                <p>Broadcasting across Greenock, Gourock, and Port Glasgow. High-bitrate DAB & DAB+.</p>
+                <p>Signals active for technical testing. Available on DAB & DAB+.</p>
             </div>
-            <div class="status-card">
-                <span class="status-label status-soon">Imminent</span>
-                <h3>North Ayrshire</h3>
-                <p>Launch preparations underway for the coastal towns and industrial hubs.</p>
+            <div class="card">
+                <span class="status-label" style="border: 1px solid #444; color: #444;">Imminent</span>
+                <h3 style="overflow-wrap: break-word;">North Ayrshire</h3>
+                <p>Hardware rollout in progress. Launching shortly.</p>
             </div>
-            <div class="status-card">
-                <span class="status-label status-soon">Imminent</span>
-                <h3>South Lanarkshire</h3>
-                <p>Expanding the noise to the heart of the central belt commuter belt.</p>
-            </div>
-            <div class="status-card" style="opacity: 0.5;">
-                <span class="status-label status-soon">Late 2026</span>
-                <h3>Oban</h3>
-                <p>Bringing Rockin' Scotland to the West Coast and Highlands gateway.</p>
+            <div class="card">
+                <span class="status-label" style="border: 1px solid #444; color: #444;">Imminent</span>
+                <h3 style="overflow-wrap: break-word;">South Lanarkshire</h3>
+                <p>Connecting the noise to the Central Belt very soon.</p>
             </div>
         </div>
     </section>
@@ -207,30 +225,18 @@
         <h2 class="section-title">Rate Card</h2>
         <div class="grid">
             <div class="card">
-                <h3>Hyper-Local</h3>
-                <span class="price-tag">£149 <small style="font-size: 0.6rem;">/Month</small></span>
-                <p>Targeted spots on the Inverclyde Mux. Reach your local community directly.</p>
-                <a href="mailto:sales@rock.scot" class="btn">Inquire</a>
+                <h4 style="font-family: 'Unbounded'; font-size: 0.6rem; color: var(--magma-red);">LOCAL IMPACT</h4>
+                <h3 style="margin: 10px 0;">Single Mux</h3>
+                <p style="font-family: 'Unbounded'; font-size: 1.4rem; color: #fff;">£149 <small style="font-size: 0.6rem;">/mo</small></p>
+                <p>Targeted spots in one specific region.</p>
+                <a href="mailto:sales@rock.scot" style="display:inline-block; margin-top: 15px; border: 1px solid var(--magma-red); padding: 10px 20px; color: #fff; text-decoration: none; font-family: 'Unbounded'; font-size: 0.6rem;">ENQUIRE</a>
             </div>
             <div class="card" style="border-color: var(--magma-red);">
-                <h3>Full Network</h3>
-                <span class="price-tag">£349 <small style="font-size: 0.6rem;">/Month</small></span>
-                <p>Saturation coverage across all active and imminent Muxes. Maximum Scottish reach.</p>
-                <a href="mailto:sales@rock.scot" class="btn">Book Now</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="retune">
-        <h2 class="section-title">How to Listen</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>DAB & DAB+</h3>
-                <p>We are one of the few stations supporting both standards. Older radios (DAB) and modern receivers (DAB+) will both find us during a scan.</p>
-            </div>
-            <div class="card">
-                <h3>Auto-Scan</h3>
-                <p>Simply hit 'Autotune' or 'Scan' on your digital radio. Scroll to ROCK.SCOT and save us to your presets.</p>
+                <h4 style="font-family: 'Unbounded'; font-size: 0.6rem; color: var(--magma-red);">FULL REACH</h4>
+                <h3 style="margin: 10px 0;">Total Network</h3>
+                <p style="font-family: 'Unbounded'; font-size: 1.4rem; color: #fff;">£349 <small style="font-size: 0.6rem;">/mo</small></p>
+                <p>All active and imminent Muxes + Web presence.</p>
+                <a href="mailto:sales@rock.scot" style="display:inline-block; margin-top: 15px; background: var(--magma-red); padding: 10px 20px; color: #000; text-decoration: none; font-family: 'Unbounded'; font-size: 0.6rem; font-weight: 700;">BOOK NOW</a>
             </div>
         </div>
     </section>
@@ -239,12 +245,13 @@
         <h2 class="section-title">Contact</h2>
         <div class="grid">
             <div class="card">
-                <h3>Studio Line</h3>
-                <p style="font-size: 1.8rem; font-family: 'Syne'; color: #fff;">0141 459 ROCK</p>
+                <h3>Studio</h3>
+                <p style="font-size: 1.5rem; color: #fff; font-family: 'Syne';">0141 459 ROCK</p>
+                <p>studio@rock.scot</p>
             </div>
             <div class="card">
-                <h3>Email</h3>
-                <p>studio@rock.scot<br>sales@rock.scot</p>
+                <h3>Sales</h3>
+                <p>sales@rock.scot</p>
             </div>
         </div>
     </section>
