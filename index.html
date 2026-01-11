@@ -14,6 +14,7 @@
             --pure-black: #000000;
             --dark-grey: #0a0a0a;
             --border: rgba(255,255,255,0.1);
+            --saltire: #005eb8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -55,7 +56,7 @@
 
         /* --- HERO --- */
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,45 +70,54 @@
 
         .hero-title {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 6.5rem);
+            font-size: clamp(2rem, 10vw, 6rem);
             font-weight: 800;
             text-transform: uppercase;
             line-height: 0.85;
             margin-bottom: 2rem;
         }
 
-        /* --- RED TICKER --- */
-        .ticker-wrap { background: var(--magma-red); padding: 12px 0; margin-bottom: 4rem; overflow: hidden; }
+        /* --- TICKER --- */
+        .ticker-wrap { background: var(--magma-red); padding: 12px 0; overflow: hidden; }
         .ticker {
-            display: inline-block; white-space: nowrap; animation: ticker 30s linear infinite;
-            font-family: 'Unbounded'; font-weight: 900; color: #000; font-size: 0.8rem;
+            display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite;
+            font-family: 'Unbounded'; font-weight: 900; color: #000; font-size: 0.75rem;
         }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- SECTIONS --- */
-        section { padding: 80px 8%; border-bottom: 1px solid var(--border); }
+        section { padding: 100px 8%; border-bottom: 1px solid var(--border); }
         .section-title {
             font-family: 'Syne'; font-size: clamp(2rem, 5vw, 4rem);
-            text-transform: uppercase; margin-bottom: 40px; border-left: 6px solid var(--magma-red); padding-left: 20px;
+            text-transform: uppercase; margin-bottom: 50px; border-left: 8px solid var(--magma-red); padding-left: 25px;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: var(--dark-grey); padding: 3rem 2rem; border: 1px solid var(--border); transition: 0.3s; }
-        .card:hover { border-color: var(--magma-red); transform: translateY(-5px); }
-        .card h3 { font-family: 'Syne'; font-size: 1.5rem; margin-bottom: 1rem; color: var(--magma-red); }
-        .card p { color: #888; margin-bottom: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .card { background: var(--dark-grey); padding: 3rem 2rem; border: 1px solid var(--border); position: relative; overflow: hidden; transition: 0.3s ease; }
+        .card:hover { border-color: var(--magma-red); background: #0e0e0e; }
+        
+        .card h3 { font-family: 'Syne'; font-size: 1.6rem; margin-bottom: 1.2rem; color: #fff; text-transform: uppercase; }
+        .card p { color: #888; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;}
+        
+        .price-tag { font-family: 'Unbounded'; font-size: 1.5rem; color: var(--magma-red); display: block; margin-bottom: 1rem; }
+        .promo-badge { position: absolute; top: 20px; right: -30px; background: var(--saltire); color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.6rem; font-family: 'Unbounded'; font-weight: 700; }
 
         .btn {
-            display: inline-block; padding: 12px 24px; background: transparent; border: 1px solid #fff;
+            display: inline-block; padding: 12px 24px; background: transparent; border: 1px solid var(--magma-red);
             color: #fff; text-decoration: none; font-family: 'Unbounded'; font-size: 0.7rem;
-            text-transform: uppercase; transition: 0.3s;
+            text-transform: uppercase; transition: 0.3s; cursor: pointer;
         }
-        .btn:hover { background: #fff; color: #000; }
+        .btn:hover { background: var(--magma-red); color: #000; font-weight: 700; }
 
-        /* --- CONTACT --- */
-        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-        .info-item { font-family: 'Unbounded'; font-size: 0.9rem; }
-        .info-item span { display: block; color: var(--magma-red); font-size: 0.6rem; margin-bottom: 5px; }
+        /* --- RETUNE GUIDE --- */
+        .retune-steps { counter-reset: step; list-style: none; }
+        .retune-steps li { margin-bottom: 2rem; padding-left: 50px; position: relative; color: #ccc; }
+        .retune-steps li::before {
+            content: counter(step); counter-increment: step;
+            position: absolute; left: 0; top: -5px; width: 35px; height: 35px;
+            background: var(--magma-red); color: #000; font-family: 'Unbounded';
+            display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 50%;
+        }
 
         /* --- PLAYER BAR --- */
         .player-bar {
@@ -120,15 +130,12 @@
         #mobile-nav {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #000; z-index: 4000; display: none;
-            flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem;
         }
-        #mobile-nav a { font-family: 'Syne'; font-size: 2.5rem; color: #fff; text-decoration: none; text-transform: uppercase; }
-        #close-menu { position: absolute; top: 30px; right: 30px; font-size: 2.5rem; cursor: pointer; color: var(--magma-red); }
+        #mobile-nav a { font-family: 'Syne'; font-size: 2.5rem; color: #fff; text-decoration: none; text-transform: uppercase; font-weight: 800; }
+        #close-menu { position: absolute; top: 30px; right: 30px; font-size: 3rem; cursor: pointer; color: var(--magma-red); }
 
-        @media (min-width: 1024px) {
-            .nav-links { display: flex; }
-            .menu-trigger { display: none; }
-        }
+        @media (min-width: 1024px) { .nav-links { display: flex; } .menu-trigger { display: none; } }
     </style>
 </head>
 <body>
@@ -136,9 +143,9 @@
     <nav>
         <div class="brand">ROCK.SCOT</div>
         <div class="nav-links">
-            <a href="#shows">Shows</a>
-            <a href="#blog">Blog</a>
-            <a href="#advertise">Advertise</a>
+            <a href="#coverage">Coverage</a>
+            <a href="#advertise">Rate Card</a>
+            <a href="#retune">How to Listen</a>
             <a href="#contact">Contact</a>
         </div>
         <div class="menu-trigger" onclick="toggleMenu()"><i class="bi bi-list"></i></div>
@@ -146,100 +153,57 @@
 
     <div id="mobile-nav">
         <div id="close-menu" onclick="toggleMenu()"><i class="bi bi-x"></i></div>
-        <a href="#shows" onclick="toggleMenu()">Shows</a>
-        <a href="#blog" onclick="toggleMenu()">Blog</a>
-        <a href="#advertise" onclick="toggleMenu()">Advertise</a>
+        <a href="#coverage" onclick="toggleMenu()">Coverage</a>
+        <a href="#advertise" onclick="toggleMenu()">Rate Card</a>
+        <a href="#retune" onclick="toggleMenu()">How to Listen</a>
         <a href="#contact" onclick="toggleMenu()">Contact</a>
     </div>
 
     <header class="hero">
         <div class="logo-container">
-            <img src="logo.png" alt="ROCK.SCOT Station Logo" class="main-logo-img">
+            <img src="logo.png" alt="ROCK.SCOT Logo" class="main-logo-img">
         </div>
         <h1 class="hero-title">FREQUENCY<br>UNLEASHED</h1>
     </header>
 
     <div class="ticker-wrap">
         <div class="ticker">
-            NOW BROADCASTING ACROSS SCOTLAND ON DAB+ DIGITAL RADIO • NO FILLER JUST ROCK • ROCK.SCOT • FREQUENCY UNLEASHED • 
-            NOW BROADCASTING ACROSS SCOTLAND ON DAB+ DIGITAL RADIO • NO FILLER JUST ROCK • ROCK.SCOT • FREQUENCY UNLEASHED • 
+            NOW ON DAB & DAB+ DIGITAL RADIO • INVERCLYDE • NORTH AYRSHIRE • SOUTH LANARKSHIRE • NO RADIOS LEFT BEHIND • COMING TO OBAN LATE 2026 • 
+            NOW ON DAB & DAB+ DIGITAL RADIO • INVERCLYDE • NORTH AYRSHIRE • SOUTH LANARKSHIRE • NO RADIOS LEFT BEHIND • COMING TO OBAN LATE 2026 • 
         </div>
     </div>
 
-    <section id="shows">
-        <h2 class="section-title">Show Schedule</h2>
+    <section id="coverage">
+        <h2 class="section-title">Broadcast Area</h2>
         <div class="grid">
             <div class="card">
-                <h3>Tom Russell Rock Show</h3>
-                <p>The legendary Tom Russell brings the best selection of rock music to your ears.</p>
-                <span class="btn">View Schedule</span>
+                <h3>Inverclyde</h3>
+                <p>Broadcasting to Greenock, Port Glasgow, and Gourock on the local SSDAB Mux.</p>
+                <span class="btn">DAB & DAB+</span>
             </div>
             <div class="card">
-                <h3>UK Rock Show</h3>
-                <p>The definitive guide to rock music from across the UK.</p>
-                <span class="btn">Learn More</span>
+                <h3>North Ayrshire</h3>
+                <p>Coverage across the coastal towns and industrial hubs of the North Ayrshire Mux.</p>
+                <span class="btn">DAB & DAB+</span>
             </div>
             <div class="card">
-                <h3>World Rock</h3>
-                <p>Exploring the heaviest and loudest sounds from every corner of the globe.</p>
-                <span class="btn">Listen Back</span>
+                <h3>South Lanarkshire</h3>
+                <p>Targeting the rock-loyal listeners throughout the South Lanarkshire Mux area.</p>
+                <span class="btn">DAB & DAB+</span>
+            </div>
+            <div class="card" style="border-style: dashed; opacity: 0.6;">
+                <h3>Oban</h3>
+                <p>Expansion scheduled for late 2026 / early 2027. Bringing the noise to the West Coast.</p>
+                <span class="btn" style="border-color: #444;">Coming Soon</span>
             </div>
         </div>
     </section>
 
-    <section id="blog">
-        <h2 class="section-title">Latest News</h2>
+    <section id="retune">
+        <h2 class="section-title">How to Listen</h2>
         <div class="grid">
-            <div class="card">
-                <h3>DAB Expansion</h3>
-                <p>Rockin Scotland is now available on Coast DAB servicing Dumbarton and Inverclyde.</p>
-                <a href="#" class="btn">Read Article</a>
-            </div>
-            <div class="card">
-                <h3>Ofcom Licensed</h3>
-                <p>Official licensed DSP station broadcasting high-energy rock across the digital spectrum.</p>
-                <a href="#" class="btn">Station Info</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="advertise">
-        <h2 class="section-title">Advertise</h2>
-        <div class="card" style="max-width: 800px;">
-            <h3>Partner with Scotland's Loudest</h3>
-            <p>Get your brand in front of a dedicated rock audience across Glasgow, Edinburgh, and the Central Belt. We offer high-impact airtime and digital sponsorship packages.</p>
-            <a href="mailto:studio@rock.scot" class="btn">Get Media Pack</a>
-        </div>
-    </section>
-
-    <section id="contact" style="padding-bottom: 180px;">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-info">
-            <div class="info-item">
-                <span>Phone</span>
-                0141 459 ROCK
-            </div>
-            <div class="info-item">
-                <span>Studio Email</span>
-                studio@rock.scot
-            </div>
-            <div class="info-item">
-                <span>Support</span>
-                support@rock.scot
-            </div>
-        </div>
-    </section>
-
-    <div class="player-bar">
-        <iframe src="https://player.broadcast.radio/caledonia-tx-ltd" allow="autoplay"></iframe>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-nav');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        }
-    </script>
-
-</body>
-</html>
+            <div>
+                <h3>Legacy DAB & DAB+</h3>
+                <p>We transmit on both standards. If you have an older radio, look for us on standard DAB. If your radio is modern, we are also available in crystal clear DAB+.</p>
+                <ul class="retune-steps">
+                    
