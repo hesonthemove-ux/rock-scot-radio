@@ -1,82 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Advertise | Rock.Scot</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#000;color:#fff;font-family:'Oswald',sans-serif;text-align:center;}
-h1,h2{font-family:'Metal Mania',cursive;color:#ff0000;text-shadow:0 0 8px #ff4500;}
-.container{max-width:1100px;margin:auto;padding:30px;}
-.cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
-.card{background:rgba(20,20,20,0.9);border:1px solid #333;padding:20px;border-radius:12px;box-shadow:0 0 15px rgba(255,0,0,0.3);transition:transform 0.3s,box-shadow 0.3s;}
-.card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(255,69,0,0.6);}
-a{color:#ff4500;text-decoration:none;}
-.hero{position:relative;background:url('https://images.unsplash.com/photo-1546456073-6712f79251bb?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;height:300px;display:flex;justify-content:center;align-items:center;margin-bottom:40px;}
-.hero h1{color:white;text-shadow:0 0 15px #ff0000;}
-#nowPlayingSection{margin-top:20px;}
-#nowPlayingSection audio{width:100%;border-radius:8px;}
-nav{margin:20px 0;}
-nav a{margin:0 10px;color:#fff;text-decoration:none;font-weight:600;}
-nav a:hover{color:#ff4500;}
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commercial Partnerships | ROCK.SCOT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--pure-black); color: #fff; font-family: sans-serif; line-height: 1.6; }
+        nav { padding: 20px; border-bottom: 1px solid var(--border); }
+        .back-link { color: var(--magma-red); text-decoration: none; font-family: 'Oswald'; font-weight: 700; }
+        header { padding: 60px 20px; text-align: center; }
+        h1 { font-family: 'Oswald'; font-size: 3rem; text-transform: uppercase; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
+        .tier-card { background: var(--card-bg); border: 1px solid var(--border); padding: 40px; position: relative; }
+        .tier-card h2 { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 10px; text-transform: uppercase; }
+        .price { font-family: 'Oswald'; font-size: 1.8rem; margin-bottom: 20px; display: block; }
+        .features { list-style: none; color: #aaa; margin-bottom: 30px; font-size: 0.9rem; }
+        .features li { margin-bottom: 10px; }
+        .prod-mandate { background: #111; border-left: 5px solid var(--magma-red); padding: 30px; margin-top: 40px; }
+        .prod-mandate h3 { font-family: 'Oswald'; margin-bottom: 10px; }
+        .btn { display: block; background: #fff; color: #000; text-align: center; padding: 15px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; }
+        .exclusive-tag { position: absolute; top: 0; right: 0; background: var(--magma-red); color: #000; font-family: 'Oswald'; font-size: 0.7rem; padding: 5px 10px; font-weight: 700; }
+    </style>
 </head>
 <body>
-
-<!-- Hero -->
-<section class="hero">
-  <h1>Advertise With Rock.Scot</h1>
-</section>
-
-<!-- Navigation -->
-<nav>
-  <a href="index.html">Home</a>
-  <a href="shows.html">Shows</a>
-  <a href="advertise.html">Advertise</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<!-- Now Playing -->
-<section class="section" id="nowPlayingSection">
-  <h2>Now Playing</h2>
-  <div class="cards" style="justify-content:center;">
-    <div class="card" style="max-width:400px;">
-      <audio id="livePlayer" controls autoplay>
-        <source src="https://player.broadcast.radio/caledonia-tx-ltd" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <p style="margin-top:10px;"><strong id="nowPlaying">Loading track...</strong></p>
+    <nav><a href="index.html" class="back-link">← RETURN TO RADIO</a></nav>
+    <header><h1>Commercial Rates</h1><p style="color:#666">Professional advertising for serious brands.</p></header>
+    <div class="container">
+        <div class="tier-grid">
+            <div class="tier-card">
+                <h2>Local Hero</h2>
+                <span class="price">£249 <small style="font-size:0.8rem">/Month</small></span>
+                <ul class="features"><li>• Single Mux Coverage</li><li>• 3 Spots Per Day</li><li>• Web Listing Included</li></ul>
+                <a href="mailto:sales@rock.scot" class="btn">Enquire</a>
+            </div>
+            <div class="tier-card" style="border-color: #333;">
+                <h2>Network</h2>
+                <span class="price">£695 <small style="font-size:0.8rem">/Month</small></span>
+                <ul class="features"><li>• Total Network Coverage</li><li>• 5 Spots Per Day</li><li>• Social Media Feature</li></ul>
+                <a href="mailto:sales@rock.scot" class="btn" style="background:var(--magma-red)">Book Network</a>
+            </div>
+            <div class="tier-card" style="background:#080808;">
+                <div class="exclusive-tag">EXCLUSIVE</div>
+                <h2>The Pulse</h2>
+                <span class="price">£1,450 <small style="font-size:0.8rem">/Month</small></span>
+                <ul class="features"><li>• Top of the Hour Ident</li><li>• News Integration</li><li>• Highest Authority Placement</li></ul>
+                <a href="mailto:sales@rock.scot" class="btn">Check Availability</a>
+            </div>
+        </div>
+        <div class="prod-mandate">
+            <h3>Mandatory Production Standards</h3>
+            <p style="color:#888; margin-bottom: 15px;">To ensure the quality of the ROCK.SCOT sound, all adverts must be professionally produced. We do not accept low-quality or home-made audio files.</p>
+            <p><strong>Professional Production Fee: £149.00</strong></p>
+            <p style="font-size:0.8rem; color:#666">Includes: Scripting, Professional Voice-over, and Licensing.</p>
+        </div>
     </div>
-  </div>
-</section>
-
-<div class="container">
-  <div class="cards">
-    <div class="card"><strong>Local Rock Starter</strong><br>From £95 / month<br>Ideal for local businesses</div>
-    <div class="card"><strong>Amplified Regional</strong><br>From £245 / month<br>Wider regional reach</div>
-    <div class="card"><strong>Headliner Sponsor</strong><br>From £495 / month<br>Maximum impact</div>
-  </div>
-  <p style="margin-top:30px;">Email: <a href="mailto:advertising@rock.scot">advertising@rock.scot</a></p>
-  <p><a href="index.html">⬅ Back Home</a></p>
-</div>
-
-<!-- Now Playing Script -->
-<script>
-async function fetchNowPlaying() {
-  try {
-    const response = await fetch('https://player.broadcast.radio/caledonia-tx-ltd/nowplaying.json');
-    if(!response.ok) throw 'No metadata';
-    const data = await response.json();
-    document.getElementById('nowPlaying').textContent = data.now_playing.song || 'Rocking Scotland!';
-  } catch(e){
-    document.getElementById('nowPlaying').textContent = 'Rocking Scotland!';
-  }
-}
-setInterval(fetchNowPlaying,5000);
-fetchNowPlaying();
-</script>
-
 </body>
 </html>
