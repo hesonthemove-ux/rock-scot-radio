@@ -5,26 +5,23 @@
 <title>Advertise | Rock.Scot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
 body{margin:0;background:#000;color:#fff;font-family:'Oswald',sans-serif;text-align:center;}
-.container{max-width:1100px;margin:auto;padding:30px;}
 h1,h2{font-family:'Metal Mania',cursive;color:#ff0000;text-shadow:0 0 8px #ff4500;}
+.container{max-width:1100px;margin:auto;padding:30px;}
 .cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
-.card{background:rgba(20,20,20,0.9);border:1px solid #333;padding:20px;border-radius:12px;box-shadow:0 0 15px rgba(255,0,0,0.3);transition:transform 0.3s, box-shadow 0.3s;}
+.card{background:rgba(20,20,20,0.9);border:1px solid #333;padding:20px;border-radius:12px;box-shadow:0 0 15px rgba(255,0,0,0.3);transition:transform 0.3s,box-shadow 0.3s;}
 .card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(255,69,0,0.6);}
 a{color:#ff4500;text-decoration:none;}
-.hero{
-  position:relative;
-  background:url('https://images.unsplash.com/photo-1546456073-6712f79251bb?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-  height:300px;
-  display:flex;justify-content:center;align-items:center;
-  margin-bottom:40px;
-}
+.hero{position:relative;background:url('https://images.unsplash.com/photo-1546456073-6712f79251bb?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;height:300px;display:flex;justify-content:center;align-items:center;margin-bottom:40px;}
 .hero h1{color:white;text-shadow:0 0 15px #ff0000;}
+#nowPlayingSection{margin-top:20px;}
+#nowPlayingSection audio{width:100%;border-radius:8px;}
+nav{margin:20px 0;}
+nav a{margin:0 10px;color:#fff;text-decoration:none;font-weight:600;}
+nav a:hover{color:#ff4500;}
 </style>
 </head>
-
 <body>
 
 <!-- Hero -->
@@ -32,21 +29,54 @@ a{color:#ff4500;text-decoration:none;}
   <h1>Advertise With Rock.Scot</h1>
 </section>
 
-<div class="container">
-  <div class="cards">
-    <div class="card">
-      <strong>Local Rock Starter</strong><br>From £95 / month<br>Ideal for local businesses
-    </div>
-    <div class="card">
-      <strong>Amplified Regional</strong><br>From £245 / month<br>Wider regional reach
-    </div>
-    <div class="card">
-      <strong>Headliner Sponsor</strong><br>From £495 / month<br>Maximum impact
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="shows.html">Shows</a>
+  <a href="advertise.html">Advertise</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Now Playing -->
+<section class="section" id="nowPlayingSection">
+  <h2>Now Playing</h2>
+  <div class="cards" style="justify-content:center;">
+    <div class="card" style="max-width:400px;">
+      <audio id="livePlayer" controls autoplay>
+        <source src="https://player.broadcast.radio/caledonia-tx-ltd" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p style="margin-top:10px;"><strong id="nowPlaying">Loading track...</strong></p>
     </div>
   </div>
-  <p>Email: <a href="mailto:advertising@rock.scot">advertising@rock.scot</a></p>
+</section>
+
+<div class="container">
+  <div class="cards">
+    <div class="card"><strong>Local Rock Starter</strong><br>From £95 / month<br>Ideal for local businesses</div>
+    <div class="card"><strong>Amplified Regional</strong><br>From £245 / month<br>Wider regional reach</div>
+    <div class="card"><strong>Headliner Sponsor</strong><br>From £495 / month<br>Maximum impact</div>
+  </div>
+  <p style="margin-top:30px;">Email: <a href="mailto:advertising@rock.scot">advertising@rock.scot</a></p>
   <p><a href="index.html">⬅ Back Home</a></p>
 </div>
+
+<!-- Now Playing Script -->
+<script>
+async function fetchNowPlaying() {
+  try {
+    const response = await fetch('https://player.broadcast.radio/caledonia-tx-ltd/nowplaying.json');
+    if(!response.ok) throw 'No metadata';
+    const data = await response.json();
+    document.getElementById('nowPlaying').textContent = data.now_playing.song || 'Rocking Scotland!';
+  } catch(e){
+    document.getElementById('nowPlaying').textContent = 'Rocking Scotland!';
+  }
+}
+setInterval(fetchNowPlaying,5000);
+fetchNowPlaying();
+</script>
 
 </body>
 </html>
