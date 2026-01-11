@@ -6,122 +6,95 @@
 <meta name="description" content="Rock.Scot – Scotland’s ultimate rock radio station. Streaming online and on DAB. Featuring live shows, presenters, and the best guitar and drum tracks.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* General Reset */
-* {margin:0;padding:0;box-sizing:border-box;}
-body {
-  font-family:'Oswald',sans-serif;
-  background:#000;
-  color:#fff;
-  text-align:center;
-  overflow-x:hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Oswald',sans-serif;background:#000;color:#fff;text-align:center;}
+.container{max-width:1100px;margin:auto;padding:30px;}
+h1,h2{font-family:'Metal Mania',cursive;color:#ff0000;text-shadow:0 0 8px #ff4500;}
 
 /* Hero Section */
-.hero {
-  position:relative;
-  height:100vh;
-  width:100%;
-  background: url('https://images.unsplash.com/photo-1597764690875-9f2e2f9c5b70?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-shadow: 0 0 15px #ff0000;
-  overflow:hidden;
-}
-
-/* Hero overlay */
-.hero::after {
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;bottom:0;
-  background: rgba(0,0,0,0.5);
-}
-
-/* Hero content */
-.hero-content {
-  position:relative;
-  z-index:1;
-}
-.hero img {
-  max-width:300px;
-  margin-bottom:15px;
-}
-.hero .tagline {
-  font-family:'Metal Mania',cursive;
-  font-size:2rem;
-  color:#ff0000;
-  margin-bottom:20px;
-  text-shadow: 0 0 10px #ff4500;
-}
-.listen-btn {
-  display:inline-block;
-  padding:16px 36px;
-  background:#c1121f;
-  color:#fff;
-  font-size:1.2rem;
-  border-radius:10px;
-  text-decoration:none;
-  box-shadow: 0 0 20px #c1121f;
-  transition: all 0.3s ease;
-}
-.listen-btn:hover {
-  box-shadow: 0 0 40px #ff4500;
-  transform: scale(1.05);
-}
+.hero{position:relative;height:100vh;width:100%;background:url('https://images.unsplash.com/photo-1597764690875-9f2e2f9c5b70?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-shadow:0 0 15px #ff0000;}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background: rgba(0,0,0,0.5);}
+.hero-content{position:relative; z-index:1;}
+.hero img{max-width:300px;margin-bottom:15px; animation:flicker 3s infinite;}
+.hero .tagline{font-size:2rem;color:#ff4500;margin-bottom:20px;text-shadow:0 0 10px #ff4500;}
+.listen-btn{display:inline-block;padding:16px 36px;background:#c1121f;color:#fff;font-size:1.2rem;border-radius:10px;text-decoration:none;box-shadow:0 0 20px #c1121f;transition: all 0.3s;}
+.listen-btn:hover{box-shadow:0 0 40px #ff4500; transform: scale(1.05);}
+@keyframes flicker{0%,100%{filter:brightness(1);}50%{filter:brightness(1.2);}}
 
 /* Sections */
-.section {
-  padding:60px 20px;
-  max-width:1100px;
-  margin:auto;
-  position:relative;
-}
+.section{padding:60px 20px;max-width:1100px;margin:auto;position:relative;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.card{background:rgba(20,20,20,0.9);border:1px solid #333;padding:20px;border-radius:12px;box-shadow:0 0 15px rgba(255,0,0,0.3);transition:transform 0.3s,box-shadow 0.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(255,69,0,0.6);}
+footer{background:#111;padding:30px 10px;font-size:0.9rem;color:#aaa;text-align:center;}
+nav a{margin:0 10px;color:#fff;text-decoration:none;font-weight:600;}
+nav a:hover{color:#ff4500;}
+</style>
+</head>
+<body>
 
-/* Section headers */
-.section h2 {
-  font-family:'Metal Mania',cursive;
-  font-size:2rem;
-  margin-bottom:30px;
-  color:#ff0000;
-  text-shadow: 0 0 8px #ff0000;
-}
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="logo.png" alt="Rock.Scot Logo">
+    <div class="tagline">Rockin’ Scotland</div>
+    <a class="listen-btn" href="https://player.broadcast.radio/caledonia-tx-ltd" target="_blank">🎸 Listen Live</a>
+  </div>
+</section>
 
-/* Cards */
-.cards {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-.card {
-  background: rgba(20,20,20,0.9);
-  border:1px solid #333;
-  padding:20px;
-  border-radius:12px;
-  box-shadow: 0 0 15px rgba(255,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(255,69,0,0.6);
-}
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="shows.html">Shows</a>
+  <a href="advertise.html">Advertise</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-/* Footer */
-footer {
-  background:#111;
-  padding:30px 10px;
-  font-size:0.9rem;
-  color:#aaa;
-  text-align:center;
-}
+<!-- About -->
+<section class="section">
+  <h2>About Rock.Scot</h2>
+  <p>Scotland’s ultimate rock station, streaming the best guitar riffs and drum beats. Broadcasting online and on DAB, supporting Scottish rock talent and fans everywhere.</p>
+</section>
 
-/* Animate hero flames subtly */
-@keyframes flicker {
-  0%,100% {filter:brightness(1);}
-  50% {filter:bri
-  
+<!-- Featured Shows -->
+<section class="section">
+  <h2>Featured Shows</h2>
+  <div class="cards">
+    <div class="card"><strong>UK Rock Show</strong><br>Classic & modern rock anthems</div>
+    <div class="card"><strong>World Rock</strong><br>Global rock selections</div>
+    <div class="card"><strong>Tom Russell Rock Show</strong><br>Tom’s top picks</div>
+  </div>
+</section>
+
+<!-- DAB Coverage -->
+<section class="section">
+  <h2>DAB Coverage</h2>
+  <div class="cards">
+    <div class="card">Inverclyde<br><small>Testing Now</small></div>
+    <div class="card">North Ayrshire<br><small>Launching 2026</small></div>
+    <div class="card">South Lanarkshire<br><small>Launching 2026</small></div>
+  </div>
+</section>
+
+<!-- Advertise -->
+<section class="section">
+  <h2>Advertise With Rock.Scot</h2>
+  <div class="cards">
+    <div class="card"><strong>Local Rock Starter</strong><br>From £95 / month<br>Ideal for local businesses</div>
+    <div class="card"><strong>Amplified Regional</strong><br>From £245 / month<br>Wider regional reach</div>
+    <div class="card"><strong>Headliner Sponsor</strong><br>From £495 / month<br>Maximum impact</div>
+  </div>
+  <p>Email: <a href="mailto:advertising@rock.scot" style="color:#ff4500;">advertising@rock.scot</a></p>
+</section>
+
+<!-- Footer -->
+<footer>
+  © 2026 Rock.Scot — Rockin’ Scotland
+</footer>
+
+</body>
+</html>
