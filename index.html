@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ROCK.SCOT | Rockin' Scotland | Tom Russell on DAB</title>
     
-    <meta name="description" content="Scotland's legendary rock station featuring Tom Russell. Broadcasting on DAB across Inverclyde, Ayrshire, and Lanarkshire.">
-    <link rel="canonical" href="https://rock.scot/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     
     <style>
@@ -17,7 +17,6 @@
             --border: rgba(255,255,255,0.1); 
         }
 
-        /* Essential Reset: Prevents the 'Black Void' */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { 
             background-color: var(--pure-black); 
@@ -26,68 +25,116 @@
             min-height: 100vh;
         }
 
-        /* Header Area */
-        .hero { 
-            padding: 60px 20px 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            text-align: center;
-        }
-
-        .logo-container {
-            width: 100%;
-            max-width: 400px;
-            min-height: 100px; /* Reserves space so page doesn't jump */
-            margin-bottom: 20px;
-        }
-
-        .main-logo-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            /* Fallback style: shows the Alt text in Red if image is missing */
-            color: var(--magma-red);
-            font-family: 'Metal Mania', cursive;
-            font-size: 2rem;
-        }
-
+        /* RESTORED HEADER FONT & TAGLINE */
+        .hero { padding: 60px 20px 20px; text-align: center; }
+        .logo-box { width: 100%; max-width: 400px; margin: 0 auto 20px; }
+        .main-logo-img { width: 100%; height: auto; display: block; }
+        
+        /* Fixed: Re-applied the specific tagline styling */
         .tagline {
             font-family: 'Oswald', sans-serif;
+            font-weight: 400;
             font-size: 1.1rem;
             letter-spacing: 3px;
             color: #555;
             text-transform: uppercase;
         }
 
-        /* Scrolling Ticker */
+        /* TICKER */
         .ticker-wrap { background: var(--magma-red); padding: 10px 0; overflow: hidden; margin-top: 20px; }
         .ticker {
-            display: inline-block;
-            white-space: nowrap;
-            animation: ticker-move 40s linear infinite;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            color: #000;
-            text-transform: uppercase;
+            display: inline-block; white-space: nowrap; animation: ticker-move 40s linear infinite;
+            font-family: 'Oswald', sans-serif; font-weight: 700; color: #000; text-transform: uppercase;
         }
         @keyframes ticker-move { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Main Grid */
+        /* GRID & CARDS */
         section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 25px; text-transform: uppercase; }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .card { background: var(--card-bg); padding: 30px; border: 1px solid var(--border); }
+        .card h3 { font-family: 'Oswald'; color: var(--magma-red); margin-bottom: 15px; text-transform: uppercase; }
 
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border: 1px solid var(--border);
-            border-bottom: 2px solid transparent;
-        }
-        .card:hover { border-bottom-color: var(--magma-red); }
-
-        /* Tom Russell Feature */
+        /* TOM RUSSELL SECTION */
         .tom-card {
-            background: linear-gradient(90deg, #
-            
+            background: linear-gradient(90deg, #111 0%, #000 100%);
+            border-left: 5px solid var(--magma-red);
+            padding: 40px; margin-bottom: 40px;
+        }
+        .tom-card h2 { font-family: 'Metal Mania'; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; }
+
+        /* LIGHTWEIGHT AFFILIATE SECTION */
+        .shop-grid { margin-top: 50px; border-top: 1px solid #111; padding-top: 40px; }
+        .affiliate-btn {
+            display: inline-block;
+            background: #fff; color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Oswald'; font-weight: 700;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        .affiliate-btn:hover { background: var(--magma-red); }
+
+        /* PLAYER BAR */
+        .player-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 110px;
+            background: #000; border-top: 4px solid var(--magma-red); z-index: 1000;
+        }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 600px) { .player-bar { height: 140px; } section { padding-bottom: 160px; } }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="logo-box">
+            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
+        </div>
+        <div class="tagline">Rockin' Scotland</div>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            TOM RUSSELL • THE GODFATHER OF ROCK • INVERCLYDE: LIVE • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT • &nbsp;
+        </div>
+    </div>
+
+    <section>
+        <div class="tom-card">
+            <h4 style="font-family:'Oswald'; color: var(--magma-red); letter-spacing: 2px;">ON AIR</h4>
+            <h2>TOM RUSSELL</h2>
+            <p style="color: #888;">Broadcast legend Tom Russell is home on ROCK.SCOT</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Regional Info</h3>
+                <p style="color: #666; font-size: 0.9rem;">DAB coverage expanding across the Central Belt. Check our coverage maps for updates.</p>
+                <a href="advertise.html" class="affiliate-btn" style="background:var(--magma-red)">MEDIA PACK</a>
+            </div>
+
+            <div class="card">
+                <h3>The Gear Room</h3>
+                <p style="color: #666; font-size: 0.8rem;">Our pick: Audio-Technica LP120 Turntable.</p>
+                <a href="https://www.amazon.co.uk/s?k=vinyl+player&tag=YOURID-21" class="affiliate-btn">VIEW DEAL</a>
+            </div>
+
+            <div class="card">
+                <h3>Record Store</h3>
+                <p style="color: #666; font-size: 0.8rem;">Love the music? Support the artists and the station.</p>
+                <a href="https://www.amazon.co.uk/s?k=rock+vinyl&tag=YOURID-21" class="affiliate-btn">BUY VINYL</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 40px 20px 160px; text-align: center; color: #222; font-size: 0.7rem; font-weight: bold;">
+        &copy; 2026 ROCK.SCOT | SSDAB SCOTLAND
+    </footer>
+
+    <div class="player-bar">
+        <iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe>
+    </div>
+
+</body>
+</html>
