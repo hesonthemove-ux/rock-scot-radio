@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Station Sponsorship | ROCK.SCOT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    <style>
+        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--pure-black); color: #fff; font-family: sans-serif; line-height: 1.6; }
+        
+        nav { padding: 20px; border-bottom: 1px solid var(--border); background: #000; }
+        .back-link { color: var(--magma-red); text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
+
+        header { 
+            padding: 100px 5%; 
+            text-align: center; 
+            background: linear-gradient(rgba(0,0,0,0.7), #000), url('studio-bg.jpg'); /* Add a studio photo if you have one */
+            background-size: cover;
+        }
+        h1 { font-family: 'Oswald'; font-size: clamp(3rem, 10vw, 5rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
+        .subtitle { color: var(--magma-red); font-family: 'Oswald'; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 4px; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+        
+        .pitch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
+        .pitch-box h3 { font-family: 'Oswald'; font-size: 1.8rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; border-left: 4px solid var(--magma-red); padding-left: 15px; }
+        .pitch-box p { color: #888; margin-bottom: 20px; }
+
+        .exclusive-banner { 
+            background: #111; 
+            border: 1px solid var(--magma-red); 
+            padding: 40px; 
+            text-align: center; 
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .exclusive-banner h2 { font-family: 'Oswald'; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; }
+        
+        .benefit-list { list-style: none; margin: 30px 0; text-align: left; display: inline-block; }
+        .benefit-list li { margin-bottom: 15px; font-size: 1.1rem; color: #ccc; }
+        .benefit-list li::before { content: "✓"; color: var(--magma-red); margin-right: 15px; font-weight: bold; }
+
+        .cta-section { text-align: center; padding: 60px 0; border-top: 1px solid #222; }
+        .btn-gold { 
+            display: inline-block; 
+            background: #fff; 
+            color: #000; 
+            padding: 20px 50px; 
+            text-decoration: none; 
+            font-family: 'Oswald'; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .btn-gold:hover { background: var(--magma-red); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav><a href="advertise.html" class="back-link">← Commercial Hub</a></nav>
+
+    <header>
+        <p class="subtitle">The Ultimate Brand Alignment</p>
+        <h1>Station<br>Sponsorship</h1>
+    </header>
+
+    <div class="container">
+        <div class="pitch-box" style="text-align: center; margin-bottom: 80px;">
+            <p style="font-size: 1.4rem; color: #fff; line-height: 1.4;">Become the face of Scotland’s most loyal radio audience. Station sponsorship on <strong>ROCK.SCOT</strong> is not just advertising—it is a full-scale brand partnership.</p>
+        </div>
+
+        <div class="pitch-grid">
+            <div class="pitch-box">
+                <h3>Total Association</h3>
+                <p>Your brand name integrated into our core station identity. "Rockin' Scotland in association with [Your Brand]" becomes the heartbeat of our broadcast.</p>
+            </div>
+            <div class="pitch-box">
+                <h3>The Tom Russell Factor</h3>
+                <p>Align with the Godfather of Rock. Sponsor the most respected voice in Scottish broadcasting and gain instant credibility with a massive, dedicated fanbase.</p>
+            </div>
+        </div>
+
+        <div class="exclusive-banner">
+            <h2>One Exclusive Partner</h2>
+            <p style="color: #666;">We only accept one Headline Station Sponsor per year. This ensures zero brand clutter and maximum impact.</p>
+            
+            <ul class="benefit-list">
+                <li>Headline branding on all station imaging and jingles</li>
+                <li>Top of the Hour exclusivity across the entire network</li>
+                <li>Daily "Power Play" feature sponsorship</li>
+                <li>Prime Homepage & Player digital takeover</li>
+                <li>On-air interviews and outside broadcast opportunities</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="font-family: 'Oswald'; margin-bottom: 20px; text-transform: uppercase;">Request a Sponsorship Deck</h2>
+            <p style="color: #888; margin-bottom: 30px;">Direct access to our senior commercial team for bespoke partnership proposals.</p>
+            <a href="mailto:sales@rock.scot?subject=Station Sponsorship Enquiry" class="btn-gold">Apply for Partnership</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ROCK.SCOT Commercial Department | Private & Confidential
+    </footer>
+
+</body>
+</html>
