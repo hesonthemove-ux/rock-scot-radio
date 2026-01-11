@@ -6,59 +6,57 @@
     <title>ROCK.SCOT | Rockin' Scotland</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     <style>
-        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); --test-blue: #00d4ff; }
+        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; }
         .hero { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .logo-box { width: 100%; max-width: 400px; margin-bottom: 20px; }
         .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2)); }
         .tagline { font-family: 'Oswald'; font-weight: 400; font-size: 1.1rem; letter-spacing: 3px; color: #555; text-transform: uppercase; }
-        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin-top: 20px;}
-        .ticker { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; font-family: 'Oswald'; font-weight: 700; color: #000; font-size: 0.8rem; }
+        
+        /* TICKER SYSTEM */
+        .ticker-wrap { background: var(--magma-red); padding: 8px 0; overflow: hidden; margin-top: 20px; height: 34px; }
+        .ticker { display: inline-block; white-space: nowrap; animation: ticker 50s linear infinite; font-family: 'Oswald'; font-weight: 700; color: #000; font-size: 0.8rem; text-transform: uppercase; }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
         section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .card { background: var(--card-bg); padding: 25px; border: 1px solid var(--border); overflow: hidden; }
         .card h3 { font-family: 'Oswald'; font-size: 1.7rem; text-transform: uppercase; margin-bottom: 10px; word-wrap: break-word; }
         
-        /* NEW STATUS BADGES */
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            font-family: 'Oswald';
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 2px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+        .status-badge { display: inline-block; padding: 4px 10px; font-family: 'Oswald'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border-radius: 2px; margin-bottom: 10px; letter-spacing: 1px; }
         .status-live { background: #22c55e; color: #000; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
-        .status-soon { background: var(--magma-red); color: #000; box-shadow: 0 0 10px rgba(255, 62, 0, 0.4); }
+        .status-soon { background: #555; color: #fff; }
 
-        .tom-card { background: linear-gradient(to right, #111, #000); border-left: 4px solid var(--magma-red); padding: 30px; margin-bottom: 40px; }
-        .tom-card h3 { font-family: 'Metal Mania', cursive; font-size: 2.8rem; color: #fff; line-height: 1; }
+        .presenter-card { background: linear-gradient(to right, #111, #000); border-left: 4px solid var(--magma-red); padding: 30px; margin-bottom: 40px; min-height: 180px; display: flex; flex-direction: column; justify-content: center; }
+        #presenter-name { font-family: 'Metal Mania', cursive; font-size: 3.2rem; color: #fff; line-height: 1.1; text-transform: uppercase; }
+        #presenter-status { font-family:'Oswald'; color: var(--magma-red); font-size: 0.8rem; margin-bottom: 5px; letter-spacing: 2px; }
+
         .ad-cta { margin-top: 40px; text-align: center; padding: 40px; border: 1px dashed #333; }
         .btn { display: inline-block; background: var(--magma-red); color: #000; padding: 12px 30px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; margin-top: 15px; }
         .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 3px solid var(--magma-red); z-index: 100; }
         iframe { width: 100%; height: 100%; border: none; }
-        @media (max-width: 600px) { .player-bar { height: 140px; } section { padding-bottom: 160px; } }
+        @media (max-width: 600px) { .player-bar { height: 140px; } section { padding-bottom: 160px; } #presenter-name { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
     <header class="hero">
-        <div class="logo-box">
-            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
-        </div>
+        <div class="logo-box"><img src="logo.png" alt="ROCK.SCOT" class="main-logo-img"></div>
         <div class="tagline">Rockin' Scotland</div>
     </header>
-    <div class="ticker-wrap"><div class="ticker">TOM RUSSELL • INVERCLYDE: TEST TRANSMISSION • NORTH AYRSHIRE: IMMINENT • SOUTH LANARKSHIRE: IMMINENT • </div></div>
+
+    <div class="ticker-wrap">
+        <div class="ticker" id="ticker-content">
+            </div>
+    </div>
+
     <section>
-        <div class="tom-card">
-            <h4 style="font-family:'Oswald'; color: var(--magma-red); font-size: 0.8rem; margin-bottom: 5px;">ON AIR</h4>
-            <h3>TOM RUSSELL</h3>
-            <p style="color: #888;">The Godfather of Scottish Rock.</p>
+        <div class="presenter-card">
+            <div id="presenter-status">ON AIR</div>
+            <h3 id="presenter-name">ROCKIN' SCOTLAND</h3>
+            <p id="show-title" style="color: #888; font-family: 'Oswald'; text-transform: uppercase; margin-top: 5px;">Pure Scottish Rock</p>
         </div>
+
         <div class="grid">
             <div class="card">
                 <div class="status-badge status-live">Live Testing</div>
@@ -66,20 +64,20 @@
                 <p style="color:#777">DAB & DAB+ Transmission Live. Tuning available now.</p>
             </div>
             <div class="card">
-                <div class="status-badge status-soon">Imminent</div>
+                <div class="status-badge status-soon">Coming Soon</div>
                 <h3>North Ayrshire</h3>
                 <p style="color:#777">Broadcasting launch preparations underway.</p>
             </div>
             <div class="card">
-                <div class="status-badge status-soon">Expansion</div>
+                <div class="status-badge status-soon">Coming Soon</div>
                 <h3>South Lanarkshire</h3>
                 <p style="color:#777">Central Belt heartlands rollout coming soon.</p>
             </div>
         </div>
         
         <div style="margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-             <a href="https://www.amazon.co.uk/s?k=vinyl+records&tag=YOURID-21" target="_blank" style="color: #555; font-family: 'Oswald'; text-decoration: none; font-size: 0.7rem; border: 1px solid #222; padding: 10px 20px;">BUY VINYL</a>
-             <a href="https://www.amazon.co.uk/s?k=turntable&tag=YOURID-21" target="_blank" style="color: #555; font-family: 'Oswald'; text-decoration: none; font-size: 0.7rem; border: 1px solid #222; padding: 10px 20px;">STATION GEAR</a>
+             <a href="#" style="color: #555; font-family: 'Oswald'; text-decoration: none; font-size: 0.7rem; border: 1px solid #222; padding: 10px 20px;">BUY VINYL</a>
+             <a href="#" style="color: #555; font-family: 'Oswald'; text-decoration: none; font-size: 0.7rem; border: 1px solid #222; padding: 10px 20px;">STATION GEAR</a>
         </div>
 
         <div class="ad-cta">
@@ -88,6 +86,67 @@
             <a href="advertise.html" class="btn">View Rate Card</a>
         </div>
     </section>
+
     <div class="player-bar"><iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe></div>
+
+    <script>
+        const quotes = [
+            "LOUD & PROUD",
+            "FOR THOSE ABOUT TO ROCK",
+            "SCREAMING STEEL",
+            "THE HEART OF HIGHLAND ROCK",
+            "MAXIMUM VOLUME ONLY",
+            "REAL ROCK, REAL SCOTLAND",
+            "BLEEDING RED, PLAYING LOUD"
+        ];
+
+        function updateTicker() {
+            const tickerEl = document.getElementById('ticker-content');
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            // Layout defined in instructions:
+            // Testing Areas -> "Soundcheck 1-2, 1-2"
+            // Non-Testing Areas -> "Coming Soon"
+            const statusUpdate = "INVERCLYDE: SOUNDCHECK 1-2, 1-2 • NORTH AYRSHIRE: COMING SOON • SOUTH LANARKSHIRE: COMING SOON";
+            
+            const content = `${randomQuote} • ${statusUpdate} • `;
+            // Repeat content to ensure seamless loop
+            tickerEl.innerText = content.repeat(10);
+        }
+
+        async function updatePresenter() {
+            try {
+                const response = await fetch('https://api.broadcast.radio/station/caledonia-tx-ltd/nowplaying');
+                const data = await response.json();
+                
+                const nameEl = document.getElementById('presenter-name');
+                const statusEl = document.getElementById('presenter-status');
+                const showEl = document.getElementById('show-title');
+
+                const currentPresenter = data.presenter || "Auto";
+                const isHuman = !(['Auto', 'Automation', 'AI', 'System'].some(word => currentPresenter.includes(word)));
+
+                if (isHuman) {
+                    nameEl.innerText = currentPresenter;
+                    statusEl.innerText = "LIVE ON AIR";
+                    showEl.innerText = data.show || "Rockin' Scotland";
+                } else {
+                    nameEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+                    statusEl.innerText = "NON-STOP ROCK";
+                    showEl.innerText = "Pure Scottish Rock";
+                }
+            } catch (e) {
+                document.getElementById('presenter-name').innerText = "ROCKIN' SCOTLAND";
+            }
+        }
+
+        // Initialize
+        updateTicker();
+        updatePresenter();
+        
+        // Refresh intervals
+        setInterval(updatePresenter, 60000);
+        setInterval(updateTicker, 300000); // Change the quote in ticker every 5 mins
+    </script>
 </body>
 </html>
