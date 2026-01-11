@@ -8,8 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; }
+        
+        /* Subtle Rock Texture Overlay */
+        body { background: var(--pure-black); color: #fff; font-family: sans-serif; overflow-x: hidden; position: relative; }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        header, section, div { position: relative; z-index: 2; }
+
         .hero { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .logo-box { width: 100%; max-width: 400px; margin-bottom: 20px; }
         .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2)); }
@@ -20,19 +36,37 @@
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         
         section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--card-bg); padding: 25px; border: 1px solid var(--border); overflow: hidden; }
-        .card h3 { font-family: 'Oswald'; font-size: 1.7rem; text-transform: uppercase; margin-bottom: 10px; }
         
-        .status-badge { display: inline-block; padding: 4px 10px; font-family: 'Oswald'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border-radius: 2px; margin-bottom: 10px; letter-spacing: 1px; }
-        .status-live { background: #22c55e; color: #000; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
-        .status-soon { background: #555; color: #fff; }
-
+        /* PRESENTER CARD */
         .presenter-card { background: linear-gradient(to right, #111, #000); border-left: 4px solid var(--magma-red); padding: 30px; margin-bottom: 40px; min-height: 180px; display: flex; flex-direction: column; justify-content: center; }
         #presenter-name { font-family: 'Metal Mania', cursive; font-size: 3.2rem; color: #fff; line-height: 1.1; text-transform: uppercase; }
         #presenter-status { font-family:'Oswald'; color: var(--magma-red); font-size: 0.8rem; margin-bottom: 5px; letter-spacing: 2px; }
 
-        /* SEO CATCHMENT STYLES */
+        /* RECENT TRACKS */
+        .recent-tracks { background: rgba(8, 8, 8, 0.8); padding: 30px 20px; border-top: 1px solid #1a1a1a; margin-top: 20px; }
+        .track-list { display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; scrollbar-width: none; }
+        .track-list::-webkit-scrollbar { display: none; }
+        .track-item { min-width: 220px; background: #111; padding: 15px; border-left: 2px solid #333; }
+        .track-item.now { border-left-color: var(--magma-red); background: #1a0804; }
+        .track-title { font-family: 'Oswald'; font-size: 0.9rem; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .track-artist { font-family: 'Oswald'; font-size: 0.75rem; color: var(--magma-red); text-transform: uppercase; letter-spacing: 1px; }
+        .live-label { font-size: 0.6rem; background: var(--magma-red); color: #000; padding: 2px 5px; font-weight: 700; margin-bottom: 5px; display: inline-block; }
+
+        /* GRID & CARDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .card { background: var(--card-bg); padding: 25px; border: 1px solid var(--border); overflow: hidden; }
+        .card h3 { font-family: 'Oswald'; font-size: 1.7rem; text-transform: uppercase; margin-bottom: 10px; }
+        .status-badge { display: inline-block; padding: 4px 10px; font-family: 'Oswald'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border-radius: 2px; margin-bottom: 10px; letter-spacing: 1px; }
+        .status-live { background: #22c55e; color: #000; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
+        .status-soon { background: #555; color: #fff; }
+
+        /* INTERACTIVE STRIP */
+        .interact-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 40px 0; border-top: 1px solid #111; margin-top: 40px; }
+        .interact-box h4 { font-family: 'Oswald'; color: #fff; text-transform: uppercase; font-size: 1rem; margin-bottom: 10px; }
+        .interact-box p { color: #666; font-size: 0.8rem; margin-bottom: 10px; }
+        .interact-link { color: var(--magma-red); font-family: 'Oswald'; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* SEO CATCHMENT */
         .seo-catchment { padding: 60px 20px 180px; background: #050505; border-top: 1px solid #111; }
         .catchment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .area-col h4 { font-family: 'Oswald'; color: var(--magma-red); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 1px solid #222; padding-bottom: 5px; }
@@ -40,8 +74,10 @@
 
         .ad-cta { margin-top: 40px; text-align: center; padding: 40px; border: 1px dashed #333; }
         .btn { display: inline-block; background: var(--magma-red); color: #000; padding: 12px 30px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; margin-top: 15px; }
-        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 3px solid var(--magma-red); z-index: 100; }
+        
+        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 3px solid var(--magma-red); z-index: 1000; }
         iframe { width: 100%; height: 100%; border: none; }
+
         @media (max-width: 600px) { .player-bar { height: 140px; } #presenter-name { font-size: 2.2rem; } }
     </style>
 </head>
@@ -78,6 +114,31 @@
             </div>
         </div>
 
+        <div class="recent-tracks">
+            <h4 style="font-family: 'Oswald'; font-size: 0.7rem; color: #444; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase;">Recently Played</h4>
+            <div class="track-list" id="recent-list">
+                <div class="track-item"><div class="track-title">Loading History...</div></div>
+            </div>
+        </div>
+
+        <div class="interact-strip">
+            <div class="interact-box">
+                <h4>Request a Track</h4>
+                <p>Want to hear a specific anthem? Send a message to the studio.</p>
+                <a href="mailto:studio@rock.scot" class="interact-link">Email Studio →</a>
+            </div>
+            <div class="interact-box">
+                <h4>Scottish Gig Guide</h4>
+                <p>The best of live rock across the Central Belt.</p>
+                <span style="color: #333; font-family: 'Oswald'; font-size: 0.8rem;">ENTRIES OPENING SOON</span>
+            </div>
+            <div class="interact-box">
+                <h4>DAB+ Digital</h4>
+                <p>Broadcasting in crystal clear high-fidelity digital audio.</p>
+                <span style="color: #22c55e; font-family: 'Oswald'; font-size: 0.8rem; font-weight: bold;">● TRANSMITTING NOW</span>
+            </div>
+        </div>
+
         <div class="ad-cta">
             <h2 style="font-family:'Oswald';">ADVERTISE WITH THE LEGENDS</h2>
             <p style="color:#666">Reach listeners in Greenock, East Kilbride, Irvine, and beyond.</p>
@@ -89,15 +150,15 @@
         <div class="catchment-grid">
             <div class="area-col">
                 <h4>Inverclyde Coverage</h4>
-                <p>Broadcasting to Greenock, Port Glasgow, Gourock, Kilmacolm, Inverkip, Wemyss Bay, Langbank, Quarrier's Village, Skelmorlie, Bridgend, and Mid Auchinleck. Our DAB signal covers the entire Firth of Clyde coastline from the Tail of the Bank to the Cloch.</p>
+                <p>Broadcasting to Greenock, Port Glasgow, Gourock, Kilmacolm, Inverkip, Wemyss Bay, Langbank, Quarrier's Village, Skelmorlie, Bridgend, and Mid Auchinleck.</p>
             </div>
             <div class="area-col">
                 <h4>North Ayrshire Coverage</h4>
-                <p>Digital radio service for Irvine, Kilwinning, Ardrossan, Saltcoats, Stevenston, Largs, Beith, Dalry, Kilbirnie, West Kilbride, Fairlie, Skelmorlie, Seamill, Dreghorn, Springside, Girdle Toll, Stanecastle, Gateside, Barrmill, and Glengarnock.</p>
+                <p>Digital radio service for Irvine, Kilwinning, Ardrossan, Saltcoats, Stevenston, Largs, Beith, Dalry, Kilbirnie, West Kilbride, Fairlie, Seamill, and Dreghorn.</p>
             </div>
             <div class="area-col">
                 <h4>South Lanarkshire Coverage</h4>
-                <p>Reaching the heartlands of Hamilton, East Kilbride, Lanark, Cambuslang, Rutherglen, Blantyre, Larkhall, Carluke, Strathaven, Bothwell, Uddingston, Lesmahagow, Stonehouse, Kirkmuirhill, Blackwood, Law, Forth, Douglas, Coalburn, Biggar, and Carnwath.</p>
+                <p>Reaching Hamilton, East Kilbride, Lanark, Cambuslang, Rutherglen, Blantyre, Larkhall, Carluke, Strathaven, Bothwell, Uddingston, and Lesmahagow.</p>
             </div>
         </div>
     </section>
@@ -114,33 +175,54 @@
             tickerEl.innerText = (randomQuote + " • " + statusUpdate + " • ").repeat(10);
         }
 
-        async function updatePresenter() {
+        async function updatePresenterAndHistory() {
             try {
-                const response = await fetch('https://api.broadcast.radio/station/caledonia-tx-ltd/nowplaying');
-                const data = await response.json();
+                // Presenter Data
+                const nowRes = await fetch('https://api.broadcast.radio/station/caledonia-tx-ltd/nowplaying');
+                const nowData = await nowRes.json();
+                
                 const nameEl = document.getElementById('presenter-name');
                 const statusEl = document.getElementById('presenter-status');
                 const showEl = document.getElementById('show-title');
-                const currentPresenter = data.presenter || "Auto";
+                
+                const currentPresenter = nowData.presenter || "Auto";
                 const isHuman = !(['Auto', 'Automation', 'AI', 'System'].some(word => currentPresenter.includes(word)));
 
                 if (isHuman) {
                     nameEl.innerText = currentPresenter;
                     statusEl.innerText = "LIVE ON AIR";
-                    showEl.innerText = data.show || "Rockin' Scotland";
+                    showEl.innerText = nowData.show || "Rockin' Scotland";
                 } else {
                     nameEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
                     statusEl.innerText = "NON-STOP ROCK";
                     showEl.innerText = "Pure Scottish Rock";
                 }
+
+                // History Data
+                const histRes = await fetch('https://api.broadcast.radio/station/caledonia-tx-ltd/history');
+                const histData = await histRes.json();
+                const listEl = document.getElementById('recent-list');
+                listEl.innerHTML = ''; 
+
+                histData.slice(0, 6).forEach((track, index) => {
+                    const item = document.createElement('div');
+                    item.className = `track-item ${index === 0 ? 'now' : ''}`;
+                    item.innerHTML = `
+                        ${index === 0 ? '<span class="live-label">JUST PLAYED</span>' : ''}
+                        <div class="track-title">${track.title}</div>
+                        <div class="track-artist">${track.artist}</div>
+                    `;
+                    listEl.appendChild(item);
+                });
+
             } catch (e) {
-                document.getElementById('presenter-name').innerText = "ROCKIN' SCOTLAND";
+                console.log("Stream API offline");
             }
         }
 
         updateTicker();
-        updatePresenter();
-        setInterval(updatePresenter, 60000);
+        updatePresenterAndHistory();
+        setInterval(updatePresenterAndHistory, 60000);
         setInterval(updateTicker, 300000);
     </script>
 </body>
