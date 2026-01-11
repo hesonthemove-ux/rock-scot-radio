@@ -16,19 +16,21 @@
             --border: #1a1a1a;
         }
 
+        /* Basic Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
             background-color: var(--pure-black);
             color: #fff;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            line-height: 1.2;
         }
 
         /* Nav Bar */
         nav {
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,7 +43,7 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .brand { font-family: 'Unbounded'; font-weight: 900; font-size: 1rem; letter-spacing: -1px; }
+        .brand { font-family: 'Unbounded'; font-weight: 900; font-size: 1.1rem; letter-spacing: -1px; }
         
         .nav-status { 
             font-size: 0.65rem; 
@@ -52,8 +54,176 @@
             text-transform: uppercase;
             color: var(--magma-red);
         }
-        
+
         .live-dot {
-            height: 6px; width: 6px;
+            height: 8px; width: 8px;
             background-color: var(--magma-red);
-            border-radius: 50
+            border-radius: 50%;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 5% 40px;
+        }
+
+        .logo-container {
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 8vw, 5.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+        }
+
+        /* Red Ticker */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: var(--magma-red);
+            padding: 12px 0;
+            margin: 40px 0;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 25s linear infinite;
+            font-family: 'Unbounded';
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: black;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Content Sections */
+        .section-header { padding: 40px 8% 20px; }
+        .section-header h2 {
+            font-family: 'Syne';
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            text-transform: uppercase;
+            border-left: 4px solid var(--magma-red);
+            padding-left: 15px;
+        }
+
+        .grid-container {
+            padding: 0 8% 160px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+        }
+
+        .card {
+            background: var(--dark-grey);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: #333; }
+        .card h3 { font-family: 'Syne'; color: var(--magma-red); margin-bottom: 0.8rem; text-transform: uppercase; }
+        .card p { color: #888; font-size: 0.95rem; line-height: 1.5; }
+
+        /* Fixed Player Bar */
+        .player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #000;
+            border-top: 2px solid var(--magma-red);
+            height: 120px;
+            z-index: 9999;
+        }
+
+        .player-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding-top: 100px; }
+            .player-bar { height: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">ROCK.SCOT</div>
+        <div class="nav-status">
+            <div class="live-dot"></div> On Air
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="logo-container">
+            <img src="logo.png" alt="ROCK.SCOT Station Logo" class="main-logo-img">
+        </div>
+        <h1 class="hero-title">FREQUENCY<br>UNLEASHED</h1>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            NOW BROADCASTING ACROSS SCOTLAND ON DAB+ DIGITAL RADIO • NO FILLER JUST ROCK • ROCK.SCOT • FREQUENCY UNLEASHED • 
+            NOW BROADCASTING ACROSS SCOTLAND ON DAB+ DIGITAL RADIO • NO FILLER JUST ROCK • ROCK.SCOT • FREQUENCY UNLEASHED • 
+        </div>
+    </div>
+
+    <div class="section-header">
+        <h2>DAB+ Coverage</h2>
+    </div>
+
+    <main class="grid-container">
+        <div class="card">
+            <h3>Glasgow & West</h3>
+            <p>From the Clyde to the coast. High-bitrate rock energy for the biggest city in the north.</p>
+        </div>
+        <div class="card">
+            <h3>Edinburgh & East</h3>
+            <p>From the castle to the coast, providing the soundtrack for the capital's streets.</p>
+        </div>
+        <div class="card">
+            <h3>Central Belt</h3>
+            <p>Filling the gap between the major metros with 100% curated rock heritage.</p>
+        </div>
+    </main>
+
+    <section class="player-bar">
+        <iframe 
+            class="player-frame"
+            src="https://player.broadcast.radio/caledonia-tx-ltd" 
+            allow="autoplay">
+        </iframe>
+    </section>
+
+</body>
+</html>
