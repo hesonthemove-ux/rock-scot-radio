@@ -1,125 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advertise | ROCK.SCOT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVERTISE | ROCK.SCOT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
     <style>
-        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
+        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow-x: hidden; }
+        body { background: var(--pure-black); color: #fff; font-family: 'Oswald', sans-serif; line-height: 1.6; }
         
-        .hero { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .logo-box { width: 100%; max-width: 300px; margin-bottom: 20px; }
-        .main-logo-img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 20px rgba(255, 62, 0, 0.2)); }
-        
-        .tagline { font-family: 'Oswald'; font-weight: 400; font-size: 1.1rem; letter-spacing: 3px; color: #555; text-transform: uppercase; }
-        
-        section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
-        
-        .page-title { font-family: 'Oswald'; font-weight: 700; font-size: clamp(2.5rem, 8vw, 3.5rem); color: #fff; text-align: center; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
-        .sub-title { font-family: 'Oswald'; font-size: 1.1rem; color: var(--magma-red); text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 3px; }
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1; pointer-events: none; z-index: 1;
+        }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-top: 3px solid var(--magma-red); }
-        .card h3 { font-family: 'Oswald'; font-size: 1.6rem; text-transform: uppercase; margin-bottom: 15px; color: #fff; letter-spacing: 1px; }
+        .container { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
         
-        .price-list { list-style: none; }
-        .price-list li { padding: 12px 0; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; font-family: 'Oswald'; font-size: 0.9rem; color: #aaa; }
-        .price-list li span { color: #fff; font-weight: 700; }
-        .price-list li .price-tag { color: var(--magma-red); }
+        header { text-align: center; margin-bottom: 60px; }
+        h1 { font-family: 'Metal Mania'; font-size: 4.5rem; color: var(--magma-red); text-transform: uppercase; margin-bottom: 10px; }
+        .sub-header { color: #555; text-transform: uppercase; letter-spacing: 4px; font-size: 1rem; }
 
-        .comparison-wrap { margin-top: 60px; overflow-x: auto; }
-        .comparison-table { width: 100%; border-collapse: collapse; font-family: 'Oswald'; background: #050505; }
-        .comparison-table th { color: var(--magma-red); text-align: left; padding: 15px; border-bottom: 2px solid #222; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        .comparison-table td { padding: 15px; border-bottom: 1px solid #111; font-size: 0.9rem; color: #888; }
-        .highlight { color: #fff; font-weight: bold; }
-
-        .contact-box { margin-top: 40px; text-align: center; padding: 50px 20px; border: 1px dashed #333; }
-        .btn { display: inline-block; background: var(--magma-red); color: #000; padding: 15px 40px; text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; margin-top: 20px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
         
-        .back-link { display: block; text-align: center; margin-top: 30px; color: #444; text-decoration: none; font-family: 'Oswald'; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-
-        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 110px; background: #000; border-top: 3px solid var(--magma-red); z-index: 1000; }
-        iframe { width: 100%; height: 100%; border: none; }
+        .price-card { 
+            background: #080808; 
+            border: 1px solid #1a1a1a; 
+            padding: 45px 30px; 
+            text-align: center; 
+            transition: 0.3s ease;
+        }
         
-        @media (max-width: 600px) { .player-bar { height: 140px; } section { padding-bottom: 160px; } }
+        .price-card:hover { border-color: var(--magma-red); background: #0c0c0c; }
+        .price-card.featured { border: 2px solid var(--magma-red); box-shadow: 0 0 30px rgba(255, 62, 0, 0.1); }
+        
+        .area-tag { color: var(--magma-red); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 15px; display: block; }
+        .price-title { font-size: 2.2rem; margin-bottom: 15px; text-transform: uppercase; line-height: 1.1; }
+        .price-value { font-size: 4rem; font-weight: 700; margin-bottom: 25px; color: #fff; border-bottom: 1px solid #222; padding-bottom: 20px; }
+        .price-value span { font-size: 1.2rem; color: #444; }
+
+        .features-list { list-style: none; margin-bottom: 35px; text-align: left; }
+        .features-list li { margin-bottom: 15px; color: #bbb; font-size: 1rem; display: flex; align-items: flex-start; }
+        .features-list li::before { content: "»"; color: var(--magma-red); margin-right: 12px; font-weight: bold; }
+
+        .btn { 
+            display: block; 
+            background: var(--magma-red); 
+            color: #000; 
+            padding: 18px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #fff; transform: scale(1.02); }
+
+        .production-box {
+            margin-top: 50px;
+            background: linear-gradient(135deg, #0c0c0c 0%, #000 100%);
+            border: 1px solid #222;
+            padding: 50px;
+            text-align: center;
+        }
+        .production-box h3 { font-family: 'Metal Mania'; font-size: 2.5rem; color: #fff; margin-bottom: 15px; }
+        .production-price { font-size: 1.8rem; color: var(--magma-red); font-weight: 700; margin-bottom: 20px; }
+
+        .back-link { display: inline-block; margin-top: 60px; color: #444; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        .back-link:hover { color: var(--magma-red); }
+
+        @media (max-width: 600px) { h1 { font-size: 3rem; } .price-value { font-size: 3rem; } }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <a href="index.html" class="logo-box">
-            <img src="logo.png" alt="ROCK.SCOT" class="main-logo-img">
-        </a>
-        <div class="tagline">Media & Advertising</div>
-    </header>
 
-    <section>
-        <h1 class="page-title">Rate Card 2026</h1>
-        <h2 class="sub-title">Premium Network Opportunities</h2>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Station Sponsorship</h3>
-                <ul class="price-list">
-                    <li>Top of Hour Ident <span>£2,500 <small>/mo</small></span></li>
-                    <li>Full Network Airtime <span>£349 <small>/mo</small></span></li>
-                    <li>Single Region <span>£199 <small>/mo</small></span></li>
+    <div class="container">
+        <header>
+            <div class="sub-header">Broadcast Excellence</div>
+            <h1>AIRTIME RATES</h1>
+            <p style="color: #666; max-width: 700px; margin: 20px auto; font-size: 1.1rem;">Reach a high-intent audience across the Scottish Central Belt. Our DAB+ network delivers maximum cut-through for brands that want to be heard.</p>
+        </header>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <span class="area-tag">Local Market Power</span>
+                <div class="price-title">Regional Airtime</div>
+                <div class="price-value">£395<span>/month</span></div>
+                <ul class="features-list">
+                    <li>Exclusive focus on one key region (Inverclyde, Ayrshire, or Lanarkshire)</li>
+                    <li>Guaranteed Daily Spot Rotation (Prime Time focused)</li>
+                    <li>Targeted local audience with zero wastage</li>
+                    <li>Digital presence on Regional Station Page</li>
                 </ul>
+                <a href="mailto:studio@rock.scot?subject=Regional Advertising Enquiry" class="btn">Enquire Now</a>
             </div>
 
-            <div class="card">
-                <h3>Features & Creative</h3>
-                <ul class="price-list">
-                    <li>Show Sponsorship <span>From £120 <small>/wk</small></span></li>
-                    <li>Production (Standard) <span class="price-tag">£75</span></li>
-                    <li>Full Campaign Prod <span class="price-tag">£125</span></li>
+            <div class="price-card featured">
+                <span class="area-tag" style="background: var(--magma-red); color: #000; padding: 2px 12px; margin-bottom: 10px; display: inline-block;">Total Network Coverage</span>
+                <div class="price-title">Multi-Regional</div>
+                <div class="price-value">£645<span>/month</span></div>
+                <ul class="features-list">
+                    <li>Dominant coverage across all Central Belt DAB+ Transmitters</li>
+                    <li>Maximum reach to commuters and workplaces</li>
+                    <li>Priority high-frequency spot rotation</li>
+                    <li>Live stream and app sponsorship inclusion</li>
                 </ul>
+                <a href="mailto:studio@rock.scot?subject=Multi-Regional Advertising Enquiry" class="btn">Amplify My Brand</a>
             </div>
         </div>
 
-        <div class="comparison-wrap">
-            <h3 style="font-family:'Oswald'; margin-bottom: 15px; color: #fff; text-transform: uppercase; font-size: 1.2rem;">The Value Breakdown</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Investment</th>
-                        <th>Cost Per Day</th>
-                        <th>Listener Advantage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="highlight">Regional Airtime</td>
-                        <td class="highlight">£6.63</td>
-                        <td>High-frequency local brand building.</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Top of Hour Title</td>
-                        <td class="highlight">£83.33</td>
-                        <td>Station-wide authority. "Brought to you by..."</td>
-                    </tr>
-                    <tr>
-                        <td>Avg. Facebook Spend</td>
-                        <td>£15.00+</td>
-                        <td>Low retention. Audience ad-fatigue.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="production-box">
+            <h3>THE PRODUCTION SUITE</h3>
+            <p style="color: #888; margin-bottom: 20px; max-width: 650px; margin-left: auto; margin-right: auto;">
+                Your message deserves to sound legendary. We don't do "generic." Our studio produces bespoke, high-energy rock commercials that capture attention instantly.
+            </p>
+            <div class="production-price">Creative Production: £195</div>
+            <p style="font-size: 0.75rem; color: #444; text-transform: uppercase; letter-spacing: 2px;">Professional Scripting • Voice Artistry • Studio Engineering</p>
         </div>
 
-        <div class="contact-box">
-            <h2 style="font-family:'Oswald'; text-transform: uppercase;">Build Your Campaign</h2>
-            <p style="color:#666">Reach Scotland's most loyal music audience across the SSDAB network.</p>
-            <a href="mailto:sales@rock.scot" class="btn">Contact Sales Team</a>
+        <div style="text-align: center;">
+            <a href="index.html" class="back-link">← Return to Station Home</a>
         </div>
-
-        <a href="index.html" class="back-link">&larr; Back to Station Home</a>
-    </section>
-
-    <div class="player-bar">
-        <iframe src="https://player.broadcast.radio/caledonia-tx-ltd"></iframe>
     </div>
+
 </body>
 </html>
