@@ -2,21 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rock.Scot | Scotland’s Rock Radio Station</title>
-  <meta name="description" content="Rock.Scot is Scotland’s rock radio station, broadcasting online and on DAB. Now testing on Inverclyde DAB with expansion planned across Ayrshire and Lanarkshire in 2026.">
+  <title>Rock.Scot | Rockin’ Scotland</title>
+
+  <meta name="description"
+        content="Rock.Scot is Scotland’s rock radio station. Broadcasting online and on DAB. Now testing on Inverclyde DAB with expansion planned across North Ayrshire and South Lanarkshire in 2026." />
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Rock-style Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    h1, h2 {
+      font-family: 'Metal Mania', cursive;
+      letter-spacing: 2px;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      margin-top: 10px;
+      color: #f44336;
+    }
+
+    .listen-btn {
+      display: inline-block;
+      margin: 30px 0;
+      padding: 16px 34px;
+      background: #c1121f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+    }
+
+    section {
+      margin: 60px 0;
+    }
+
+    .cards {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
-<body style="margin:0;background:black;color:white;font-family:Arial,sans-serif;text-align:center;">
-  <img src="logo.png" alt="Rock.Scot logo" style="max-width:280px;margin:40px auto;display:block;">
-  <h1>Rock.Scot</h1>
-  <p>Scotland’s home of rock — online & on DAB</p>
-  <a href="https://player.broadcast.radio/caledonia-tx-ltd" target="_blank"
-     style="display:inline-block;margin-top:30px;padding:15px 30px;background:#c1121f;color:white;text-decoration:none;border-radius:10px;">
-     🎸 Listen Live
-  </a>
-  <p style="margin-top:60px;color:#aaa;">
-    Now testing on Inverclyde DAB<br>
-    Expanding to North Ayrshire & South Lanarkshire in 2026
-  </p>
+
+<body>
+
+  <div class="container">
+
+    <!-- Logo -->
+    <img src="logo.png"
+         alt="Rock.Scot Scottish Rock Radio"
+         style="max-width:300px;display:block;margin:30px auto;" />
+
+    <!-- Tagline -->
+    <div class="tagline">Rockin’ Scotland</div>
+
+    <!-- Listen -->
+    <a class="listen-btn"
+       href="https://player.broadcast.radio/caledonia-tx-ltd"
+       target="_blank">
+       🎸 Listen Live
+    </a>
+
+    <!-- About -->
+    <section>
+      <h2>About Rock.Scot</h2>
+      <p>
+        Rock.Scot is Scotland’s dedicated rock radio station,
+        playing classic rock, modern rock and supporting Scottish artists.
+        Broadcasting online and on DAB.
+      </p>
+    </section>
+
+    <!-- DAB Coverage -->
+    <section>
+      <h2>DAB Coverage</h2>
+      <div class="cards">
+        <div class="card">Inverclyde<br><small>Currently testing on DAB</small></div>
+        <div class="card">North Ayrshire<br><small>Launching 2026</small></div>
+        <div class="card">South Lanarkshire<br><small>Launching 2026</small></div>
+      </div>
+    </section>
+
+    <!-- Advertising -->
+    <section>
+      <h2>Advertise With Us</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>Local Rock Starter</strong><br>
+          From £95 / month<br>
+          Ideal for local businesses
+        </div>
+
+        <div class="card">
+          <strong>Amplified Regional</strong><br>
+          From £245 / month<br>
+          Wider regional reach
+        </div>
+
+        <div class="card">
+          <strong>Headliner Sponsor</strong><br>
+          From £495 / month<br>
+          Maximum impact
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <h2>Get Your Brand Heard</h2>
+      <p>
+        Reach passionate rock fans across Scotland
+        on DAB and online.
+      </p>
+      <p>
+        📧 Email:
+        <a href="mailto:advertising@rock.scot" style="color:#f44336;">
+          advertising@rock.scot
+        </a>
+      </p>
+    </section>
+
+    <footer>
+      © 2026 Rock.Scot — Rockin’ Scotland
+    </footer>
+
+  </div>
+
 </body>
 </html>
