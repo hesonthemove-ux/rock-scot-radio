@@ -5,28 +5,48 @@
 <title>Contact | Rock.Scot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
 body{margin:0;background:#000;color:#fff;font-family:'Oswald',sans-serif;text-align:center;}
+h1,h2{font-family:'Metal Mania',cursive;color:#ff0000;text-shadow:0 0 8px #ff4500;}
 .container{max-width:800px;margin:auto;padding:30px;}
-h1{font-family:'Metal Mania',cursive;color:#ff0000;text-shadow:0 0 8px #ff4500;}
 a{color:#ff4500;text-decoration:none;}
-.hero{
-  position:relative;
-  background:url('https://images.unsplash.com/photo-1556442372-61df38d56f59?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-  height:250px;
-  display:flex;justify-content:center;align-items:center;
-  margin-bottom:40px;
-}
+.hero{position:relative;background:url('https://images.unsplash.com/photo-1556442372-61df38d56f59?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;height:250px;display:flex;justify-content:center;align-items:center;margin-bottom:40px;}
 .hero h1{color:white;text-shadow:0 0 15px #ff0000;}
+#nowPlayingSection{margin-top:20px;}
+#nowPlayingSection audio{width:100%;border-radius:8px;}
+nav{margin:20px 0;}
+nav a{margin:0 10px;color:#fff;text-decoration:none;font-weight:600;}
+nav a:hover{color:#ff4500;}
 </style>
 </head>
-
 <body>
 
 <!-- Hero -->
 <section class="hero">
   <h1>Contact Rock.Scot</h1>
+</section>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="shows.html">Shows</a>
+  <a href="advertise.html">Advertise</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Now Playing -->
+<section class="section" id="nowPlayingSection">
+  <h2>Now Playing</h2>
+  <div class="cards" style="justify-content:center;">
+    <div class="card" style="max-width:400px;">
+      <audio id="livePlayer" controls autoplay>
+        <source src="https://player.broadcast.radio/caledonia-tx-ltd" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p style="margin-top:10px;"><strong id="nowPlaying">Loading track...</strong></p>
+    </div>
+  </div>
 </section>
 
 <div class="container">
@@ -35,6 +55,21 @@ a{color:#ff4500;text-decoration:none;}
   <p>📢 Advertising: <a href="mailto:advertising@rock.scot">advertising@rock.scot</a></p>
   <p><a href="index.html">⬅ Back Home</a></p>
 </div>
+
+<script>
+async function fetchNowPlaying() {
+  try {
+    const response = await fetch('https://player.broadcast.radio/caledonia-tx-ltd/nowplaying.json');
+    if(!response.ok) throw 'No metadata';
+    const data = await response.json();
+    document.getElementById('nowPlaying').textContent = data.now_playing.song || 'Rocking Scotland!';
+  } catch(e){
+    document.getElementById('nowPlaying').textContent = 'Rocking Scotland!';
+  }
+}
+setInterval(fetchNowPlaying,5000);
+fetchNowPlaying();
+</script>
 
 </body>
 </html>
