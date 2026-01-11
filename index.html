@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Station - On Air Status</title>
+    <title>Radio Station - Locked Index</title>
     <style>
         body { font-family: 'Arial', sans-serif; background-color: #1a1a1a; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         
-        /* THE LOCKED LAYOUT */
         #station-container {
             width: 450px;
             background: #222;
@@ -18,27 +17,27 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        #on-air-display {
-            font-size: 1.8rem;
+        #status-box {
+            font-size: 1.6rem;
             min-height: 2.2rem;
             margin-bottom: 20px;
-            color: #ffcc00; /* Rock gold color */
+            color: #aaa;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        .presenter-live { color: #ff3333; font-weight: bold; text-transform: uppercase; }
-        .automation-text { color: #aaa; font-style: italic; font-weight: normal; }
 
         hr { border: 0; border-top: 1px solid #444; margin: 20px 0; }
 
-        /* FIXED PRICING SECTION */
-        .pricing-table { width: 100%; font-size: 0.9rem; color: #888; }
-        .price-value { color: #fff; font-weight: bold; font-size: 1.1rem; }
+        /* FIXED PRICING - DO NOT ALTER */
+        .pricing-table { width: 100%; font-size: 0.9rem; color: #777; }
+        .price-value { color: #fff; font-weight: bold; font-size: 1.1rem; padding-top: 5px; }
     </style>
 </head>
 <body>
 
 <div id="station-container">
-    <div id="on-air-display">Connecting to stream...</div>
+    <div id="status-box">Loading Rock...</div>
 
     <hr>
 
@@ -55,7 +54,6 @@
 </div>
 
 <script>
-    // 1. YOUR ROCK SAYINGS
     const rockSayings = [
         "All killer, no filler",
         "Turn it up to eleven",
@@ -68,39 +66,16 @@
         "Long live rock and roll"
     ];
 
-    // 2. KEYWORDS TO DETECT AUTOMATION
-    const autoKeywords = ["AutoDJ", "AI", "Automation", "Streamer", "Server", "Fallback", "None", "Station"];
-
-    async function updateStationStatus() {
-        const display = document.getElementById("on-air-display");
-        
-        try {
-            // REPLACE 'YOUR_STREAM_URL' with your actual JSON status endpoint
-            const response = await fetch('YOUR_STREAM_URL'); 
-            const data = await response.json();
-            
-            // Extract title/presenter (adjust path based on your provider)
-            let currentSource = data.icestats.source[0]?.title || data.icestats.source?.title || "";
-
-            const isAutomated = autoKeywords.some(key => currentSource.toLowerCase().includes(key.toLowerCase()));
-
-            if (isAutomated || !currentSource) {
-                // AUTOMATION MODE
-                const randomPhrase = rockSayings[Math.floor(Math.random() * rockSayings.length)];
-                display.innerHTML = `<span class="automation-text">${randomPhrase}</span>`;
-            } else {
-                // HUMAN MODE (e.g., Russell)
-                display.innerHTML = `ON AIR: <span class="presenter-live">${currentSource}</span>`;
-            }
-        } catch (err) {
-            // FALLBACK IF STREAM IS DOWN
-            display.innerHTML = `<span class="automation-text">Keep on rockin' in the free world</span>`;
-        }
+    function refreshRockSaying() {
+        const display = document.getElementById("status-box");
+        const randomPhrase = rockSayings[Math.floor(Math.random() * rockSayings.length)];
+        display.innerHTML = randomPhrase;
     }
 
-    // Run immediately and then every 60 seconds
-    updateStationStatus();
-    setInterval(updateStationStatus, 60000);
+    // Set phrase on load
+    refreshRockSaying();
+    // Refresh phrase every 30 minutes just to keep it fresh
+    setInterval(refreshRockSaying, 1800000);
 </script>
 
 </body>
