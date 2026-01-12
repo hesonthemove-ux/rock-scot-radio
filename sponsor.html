@@ -1,113 +1,95 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Station Sponsorship | ROCK.SCOT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsors | ROCK.SCOT Strategic Partners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --magma-red: #ff3e00; --pure-black: #000; --card-bg: #0c0c0c; --border: rgba(255,255,255,0.1); }
+        :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--pure-black); color: #fff; font-family: sans-serif; line-height: 1.6; }
+        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER - Standardized with Index */
+        header { text-align: center; padding: 40px 0 10px 0; }
+        .logo-main { width: 500px; max-width: 95%; height: auto; display: block; margin: 0 auto 10px auto; }
+        .nav-menu { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; }
+        .nav-menu a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; font-weight: 700; transition: 0.3s; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+        .nav-menu a:hover { color: var(--magma-red); border-color: var(--magma-red); }
+
+        /* SPONSOR TIERS */
+        .tier-section { padding: 60px 0; border-top: 1px solid #111; text-align: center; }
+        .tier-title { color: var(--magma-red); text-transform: uppercase; letter-spacing: 8px; font-size: 1rem; margin-bottom: 40px; }
         
-        nav { padding: 20px; border-bottom: 1px solid var(--border); background: #000; }
-        .back-link { color: var(--magma-red); text-decoration: none; font-family: 'Oswald'; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
+        .grid-platinum { display: grid; grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+        .grid-gold { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 800px; margin: 0 auto; }
+        .grid-silver { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
 
-        header { 
-            padding: 100px 5%; 
-            text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.7), #000), url('studio-bg.jpg'); /* Add a studio photo if you have one */
-            background-size: cover;
-        }
-        h1 { font-family: 'Oswald'; font-size: clamp(3rem, 10vw, 5rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
-        .subtitle { color: var(--magma-red); font-family: 'Oswald'; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 4px; }
+        .sponsor-card { background: #080808; padding: 40px; border: 1px solid #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 150px; grayscale: 1; opacity: 0.7; transition: 0.4s; }
+        .sponsor-card:hover { opacity: 1; border-color: var(--magma-red); filter: grayscale(0); transform: scale(1.02); }
+        .sponsor-card img { max-width: 80%; height: auto; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+        /* CTA SECTION */
+        .partner-cta { padding: 80px 0; background: #050505; text-align: center; border-top: 1px solid #111; }
+        .btn { display: inline-block; padding: 20px 60px; background: var(--magma-red); color: #000; text-decoration: none; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         
-        .pitch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-        .pitch-box h3 { font-family: 'Oswald'; font-size: 1.8rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; border-left: 4px solid var(--magma-red); padding-left: 15px; }
-        .pitch-box p { color: #888; margin-bottom: 20px; }
-
-        .exclusive-banner { 
-            background: #111; 
-            border: 1px solid var(--magma-red); 
-            padding: 40px; 
-            text-align: center; 
-            margin: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .exclusive-banner h2 { font-family: 'Oswald'; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; }
-        
-        .benefit-list { list-style: none; margin: 30px 0; text-align: left; display: inline-block; }
-        .benefit-list li { margin-bottom: 15px; font-size: 1.1rem; color: #ccc; }
-        .benefit-list li::before { content: "✓"; color: var(--magma-red); margin-right: 15px; font-weight: bold; }
-
-        .cta-section { text-align: center; padding: 60px 0; border-top: 1px solid #222; }
-        .btn-gold { 
-            display: inline-block; 
-            background: #fff; 
-            color: #000; 
-            padding: 20px 50px; 
-            text-decoration: none; 
-            font-family: 'Oswald'; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 1.2rem;
-            transition: 0.3s;
-        }
-        .btn-gold:hover { background: var(--magma-red); transform: scale(1.05); }
-
-        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
+        footer { text-align: center; padding: 80px 0; border-top: 1px solid #111; color: #222; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-    <nav><a href="advertise.html" class="back-link">← Commercial Hub</a></nav>
-
     <header>
-        <p class="subtitle">The Ultimate Brand Alignment</p>
-        <h1>Station<br>Sponsorship</h1>
+        <div class="container">
+            <img src="logo.png" alt="ROCK.SCOT" class="logo-main">
+            <div class="nav-menu">
+                <a href="index.html">Listen</a>
+                <a href="sponsors.html" style="color: var(--magma-red); border-bottom: 2px solid var(--magma-red);">Sponsors</a>
+                <a href="advertise.html">Advertise</a>
+                <a href="mailto:studio@rock.scot">Contact</a>
+            </div>
+        </div>
     </header>
 
     <div class="container">
-        <div class="pitch-box" style="text-align: center; margin-bottom: 80px;">
-            <p style="font-size: 1.4rem; color: #fff; line-height: 1.4;">Become the face of Scotland’s most loyal radio audience. Station sponsorship on <strong>ROCK.SCOT</strong> is not just advertising—it is a full-scale brand partnership.</p>
-        </div>
-
-        <div class="pitch-grid">
-            <div class="pitch-box">
-                <h3>Total Association</h3>
-                <p>Your brand name integrated into our core station identity. "Rockin' Scotland in association with [Your Brand]" becomes the heartbeat of our broadcast.</p>
+        <section class="tier-section">
+            <h2 class="tier-title">Platinum Network Partners</h2>
+            <div class="grid-platinum">
+                <div class="sponsor-card">
+                    <img src="platinum-logo.png" alt="Partner Name">
+                </div>
             </div>
-            <div class="pitch-box">
-                <h3>The Tom Russell Factor</h3>
-                <p>Align with the Godfather of Rock. Sponsor the most respected voice in Scottish broadcasting and gain instant credibility with a massive, dedicated fanbase.</p>
+        </section>
+
+        <section class="tier-section">
+            <h2 class="tier-title">Gold Regional Sponsors</h2>
+            <div class="grid-gold">
+                <div class="sponsor-card"><img src="gold1.png" alt="Partner"></div>
+                <div class="sponsor-card"><img src="gold2.png" alt="Partner"></div>
             </div>
-        </div>
+        </section>
 
-        <div class="exclusive-banner">
-            <h2>One Exclusive Partner</h2>
-            <p style="color: #666;">We only accept one Headline Station Sponsor per year. This ensures zero brand clutter and maximum impact.</p>
-            
-            <ul class="benefit-list">
-                <li>Headline branding on all station imaging and jingles</li>
-                <li>Top of the Hour exclusivity across the entire network</li>
-                <li>Daily "Power Play" feature sponsorship</li>
-                <li>Prime Homepage & Player digital takeover</li>
-                <li>On-air interviews and outside broadcast opportunities</li>
-            </ul>
-        </div>
-
-        <div class="cta-section">
-            <h2 style="font-family: 'Oswald'; margin-bottom: 20px; text-transform: uppercase;">Request a Sponsorship Deck</h2>
-            <p style="color: #888; margin-bottom: 30px;">Direct access to our senior commercial team for bespoke partnership proposals.</p>
-            <a href="mailto:sales@rock.scot?subject=Station Sponsorship Enquiry" class="btn-gold">Apply for Partnership</a>
-        </div>
+        <section class="tier-section">
+            <h2 class="tier-title">Silver Associates</h2>
+            <div class="grid-silver">
+                <div class="sponsor-card"><img src="silver1.png" alt="Partner"></div>
+                <div class="sponsor-card"><img src="silver2.png" alt="Partner"></div>
+                <div class="sponsor-card"><img src="silver3.png" alt="Partner"></div>
+                <div class="sponsor-card"><img src="silver4.png" alt="Partner"></div>
+            </div>
+        </section>
     </div>
 
+    <section class="partner-cta">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">Join the Ecosystem</h2>
+            <p style="color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Align your brand with Scotland's premier digital rock station and leverage our hyper-local audience penetration.</p>
+            <a href="advertise.html" class="btn">View Partnership Tiers</a>
+        </div>
+    </section>
+
     <footer>
-        &copy; 2026 ROCK.SCOT Commercial Department | Private & Confidential
+        &copy; 2026 ROCK.SCOT | Strategic Sonic Architecture
     </footer>
 
 </body>
