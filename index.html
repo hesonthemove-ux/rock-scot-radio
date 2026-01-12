@@ -5,70 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCK.SCOT | Scotland's Rock Station</title>
     
-    <meta name="description" content="Scotland's premier digital rock station. Broadcasting on DAB+ across Inverclyde, Ayrshire, and Lanarkshire. High-impact advertising and creative audio production.">
-    <meta name="keywords" content="Rock Radio Scotland, DAB Radio, Radio Advertising, Creative Production, ROCK.SCOT">
-    
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* HEADER AREA - Max 500px Logo & Tight Horizontal Nav */
+        /* HEADER - Locked 500px Logo */
         header { text-align: center; padding: 40px 0 10px 0; }
-        .logo-main { width: 500px; max-width: 95%; height: auto; display: block; margin: 0 auto 15px auto; }
+        .logo-main { width: 500px; max-width: 90%; height: auto; display: block; margin: 0 auto 15px auto; }
 
-        .nav-menu { display: flex; justify-content: center; gap: 40px; margin-bottom: 20px; }
-        .nav-menu a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; font-weight: 700; transition: 0.3s; padding-bottom: 5px; border-bottom: 2px solid transparent; }
-        .nav-menu a:hover, .nav-menu a.active { color: var(--magma-red); border-color: var(--magma-red); }
+        /* MENU FIX - Compact & Centered */
+        .nav-menu { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 25px; 
+            margin: 0 auto 30px auto; 
+            max-width: 600px; /* Keeps menu tight under the logo */
+        }
+        .nav-menu a { 
+            color: #fff; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+            letter-spacing: 2px; 
+            font-weight: 700; 
+            transition: 0.3s; 
+            padding-bottom: 5px;
+            white-space: nowrap;
+        }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--magma-red); border-bottom: 2px solid var(--magma-red); }
 
-        /* HERO SECTION */
-        .hero { padding: 60px 0 40px 0; text-align: center; }
-        .hero h1 { font-size: 5.5rem; text-transform: uppercase; letter-spacing: -3px; line-height: 0.85; margin-bottom: 20px; }
-        .hero p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 6px; font-weight: 700; font-size: 1.2rem; }
+        /* HERO */
+        .hero { padding: 40px 0; text-align: center; }
+        .hero h1 { font-size: 5rem; text-transform: uppercase; letter-spacing: -2px; line-height: 0.9; margin-bottom: 20px; }
+        .hero p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 5px; font-weight: 700; font-size: 1.1rem; }
 
-        /* MISSION STATEMENT - WANKERNOMICS EDITION */
-        .mission-section { padding: 100px 0; text-align: center; border-top: 1px solid #111; background: linear-gradient(180deg, #000 0%, #050505 100%); }
-        .mission-content { max-width: 850px; margin: 0 auto; }
-        .mission-content h2 { font-size: 1rem; color: var(--magma-red); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; }
-        .mission-content p { font-size: 1.6rem; font-weight: 400; letter-spacing: 1px; color: #fff; line-height: 1.4; }
-        .mission-content span { color: #444; display: block; margin-top: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+        /* MISSION */
+        .mission-section { padding: 80px 0; text-align: center; border-top: 1px solid #111; }
+        .mission-content { max-width: 800px; margin: 0 auto; }
+        .mission-content h2 { font-size: 0.9rem; color: var(--magma-red); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 15px; }
+        .mission-content p { font-size: 1.5rem; line-height: 1.4; color: #eee; }
 
-        /* PARTNER LOGO BAR */
-        .sponsor-bar { padding: 40px 0; background: #000; border-top: 1px solid #111; text-align: center; }
-        .sponsor-grid { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; opacity: 0.3; filter: grayscale(1); }
-        .sponsor-grid img { height: 35px; width: auto; }
+        /* CONTENT PILLARS */
+        .pillar-section { padding: 60px 0; border-top: 1px solid #111; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .pillar-card { background: #080808; border: 1px solid #1a1a1a; overflow: hidden; }
+        .pillar-img { width: 100%; height: 250px; background-size: cover; background-position: center; filter: grayscale(0.6); }
+        .pillar-content { padding: 25px; }
+        .pillar-content h4 { text-transform: uppercase; font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
+        .pillar-content p { color: #888; font-size: 0.95rem; }
 
-        /* BLOG/NEWS SECTION */
-        .blog-section { padding: 80px 0; border-top: 1px solid #111; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .blog-card { background: #080808; border: 1px solid #1a1a1a; transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
-        .blog-card:hover { border-color: var(--magma-red); transform: translateY(-5px); }
-        .blog-img { width: 100%; height: 220px; background: #111; position: relative; }
-        .blog-category { position: absolute; top: 15px; left: 15px; background: var(--magma-red); color: #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-        .blog-content { padding: 25px; }
-        .blog-content h4 { text-transform: uppercase; font-size: 1.5rem; margin-bottom: 12px; line-height: 1.1; }
-        .blog-content p { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
-        .read-more { color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-bottom: 1px solid var(--magma-red); }
+        /* CORRECTED COMPETITIVE PRICING */
+        .price-strip { background: #050505; border-top: 1px solid #111; padding: 70px 0; text-align: center; }
+        .price-flex { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 30px; }
+        .price-box { border-left: 2px solid var(--magma-red); padding-left: 25px; text-align: left; min-width: 180px; }
+        .price-box label { display: block; text-transform: uppercase; font-size: 0.75rem; color: #666; letter-spacing: 2px; }
+        .price-box span { font-size: 2.2rem; font-weight: 700; color: #fff; }
+        .price-box i { color: var(--magma-red); font-style: normal; }
 
-        /* BUSINESS SECTION */
-        .business-section { padding: 100px 0; border-top: 1px solid #111; text-align: center; }
-        .promo-box { max-width: 900px; margin: 0 auto; padding: 70px 40px; border: 1px solid #222; background: #050505; }
-        .promo-box h3 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 20px; }
-        .price-row { display: flex; justify-content: center; gap: 60px; margin: 40px 0; border-top: 1px solid #1a1a1a; padding-top: 30px; }
-        .price-item label { display: block; color: #444; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-        .price-item span { font-size: 2.8rem; font-weight: 700; color: #fff; }
-        .price-item span i { color: var(--magma-red); font-style: normal; }
-        .btn { display: inline-block; padding: 20px 60px; background: var(--magma-red); color: #000; text-decoration: none; font-weight: 700; text-transform: uppercase; transition: 0.3s; font-size: 1.1rem; }
-        .btn:hover { background: #fff; transform: scale(1.05); }
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid #111; color: #222; font-size: 0.8rem; text-transform: uppercase; }
 
-        footer { text-align: center; padding: 80px 0; border-top: 1px solid #111; }
-        .seo-footer { color: #1a1a1a; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 25px; }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } .logo-main { width: 350px; } .price-row { flex-direction: column; gap: 30px; } .nav-menu { gap: 15px; } .nav-menu a { font-size: 0.9rem; } }
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 3rem; } 
+            .logo-main { width: 350px; }
+            .nav-menu { gap: 10px; padding: 0 20px; }
+            .nav-menu a { font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -76,98 +83,79 @@
     <header>
         <div class="container">
             <img src="logo.png" alt="ROCK.SCOT" class="logo-main">
-            <div class="nav-menu">
+            <nav class="nav-menu">
                 <a href="index.html" class="active">Listen</a>
-                <a href="#news">News</a>
                 <a href="sponsors.html">Sponsors</a>
                 <a href="advertise.html">Advertise</a>
                 <a href="mailto:studio@rock.scot">Contact</a>
-            </div>
+            </nav>
         </div>
     </header>
 
     <div class="container">
         
-        <div class="hero">
+        <section class="hero">
             <h1>SCOTLAND'S<br>ROCK STATION</h1>
             <p>Inverclyde • Ayrshire • Lanarkshire</p>
-        </div>
+        </section>
 
         <section class="mission-section">
             <div class="mission-content">
-                <h2>Our Mission</h2>
-                <p>To facilitate <strong>hyper-local synergy</strong> by curating a high-fidelity sonic architecture. We bridge the gap between world-class guitar-driven content and <strong>market-leading regional penetration</strong>.</p>
-                <span>Driving measurable ROI through creative excellence and DAB+ dominance.</span>
+                <h2>Our Purpose</h2>
+                <p>We are the home of guitar-based music in the West, providing a high-quality soundtrack for our listeners and a professional platform for businesses to scale their message on DAB+.</p>
             </div>
         </section>
 
-        <section class="sponsor-bar">
-            <div class="sponsor-grid">
-                <img src="brand1.png" alt="Sponsor">
-                <img src="brand2.png" alt="Sponsor">
-                <img src="brand3.png" alt="Sponsor">
-                <img src="brand4.png" alt="Sponsor">
+        <section class="pillar-section">
+            <div class="pillar-grid">
+                <article class="pillar-card">
+                    <div class="pillar-img" style="background-image: url('radio-studio.jpg');"></div>
+                    <div class="pillar-content">
+                        <h4>Broadcasting</h4>
+                        <p>High-fidelity digital audio across the Central Belt, focused on the demographics that matter to your brand.</p>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-img" style="background-image: url('live-venue.jpg');"></div>
+                    <div class="pillar-content">
+                        <h4>Live Music</h4>
+                        <p>From Glasgow city clubs to local circuit venues, we are the pulse of the Scottish rock scene.</p>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-img" style="background-image: url('coverage-map.jpg');"></div>
+                    <div class="pillar-content">
+                        <h4>Regional Growth</h4>
+                        <p>Professional airtime solutions designed for businesses that demand market-leading visibility.</p>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="news" class="blog-section">
-            <div class="blog-grid">
-                <a href="#" class="blog-card">
-                    <div class="blog-img">
-                        <div class="blog-category">Industry</div>
-                    </div>
-                    <div class="blog-content">
-                        <h4>The ROI of Sonic Identity</h4>
-                        <p>Leveraging high-impact audio production to scale your brand across the Central Belt's digital landscape...</p>
-                        <span class="read-more">Learn More</span>
-                    </div>
-                </a>
-                <a href="#" class="blog-card">
-                    <div class="blog-img">
-                        <div class="blog-category">Live Music</div>
-                    </div>
-                    <div class="blog-content">
-                        <h4>Amplifying the Underground</h4>
-                        <p>Exploring the core demographics of the West of Scotland's burgeoning indie-alternative circuit...</p>
-                        <span class="read-more">Learn More</span>
-                    </div>
-                </a>
-                <a href="#" class="blog-card">
-                    <div class="blog-img">
-                        <div class="blog-category">Growth</div>
-                    </div>
-                    <div class="blog-content">
-                        <h4>DAB+ Market Penetration</h4>
-                        <p>How hyper-local digital broadcasting is disrupting traditional regional advertising paradigms...</p>
-                        <span class="read-more">Learn More</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="business-section">
-            <div class="promo-box">
-                <h3>Strategic Growth</h3>
-                <p style="color: #666; margin-bottom: 40px;">Optimise your brand presence through our specialized regional airtime tiers and professional creative production.</p>
-                <div class="price-row">
-                    <div class="price-item">
-                        <label>Regional Airtime</label>
-                        <span><i>£</i>199</span>
-                    </div>
-                    <div class="price-item">
-                        <label>Creative Production</label>
-                        <span><i>£</i>195</span>
-                    </div>
+        <section class="price-strip">
+            <h3 style="text-transform: uppercase; letter-spacing: 3px;">Advertising Rates</h3>
+            <div class="price-flex">
+                <div class="price-box">
+                    <label>Regional Airtime</label>
+                    <span><i>£</i>199</span>
                 </div>
-                <a href="advertise.html" class="btn">Access Network Rates</a>
+                <div class="price-box">
+                    <label>Multi-Regional</label>
+                    <span><i>£</i>349</span>
+                </div>
+                <div class="price-box">
+                    <label>Production</label>
+                    <span><i>£</i>195</span>
+                </div>
             </div>
+            <br><br>
+            <a href="advertise.html" style="color: var(--magma-red); text-transform: uppercase; font-weight: 700; text-decoration: none; border: 1px solid var(--magma-red); padding: 12px 35px; transition: 0.3s;">Full Advertising Packages</a>
         </section>
 
         <footer>
-            <p>&copy; 2026 ROCK.SCOT | All Rights Reserved</p>
-            <div class="seo-footer">
-                Strategic Digital Broadcasting: Greenock, Ayr, Kilmarnock, Motherwell, Lanarkshire.
-            </div>
+            &copy; 2026 ROCK.SCOT | THE WEST'S ROCK STATION
         </footer>
 
     </div>
