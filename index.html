@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCK.SCOT | Scotland's Rock Station</title>
     
-    <meta name="description" content="Stream the best rock, indie, and alternative across Scotland. Broadcasting on DAB+ in Inverclyde, Ayrshire, and Lanarkshire.">
+    <meta name="description" content="Stream the best rock, indie, and alternative across Scotland. DAB+ in Inverclyde, Ayrshire, and Lanarkshire.">
     <meta name="keywords" content="Rock Radio Scotland, Indie Radio, Alternative Scotland, DAB Radio Scotland, Radio Advertising, ROCK.SCOT">
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
@@ -14,55 +14,34 @@
         :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { 
-            background-color: var(--pure-black);
-            color: #ffffff; 
-            font-family: 'Oswald', sans-serif; 
-            line-height: 1.6; 
-        }
-
+        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER AREA - Max 500px Logo & Tight Spacing */
+        /* HEADER AREA - Max 500px Logo */
         header { text-align: center; padding: 40px 0 10px 0; }
         .logo-main { width: 500px; max-width: 95%; height: auto; display: block; margin: 0 auto 10px auto; }
 
-        .nav-menu { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            margin-bottom: 20px;
-        }
-        .nav-menu a { 
-            color: #fff; 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            font-size: 1.1rem; 
-            letter-spacing: 3px; 
-            font-weight: 700; 
-            transition: 0.3s; 
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-        }
+        /* HORIZONTAL NAV */
+        .nav-menu { display: flex; justify-content: center; gap: 40px; margin-bottom: 20px; }
+        .nav-menu a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; font-weight: 700; transition: 0.3s; padding-bottom: 5px; border-bottom: 2px solid transparent; }
         .nav-menu a:hover, .nav-menu a.active { color: var(--magma-red); border-color: var(--magma-red); }
 
-        /* HERO SECTION - RESTORED BRANDING */
+        /* HERO SECTION */
         .hero { padding: 30px 0 60px 0; text-align: center; }
         .hero h1 { font-size: 5.5rem; text-transform: uppercase; letter-spacing: -3px; line-height: 0.85; margin-bottom: 20px; }
         .hero p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 6px; font-weight: 700; font-size: 1.2rem; }
 
-        /* THE FEED SECTION */
+        /* FEED SECTION */
         .feed-section { padding: 60px 0; border-top: 1px solid #111; }
-        .feed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .feed-card { background: #080808; padding: 30px; border: 1px solid #1a1a1a; min-height: 400px; }
+        .feed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .feed-card { background: #080808; padding: 30px; border: 1px solid #1a1a1a; min-height: 600px; }
         .feed-card h3 { color: var(--magma-red); text-transform: uppercase; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        
+
         /* BUSINESS SECTION */
         .business-section { padding: 80px 0; border-top: 1px solid #111; text-align: center; }
         .promo-box { max-width: 800px; margin: 0 auto; padding: 50px 40px; border: 2px solid var(--magma-red); background: #050505; }
-        .promo-box h2 { font-size: 3.2rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; line-height: 1; }
-        
-        .price-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 35px; border-top: 1px solid #1a1a1a; padding-top: 25px; }
+        .promo-box h2 { font-size: 3.2rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; }
+        .price-row { display: flex; justify-content: center; gap: 40px; margin: 30px 0; border-top: 1px solid #1a1a1a; padding-top: 25px; }
         .price-item { text-align: center; }
         .price-item label { display: block; color: #555; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
         .price-item span { font-size: 2.2rem; font-weight: 700; color: #fff; }
@@ -74,11 +53,7 @@
         footer { text-align: center; padding: 60px 0; border-top: 1px solid #111; }
         .seo-footer { color: #111; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 25px; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .logo-main { width: 350px; }
-            .price-row { flex-direction: column; gap: 20px; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } .logo-main { width: 350px; } .price-row { flex-direction: column; gap: 20px; } }
     </style>
 </head>
 <body>
@@ -95,7 +70,6 @@
     </header>
 
     <div class="container">
-        
         <div class="hero">
             <h1>SCOTLAND'S<br>ROCK STATION</h1>
             <p>Inverclyde • Ayrshire • Lanarkshire</p>
@@ -105,16 +79,21 @@
             <div class="feed-grid">
                 <div class="feed-card">
                     <h3>Guitar Music News</h3>
-                    <div id="music-news">
-                        <p style="color:#444; font-size:0.9rem;">Fetching the latest Rock, Indie, and Alternative headlines...</p>
-                    </div>
+                    <rssapp-wall id="nnJzqIAMgMqdsBvq"></rssapp-wall>
+                    <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
                 </div>
 
                 <div class="feed-card">
                     <h3>Central Belt Gigs</h3>
-                    <div id="gig-guide">
-                        <p style="color:#444; font-size:0.9rem;">Live music updates for the Central Belt and West of Scotland...</p>
-                    </div>
+                    <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
+                    <a class="bit-widget-initializer" 
+                       data-artist-name="various" 
+                       data-display-local-dates="true" 
+                       data-display-past-dates="false" 
+                       data-text-color="#FFFFFF" 
+                       data-link-color="#ff3e00" 
+                       data-background-color="transparent" 
+                       data-display-limit="10"></a>
                 </div>
             </div>
         </section>
@@ -122,7 +101,6 @@
         <section class="business-section">
             <div class="promo-box">
                 <h2>Amplify Your Business</h2>
-                <p style="color:#888; margin-bottom:30px;">Reach your local audience through high-impact DAB+ airtime.</p>
                 <div class="price-row">
                     <div class="price-item">
                         <label>Regional Airtime</label>
@@ -143,7 +121,6 @@
                 Broadcasting to Greenock, Ayr, Kilmarnock, Motherwell, and the Scottish Central Belt.
             </div>
         </footer>
-
     </div>
 
 </body>
