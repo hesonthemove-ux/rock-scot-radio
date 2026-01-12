@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Advertising Scotland | DAB+ Airtime | ROCK.SCOT</title>
-    
-    <meta name="description" content="Reach thousands of listeners across Inverclyde, Ayrshire, and Lanarkshire. High-impact local radio advertising on the ROCK.SCOT DAB+ network.">
-    <meta name="keywords" content="Radio Advertising Scotland, DAB Advertising, Local Radio Ads Greenock, Ayrshire Marketing, Lanarkshire Business, ROCK.SCOT">
+    <title>Advertise | ROCK.SCOT Strategic Growth</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     
@@ -14,178 +11,125 @@
         :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { 
-            background-color: var(--pure-black);
-            color: #ffffff; 
-            font-family: 'Oswald', sans-serif; 
-            line-height: 1.6; 
-            min-height: 100vh;
-        }
+        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        
-        /* LOGO HEADER - Exact Index Benchmark */
-        .logo-header { text-align: center; padding-top: 20px; margin-bottom: 40px; }
-        .logo-header img { width: 350px; max-width: 90%; height: auto; }
+        /* HEADER AREA - Standardized 500px Logo */
+        header { text-align: center; padding: 40px 0 10px 0; }
+        .logo-main { width: 500px; max-width: 95%; height: auto; display: block; margin: 0 auto 15px auto; }
 
-        header { text-align: center; margin-bottom: 50px; }
-        header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 5px; }
-        header p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: 700; }
+        .nav-menu { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; }
+        .nav-menu a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; font-weight: 700; transition: 0.3s; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+        .nav-menu a:hover { color: var(--magma-red); border-color: var(--magma-red); }
 
-        /* STATS BAR */
-        .stats-bar { 
-            display: flex; 
-            justify-content: space-around; 
-            align-items: center;
-            padding: 30px 0; 
-            border-top: 1px solid #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-            margin-bottom: 60px;
-        }
-        .stat-item { text-align: center; flex: 1; }
-        .stat-item span { color: #ffffff; font-weight: 700; font-size: 2.2rem; display: block; line-height: 1; margin-bottom: 5px; }
-        .stat-item label { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
-        
-        .dab-icons { display: flex; gap: 10px; justify-content: center; margin-top: 10px; opacity: 0.8; }
-        .dab-icons img { height: 25px; width: auto; filter: grayscale(1) brightness(2); }
+        /* PAGE TITLE */
+        .page-header { padding: 40px 0; text-align: center; border-bottom: 1px solid #111; margin-bottom: 60px; }
+        .page-header h1 { font-size: 4rem; text-transform: uppercase; letter-spacing: -2px; }
+        .page-header p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; }
 
         /* PRICING GRID */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .price-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px 30px; text-align: center; transition: 0.3s; }
+        .price-card:hover { border-color: var(--magma-red); transform: translateY(-5px); }
+        .price-card.featured { border: 1px solid var(--magma-red); background: #0c0502; }
         
-        .price-card { 
-            background: #0a0a0a; 
-            padding: 50px 40px; 
-            border: 2px solid var(--magma-red); 
-            text-align: center;
-            transition: 0.3s;
-        }
-        .price-card:hover { transform: translateY(-5px); box-shadow: 0 0 30px rgba(255, 62, 0, 0.2); }
+        .tier-name { text-transform: uppercase; letter-spacing: 4px; color: #444; font-size: 0.9rem; margin-bottom: 10px; }
+        .price-card h3 { font-size: 2.2rem; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; }
+        .amount { font-size: 4rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .amount i { color: var(--magma-red); font-style: normal; }
         
-        .price-title { font-size: 2rem; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
-        .price-value { font-size: 4.5rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 25px; letter-spacing: -2px; }
-        .price-value span { font-size: 1.2rem; color: #444; letter-spacing: 1px; }
+        .features { list-style: none; margin-bottom: 40px; text-align: left; color: #888; font-size: 0.95rem; }
+        .features li { padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+        .features li::before { content: "• "; color: var(--magma-red); }
 
-        .features-list { list-style: none; margin-bottom: 35px; text-align: left; }
-        .features-list li { font-size: 0.95rem; color: #666; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #111; }
-        .features-list li b { color: var(--magma-red); text-transform: uppercase; font-size: 0.85rem; margin-right: 5px; }
-
-        .btn { 
-            display: block; 
-            background: var(--magma-red); 
-            color: #000; 
-            padding: 18px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 1rem;
-            transition: 0.3s;
-        }
+        .btn { display: inline-block; width: 100%; padding: 18px; background: var(--magma-red); color: #000; text-decoration: none; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         .btn:hover { background: #fff; }
 
-        /* SEO COVERAGE LIST */
-        .coverage-section { margin-top: 80px; text-align: center; border-top: 1px solid #1a1a1a; padding-top: 40px; }
-        .coverage-section h2 { font-size: 1.2rem; color: #444; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
-        .towns-list { color: #111; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; max-width: 800px; margin: 0 auto; }
+        /* CONTACT CTA */
+        .contact-cta { padding: 80px 0; text-align: center; background: #050505; border-top: 1px solid #111; }
 
-        .production-footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 40px;
-        }
-        .production-footer h3 { text-transform: uppercase; font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
-        .production-footer b { color: var(--magma-red); }
+        footer { text-align: center; padding: 80px 0; border-top: 1px solid #111; color: #222; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
 
-        .back-link { display: block; text-align: center; margin: 50px 0; color: #333; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .back-link:hover { color: var(--magma-red); }
-        
-        @media (max-width: 600px) {
-            .stats-bar { flex-direction: column; gap: 40px; }
-            .logo-header img { width: 280px; }
-            header h1 { font-size: 2.5rem; }
-        }
+        @media (max-width: 768px) { .logo-main { width: 350px; } .page-header h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-header">
-            <a href="index.html">
-                <img src="logo.png" alt="ROCK.SCOT - Radio Advertising Scotland">
-            </a>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="ROCK.SCOT" class="logo-main">
+            <div class="nav-menu">
+                <a href="index.html">Listen</a>
+                <a href="index.html#news">News</a>
+                <a href="sponsors.html">Sponsors</a>
+                <a href="advertise.html" style="color: var(--magma-red); border-bottom: 2px solid var(--magma-red);">Advertise</a>
+                <a href="mailto:studio@rock.scot">Contact</a>
+            </div>
         </div>
+    </header>
 
-        <header>
-            <h1>Radio Advertising</h1>
-            <p>Targeted DAB+ Airtime Across the Central Belt</p>
-        </header>
-
-        <div class="stats-bar">
-            <div class="stat-item">
-                <span>89%</span>
-                <label>Weekly Reach</label>
-            </div>
-            <div class="stat-item">
-                <span>62%</span>
-                <label>In-Car Listening</label>
-            </div>
-            <div class="stat-item">
-                <span>24/7</span>
-                <label>Brand Presence</label>
-            </div>
-            <div class="stat-item">
-                <span>DAB+</span>
-                <label>Digital Quality</label>
-                <div class="dab-icons">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/DAB_logo.svg" alt="DAB Logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/DAB_Plus_logo.svg" alt="DAB+ Logo">
-                </div>
-            </div>
+    <div class="container">
+        
+        <div class="page-header">
+            <h1>Strategic Inventory</h1>
+            <p>Sonic Market Penetration</p>
         </div>
 
         <div class="pricing-grid">
             <div class="price-card">
-                <div class="price-title">Regional</div>
-                <div class="price-value">£395<span>/MO</span></div>
-                <ul class="features-list">
-                    <li><b>Market</b> One ROCK.SCOT Zone</li>
-                    <li><b>Frequency</b> Daily Spot Rotation</li>
-                    <li><b>Impact</b> Targeted Local Audience</li>
-                    <li><b>Digital</b> Web & App Inclusion</li>
+                <div class="tier-name">Tier 01</div>
+                <h3>Regional Airtime</h3>
+                <div class="amount"><i>£</i>199</div>
+                <ul class="features">
+                    <li>Single Catchment Dominance</li>
+                    <li>Choice of Inverclyde, Ayrshire, or Lanarkshire</li>
+                    <li>Standard Rotation Frequency</li>
+                    <li>DAB+ Digital Transmission</li>
                 </ul>
-                <a href="mailto:studio@rock.scot?subject=Regional Advertising Enquiry" class="btn">Enquire Now</a>
+                <a href="mailto:studio@rock.scot?subject=Regional Airtime Inquiry" class="btn">Enquire Now</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="tier-name">Tier 02</div>
+                <h3>Multi-Regional</h3>
+                <div class="amount"><i>£</i>349</div>
+                <ul class="features">
+                    <li>Cross-Catchment Synergy</li>
+                    <li>Total West of Scotland Coverage</li>
+                    <li>High Frequency Saturation</li>
+                    <li>Prime Listener Demographics</li>
+                </ul>
+                <a href="mailto:studio@rock.scot?subject=Multi-Regional Inquiry" class="btn">Select Tier</a>
             </div>
 
             <div class="price-card">
-                <div class="price-title">Multi-Zone</div>
-                <div class="price-value">£645<span>/MO</span></div>
-                <ul class="features-list">
-                    <li><b>Network</b> All Broadcast Zones</li>
-                    <li><b>Reach</b> Entire Network Feed</li>
-                    <li><b>Priority</b> Premium Rotation</li>
-                    <li><b>Exposure</b> Show Integration</li>
+                <div class="tier-name">Tier 03</div>
+                <h3>Creative Production</h3>
+                <div class="amount"><i>£</i>195</div>
+                <ul class="features">
+                    <li>Full Script Architecture</li>
+                    <li>Professional Voice Talent</li>
+                    <li>High-Fidelity Audio Mastering</li>
+                    <li>Sonic Brand Identity Creation</li>
                 </ul>
-                <a href="mailto:studio@rock.scot?subject=Multi-Regional Advertising Enquiry" class="btn">Amplify Brand</a>
+                <a href="mailto:studio@rock.scot?subject=Production Inquiry" class="btn">Start Brief</a>
             </div>
         </div>
 
-        <div class="production-footer">
-            <h3>Creative Production</h3>
-            <p style="color: #444; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">
-                Scripting, Voiceover, and Mastering from <b>£195</b>
-            </p>
-        </div>
-
-        <section class="coverage-section">
-            <h2>Broadcast Coverage</h2>
-            <div class="towns-list">
-                Inverclyde: Greenock, Gourock, Port Glasgow. <br>
-                Ayrshire: Ayr, Kilmarnock, Irvine, Prestwick, Troon. <br>
-                Lanarkshire: Motherwell, Hamilton, East Kilbride, Wishaw, Airdrie, Coatbridge.
-            </div>
-        </section>
-
-        <a href="index.html" class="back-link">← Return to Home</a>
     </div>
 
+    <section class="contact-cta">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px;">Ready to Scale?</h2>
+            <p style="color: #666; margin-bottom: 40px;">Contact our strategic team for a custom media plan tailored to your market goals.</p>
+            <a href="mailto:studio@rock.scot" class="btn" style="width: auto; padding: 20px 60px;">Consult with Us</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 ROCK.SCOT | Strategic Digital Architecture
+    </footer>
+
 </body>
-</html>
+                    </html>
+                    
