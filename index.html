@@ -8,24 +8,152 @@
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.4; overflow-x: hidden; }
+        
+        /* Ensure the body fills the screen and prevents layout collapse */
+        body { 
+            background-color: var(--pure-black); 
+            color: #ffffff; 
+            font-family: 'Oswald', sans-serif; 
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
         /* HEADER - Locked 500px Logo */
-        header { text-align: center; padding: 20px 0 10px 0; }
-        .logo-main { width: 500px !important; max-width: 95%; height: auto; display: block; margin: 0 auto 10px auto; }
+        header { text-align: center; padding: 20px 0 0 0; }
+        .logo-main { width: 500px !important; max-width: 90%; height: auto; display: block; margin: 0 auto; }
 
-        /* MENU - Tightened and Centered */
+        /* MENU - Tightened spacing */
         .nav-menu { 
             display: flex; 
             justify-content: center; 
             flex-wrap: wrap; 
             gap: 20px; 
-            margin: 0 auto 20px auto; 
+            margin: 15px auto; 
             max-width: 600px;
         }
         .nav-menu a { 
             color: #fff; 
             text-decoration: none; 
-            text-transform
-            
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+            letter-spacing: 1px; 
+            font-weight: 700; 
+            padding-bottom: 2px;
+        }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--magma-red); border-bottom: 2px solid var(--magma-red); }
+
+        /* HERO - Compacted to prevent black screen void */
+        .hero { padding: 10px 0; text-align: center; }
+        .hero h1 { font-size: 4rem; text-transform: uppercase; letter-spacing: -2px; line-height: 0.85; margin-bottom: 5px; }
+        .hero p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; font-size: 1rem; }
+
+        /* MISSION */
+        .mission-section { padding: 25px 0; text-align: center; border-top: 1px solid #111; margin-top: 10px; }
+        .mission-content p { font-size: 1.3rem; line-height: 1.3; color: #eee; max-width: 800px; margin: 0 auto; }
+
+        /* PILLARS */
+        .pillar-section { padding: 20px 0; border-top: 1px solid #111; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .pillar-card { background: #080808; border: 1px solid #1a1a1a; }
+        .pillar-img { width: 100%; height: 180px; background-size: cover; background-position: center; filter: grayscale(0.5); }
+        .pillar-content { padding: 15px; }
+        .pillar-content h4 { text-transform: uppercase; font-size: 1.1rem; color: var(--magma-red); margin-bottom: 5px; }
+        .pillar-content p { color: #888; font-size: 0.85rem; }
+
+        /* PRICING STRIP */
+        .price-strip { background: #050505; border-top: 1px solid #111; padding: 30px 0; text-align: center; margin-top: auto; }
+        .price-flex { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 15px 0; }
+        .price-box { border-left: 2px solid var(--magma-red); padding-left: 15px; text-align: left; }
+        .price-box label { display: block; text-transform: uppercase; font-size: 0.65rem; color: #666; }
+        .price-box span { font-size: 1.6rem; font-weight: 700; }
+
+        footer { text-align: center; padding: 20px 0; border-top: 1px solid #111; color: #333; font-size: 0.7rem; text-transform: uppercase; }
+
+        @media (max-width: 768px) { 
+            .logo-main { width: 320px !important; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="ROCK.SCOT" class="logo-main">
+            <nav class="nav-menu">
+                <a href="index.html" class="active">Listen</a>
+                <a href="sponsors.html">Sponsors</a>
+                <a href="advertise.html">Advertise</a>
+                <a href="mailto:studio@rock.scot">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>SCOTLAND'S<br>ROCK STATION</h1>
+            <p>Inverclyde • Ayrshire • Lanarkshire</p>
+        </section>
+
+        <section class="mission-section">
+            <div class="mission-content">
+                <p>The home of guitar-based music in the West. We provide a high-quality soundtrack for listeners and a professional DAB+ platform for local businesses to grow.</p>
+            </div>
+        </section>
+
+        <section class="pillar-section">
+            <div class="pillar-grid">
+                <article class="pillar-card">
+                    <div class="pillar-img" style="background-image: url('radio-studio.jpg');"></div>
+                    <div class="pillar-content">
+                        <h4>Broadcasting</h4>
+                        <p>High-fidelity digital audio focused on the West's rock audience.</p>
+                    </div>
+                </article>
+                <article class="pillar-card">
+                    <div class="pillar-img" style="background-image: url('live-venue.jpg');"></div>
+                    <div class="pillar-content">
+                        <h4>Live Music</h4>
+                        <p>Championing the pulse of the Scottish rock and club scene.</p>
+                    </div>
+                </article>
+                <article class="pillar-card">
+                    <div class="pillar-img" style="background-image: url('coverage-map.jpg');"></div>
+                    <div class="pillar-content">
+                        <h4>Regional Growth</h4>
+                        <p>Helping regional brands scale with market-leading visibility.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="price-strip">
+            <div class="price-flex">
+                <div class="price-box">
+                    <label>Regional</label>
+                    <span>£199</span>
+                </div>
+                <div class="price-box">
+                    <label>Multi-Regional</label>
+                    <span>£349</span>
+                </div>
+                <div class="price-box">
+                    <label>Production</label>
+                    <span>£195</span>
+                </div>
+            </div>
+            <a href="advertise.html" style="color: #fff; text-transform: uppercase; font-size: 0.8rem; text-decoration: none; border: 1px solid #333; padding: 5px 15px;">Full Rates</a>
+        </section>
+
+        <footer>
+            &copy; 2026 ROCK.SCOT | THE WEST'S ROCK STATION
+        </footer>
+    </div>
+
+</body>
+    </html>
+    
