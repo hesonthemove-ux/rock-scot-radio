@@ -8,82 +8,31 @@
     <style>
         :root { --magma-red: #ff3e00; --pure-black: #000000; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background-color: var(--pure-black); 
-            color: #ffffff; 
-            font-family: 'Oswald', sans-serif; 
-            line-height: 1.4;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
+        body { background-color: var(--pure-black); color: #ffffff; font-family: 'Oswald', sans-serif; line-height: 1.4; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
-
-        /* HEADER - Matched to Index (Locked 500px) */
         header { text-align: center; padding: 20px 0 0 0; }
         .logo-main { width: 500px !important; max-width: 90%; height: auto; display: block; margin: 0 auto; }
-
-        /* MENU - Matched to Index */
-        .nav-menu { 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 20px; 
-            margin: 15px auto; 
-            max-width: 600px;
-        }
-        .nav-menu a { 
-            color: #fff; 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            font-size: 0.9rem; 
-            letter-spacing: 1px; 
-            font-weight: 700; 
-            padding-bottom: 2px;
-        }
+        .nav-menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 15px auto; max-width: 600px; }
+        .nav-menu a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; font-weight: 700; padding-bottom: 2px; }
         .nav-menu a:hover, .nav-menu a.active { color: var(--magma-red); border-bottom: 2px solid var(--magma-red); }
-
-        /* PAGE HEADER - Tightened */
         .page-header { padding: 10px 0 20px 0; text-align: center; border-bottom: 1px solid #111; }
         .page-header h1 { font-size: 3.5rem; text-transform: uppercase; line-height: 0.9; margin-bottom: 5px; }
         .page-header p { color: var(--magma-red); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 1rem; }
-
-        /* PRICING GRID - High Density */
-        .pricing-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 15px; 
-            padding: 25px 0; 
-        }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 25px 0; }
         .price-card { background: #080808; border: 1px solid #1a1a1a; padding: 25px; text-align: center; display: flex; flex-direction: column; }
         .price-card h3 { font-size: 1.4rem; text-transform: uppercase; margin-bottom: 5px; color: var(--magma-red); }
         .amount { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
         .amount span { font-size: 1.5rem; color: var(--magma-red); vertical-align: top; margin-right: 2px; }
-        
         .features { list-style: none; margin-bottom: 20px; text-align: center; color: #888; font-size: 0.9rem; flex-grow: 1; }
         .features li { padding: 3px 0; }
-
         .btn { display: inline-block; width: 100%; padding: 12px; background: var(--magma-red); color: #000; text-decoration: none; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         .btn:hover { background: #fff; }
-
-        /* INFO BOX */
         .info-strip { padding: 25px 0; border-top: 1px solid #111; text-align: center; margin-top: auto; }
-        .info-strip p { max-width: 800px; margin: 0 auto; color: #aaa; font-size: 0.95rem; line-height: 1.4; }
-
         footer { text-align: center; padding: 20px 0; border-top: 1px solid #111; color: #333; font-size: 0.7rem; text-transform: uppercase; }
-
-        @media (max-width: 768px) { 
-            .logo-main { width: 320px !important; }
-            .page-header h1 { font-size: 2.5rem; }
-            .nav-menu { gap: 10px; }
-        }
+        @media (max-width: 768px) { .logo-main { width: 320px !important; } .page-header h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
-
     <header>
         <div class="container">
             <img src="logo.png" alt="ROCK.SCOT" class="logo-main">
@@ -95,57 +44,15 @@
             </nav>
         </div>
     </header>
-
     <div class="container">
-        <div class="page-header">
-            <h1>ADVERTISING</h1>
-            <p>Direct • Local • Effective</p>
-        </div>
-
+        <div class="page-header"><h1>ADVERTISING</h1><p>Direct • Local • Effective</p></div>
         <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Regional Airtime</h3>
-                <div class="amount"><span>£</span>199</div>
-                <ul class="features">
-                    <li>Targeted Regional Coverage</li>
-                    <li>Choice of Local Broadcast Area</li>
-                    <li>Professional Ad Rotation</li>
-                </ul>
-                <a href="mailto:studio@rock.scot?subject=Regional Airtime Enquiry" class="btn">Enquire</a>
-            </div>
-
-            <div class="price-card">
-                <h3>Multi-Regional</h3>
-                <div class="amount"><span>£</span>349</div>
-                <ul class="features">
-                    <li>Full Network Dominance</li>
-                    <li>All Broadcast Areas Included</li>
-                    <li>Maximum Reach & Frequency</li>
-                </ul>
-                <a href="mailto:studio@rock.scot?subject=Multi-Regional Enquiry" class="btn">Enquire</a>
-            </div>
-
-            <div class="price-card">
-                <h3>Creative Production</h3>
-                <div class="amount"><span>£</span>195</div>
-                <ul class="features">
-                    <li>Professional Scriptwriting</li>
-                    <li>Industry Leading Voice Talent</li>
-                    <li>Full Audio Mastering</li>
-                </ul>
-                <a href="mailto:studio@rock.scot?subject=Creative Production Enquiry" class="btn">Enquire</a>
-            </div>
+            <div class="price-card"><h3>Regional Airtime</h3><div class="amount"><span>£</span>199</div><ul class="features"><li>Targeted Regional Coverage</li><li>Local Broadcast Choice</li><li>Guaranteed Rotation</li></ul><a href="mailto:studio@rock.scot" class="btn">Enquire</a></div>
+            <div class="price-card"><h3>Multi-Regional</h3><div class="amount"><span>£</span>349</div><ul class="features"><li>Full Network Coverage</li><li>All Broadcast Areas</li><li>Maximum Frequency</li></ul><a href="mailto:studio@rock.scot" class="btn">Enquire</a></div>
+            <div class="price-card"><h3>Creative</h3><div class="amount"><span>£</span>195</div><ul class="features"><li>Professional Scripting</li><li>Pro Voiceovers</li><li>Full Production</li></ul><a href="mailto:studio@rock.scot" class="btn">Enquire</a></div>
         </div>
-
-        <div class="info-strip">
-            <p>Stand out with Scotland’s premier DAB+ platform for rock music. Our advertising solutions are designed to scale your business by reaching a dedicated, engaged audience across the West.</p>
-        </div>
-
-        <footer>
-            &copy; 2026 ROCK.SCOT | THE WEST'S ROCK STATION
-        </footer>
+        <div class="info-strip"><p>Scotland’s premier DAB+ platform for rock music. Our advertising solutions are designed to scale your business across the West.</p></div>
+        <footer>&copy; 2026 ROCK.SCOT | THE WEST'S ROCK STATION</footer>
     </div>
-
 </body>
-    </html>
-    
+</html>
